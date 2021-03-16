@@ -71,15 +71,18 @@ class expences:
         #gender
         gender=Label(frame1,text="Gender",font=("times new roman",15,"bold"),bg="white",fg="gray").place(x=50,y=330)
         self.var1 = IntVar()
-        Checkbutton(frame1, text="male", variable=self.var1).place(x=300,y=320)
+        Checkbutton(frame1, text="male", variable=self.var1).place(x=300,y=330)
         self.var2 = IntVar()
-        Checkbutton(frame1, text="female", variable=self.var2).place(x=400,y=320)
+        Checkbutton(frame1, text="female", variable=self.var2).place(x=400,y=330)
         #self.txt_gender=Entry(frame1,font=("times new roman",15),bg="lightgray")
         #self.txt_gender.place(x=370,y=320,width=250)
 
         #marital status
         marital_status=Label(frame1,text="Marital Status",font=("times new roman",15,"bold"),bg="white",fg="gray").place(x=50,y=380)
-
+        self.yes = IntVar()
+        Checkbutton(frame1,text="married", variable=self.yes).place(x=300,y=380)
+        self.no = IntVar()
+        Checkbutton(frame1,text="not married", variable=self.no).place(x=400,y=380)
         #Education expences
         ex_education=Label(frame1,text="Education",font=("times new roman",15,"bold"),bg="white",fg="gray").place(x=370,y=360)
         self.txt_exeducation=Entry(frame1,font=("times new roman",15),bg="lightgray")
