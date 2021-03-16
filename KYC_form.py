@@ -48,47 +48,37 @@ class expences:
         title=Label(frame1,text="KYC Profile form",font=("times new roman",20,"bold"),bg="white",fg="green").place(x=50,y=30)
 
         #name
-        t_income=Label(frame1,text="Section A - Basic information of the individual includng of those with power Attorny",font=("times new roman",15,"bold"),bg="white",fg="gray").place(x=50,y=80)
+        name=Label(frame1,text="Section A - Basic information of the individual includng of those with power Attorny",font=("times new roman",15,"bold"),bg="white",fg="gray").place(x=50,y=80)
         title=Label(frame1,text="Name in Full",font=("times new roman",15,"bold"),bg="white",fg="gray").place(x=50,y=130)
         self.txt_name=Entry(frame1,font=("times new roman",15),bg="lightgray")
         self.txt_name.place(x=300,y=130,width=250)
 
-        #adding expences title
-        #title=Label(frame1,text="Expences Details",font=("times new roman",20,"bold"),bg="white",fg="green").place(x=50,y=150)
-        
-        #adding expences titles
-
-        #row 1 -------->>>
-
         #address
-        h_loans=Label(frame1,text="Address of the customer",font=("times new roman",15,"bold"),bg="white",fg="gray").place(x=50,y=180)
+        address=Label(frame1,text="Address of the customer",font=("times new roman",15,"bold"),bg="white",fg="gray").place(x=50,y=180)
         self.txt_address=Entry(frame1,font=("times new roman",15),bg="lightgray")
         self.txt_address.place(x=300,y=180,width=250)
 
         #nature of business
-        ex_auto=Label(frame1,text="Nature of Business (if any)",font=("times new roman",15,"bold"),bg="white",fg="gray").place(x=50,y=230)
+        business=Label(frame1,text="Nature of Business (if any)",font=("times new roman",15,"bold"),bg="white",fg="gray").place(x=50,y=230)
         self.txt_business=Entry(frame1,font=("times new roman",15),bg="lightgray")
         self.txt_business.place(x=300,y=230,width=250)
-        
-        #row 2------>>>
 
-        #health expences
-        ex_health=Label(frame1,text="Health",font=("times new roman",15,"bold"),bg="white",fg="gray").place(x=50,y=280)
-        self.txt_exhealth=Entry(frame1,font=("times new roman",15),bg="lightgray")
-        self.txt_exhealth.place(x=50,y=310,width=250)
+        #date of birth
+        dob=Label(frame1,text="Date of birth",font=("times new roman",15,"bold"),bg="white",fg="gray").place(x=50,y=280)
+        self.txt_dob=Entry(frame1,font=("times new roman",15),bg="lightgray")
+        self.txt_dob.place(x=300,y=280,width=250)
 
-        #food expences
-        ex_food=Label(frame1,text="Food",font=("times new roman",15,"bold"),bg="white",fg="gray").place(x=370,y=280)
-        self.txt_food=Entry(frame1,font=("times new roman",15),bg="lightgray")
-        self.txt_food.place(x=370,y=310,width=250)
+        #gender
+        gender=Label(frame1,text="Gender",font=("times new roman",15,"bold"),bg="white",fg="gray").place(x=50,y=330)
+        self.var1 = IntVar()
+        Checkbutton(frame1, text="male", variable=self.var1).place(x=300,y=320)
+        self.var2 = IntVar()
+        Checkbutton(frame1, text="female", variable=self.var2).place(x=400,y=320)
+        #self.txt_gender=Entry(frame1,font=("times new roman",15),bg="lightgray")
+        #self.txt_gender.place(x=370,y=320,width=250)
 
-
-        #row 3----->>>>
-        
-        #Entertainment expences
-        ex_entertain=Label(frame1,text="Entertainment",font=("times new roman",15,"bold"),bg="white",fg="gray").place(x=50,y=360)
-        self.txt_exentertain=Entry(frame1,font=("times new roman",15),bg="lightgray")
-        self.txt_exentertain.place(x=50,y=390,width=250)
+        #marital status
+        marital_status=Label(frame1,text="Marital Status",font=("times new roman",15,"bold"),bg="white",fg="gray").place(x=50,y=380)
 
         #Education expences
         ex_education=Label(frame1,text="Education",font=("times new roman",15,"bold"),bg="white",fg="gray").place(x=370,y=360)
