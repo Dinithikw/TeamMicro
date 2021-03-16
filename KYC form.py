@@ -11,7 +11,6 @@ from PIL import Image,ImageTk
 import pymysql
 
 
-
 #===============================================================================================================================
 #creating class call expences
 class expences:
@@ -21,9 +20,6 @@ class expences:
         self.root.geometry("2080x1820")
         self.root.config(bg="white")
     
-    root =()
-
-
 
         #background image
 
