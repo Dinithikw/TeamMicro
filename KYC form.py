@@ -2,6 +2,7 @@
 import tkinter as tk
 
 from tkinter import *
+
 from tkinter import ttk,messagebox
 #pip install pillow
 from PIL import Image,ImageTk 
@@ -9,164 +10,338 @@ from PIL import Image,ImageTk
 #pip istall pymysql
 import pymysql
 
+
+
 #===============================================================================================================================
 #creating class call expences
 class expences:
     def __init__(self,root):
         self.root=root
-        self.root.title("Expence Window")
-        self.root.geometry("1080x820+0+0")
+        self.root.title("KYC Window")
+        self.root.geometry("2080x1820")
         self.root.config(bg="white")
     
+    root =()
+
+
+
         #background image
 
-        self.bg=ImageTk.PhotoImage(file="background/3.jpg")
-        bg=Label(self.root,image=self.bg).place(x=250,y=0,relwidth=1,relheight=1)
+        self.bg=ImageTk.PhotoImage(file="background/2.jpg")
+        bg=Label(self.root,image=self.bg).place(x=0,y=0,relwidth=1,relheight=1)
 
         #background left image
 
-        self.left=ImageTk.PhotoImage(file="background/2.jpg")
-        left=Label(self.root,image=self.left).place(x=80,y=150,width=400,height=500)
+        #self.left=ImageTk.PhotoImage(file="background/3.jpg")
+        #left=Label(self.root,image=self.left).place(x=80,y=150,width=400,height=500)
 
 
 #======================================================================================================================================
+
         #creating frame
-        frame1=Frame(self.root,bg="white")
-        frame1.place(x=480,y=50,width=700,height=620)
-
-        #frame2=Frame(frame1,bg="brown")
-        #frame2.place(x=370,y=70,width=400,height=200)
-
-
-
+        frame1=Frame(root,bg="white")
+        frame1.place(x=250,y=50,width=1000,height=2000)
+      
 #====================================================================================================================================
         
         
         #customizing inside the frame
-           
-        #adding Income title
-        title=Label(frame1,text="Monthly Income",font=("times new roman",20,"bold"),bg="white",fg="green").place(x=50,y=30)
 
-        #total income
-        t_income=Label(frame1,text="Total Income",font=("times new roman",15,"bold"),bg="white",fg="gray").place(x=50,y=80)
-        self.txt_tincome=Entry(frame1,font=("times new roman",15),bg="lightgray")
-        self.txt_tincome.place(x=50,y=120,width=250)
+        #adding  title
+        title=Label(frame1,text="Know your Customer(KYC) profile form – (Individual)",font=("times new roman",20,"bold"),bg="white",fg="Black").place(x=150,y=30)
 
-        #adding expences title
-        title=Label(frame1,text="Expences Details",font=("times new roman",20,"bold"),bg="white",fg="green").place(x=50,y=150)
+        #date
+        date=Label(frame1,text="Date",font=("times new roman",15,"bold"),bg="white",fg="gray").place(x=600,y=96)
+        self.date=Entry(frame1,font=("times new roman",15),bg="lightgray")
+        self.date.place(x=780,y=100,width=200)
+
+        #account no.
+        account_no=Label(frame1,text="A/C No.",font=("times new roman",15,"bold"),bg="white",fg="gray").place(x=600,y=136)
+        self.account_no=Entry(frame1,font=("times new roman",15),bg="lightgray")
+        self.account_no.place(x=780,y=140,width=200)
+
+         #Branch No
+        Branch_No=Label(frame1,text="Branch No.",font=("times new roman",15,"bold"),bg="white",fg="gray").place(x=600,y=176)
+        self.Branch_No=Entry(frame1,font=("times new roman",15),bg="lightgray")
+        self.Branch_No.place(x=780,y=180,width=200)
+
+         #Officer’s S/No
+        Officer_S_No=Label(frame1,text="Officer’s S/No.",font=("times new roman",15,"bold"),bg="white",fg="gray").place(x=600,y=216)
+        self.Officer_S_No=Entry(frame1,font=("times new roman",15),bg="lightgray")
+        self.Officer_S_No.place(x=780,y=220,width=200)
+
+         #Manager_ INTL
+        Manager_INTL=Label(frame1,text="Manager’s INTL",font=("times new roman",15,"bold"),bg="white",fg="gray").place(x=600,y=256)
+        self.Manager_INTL=Entry(frame1,font=("times new roman",15),bg="lightgray")
+        self.Manager_INTL.place(x=780,y=260,width=200)
+
+       
+
+        #adding section A title
+        title=Label(frame1,text="Section A – Identity Information",font=("times new roman",20,"bold"),bg="black",fg="white").place(x=50,y=310)
         
-        #adding expences titles
+        #adding section A titles
 
         #row 1 -------->>>
 
-        #house lones
-        h_loans=Label(frame1,text="House lons",font=("times new roman",15,"bold"),bg="white",fg="gray").place(x=50,y=200)
-        self.txt_hloans=Entry(frame1,font=("times new roman",15),bg="lightgray")
-        self.txt_hloans.place(x=50,y=230,width=250)
+        #Name with Initials
+        Name_with_Initials=Label(frame1,text="Name with Initials",font=("times new roman",15,"bold"),bg="white",fg="gray").place(x=50,y=350)
+        self.Name_with_Initials=Entry(frame1,font=("times new roman",15),bg="lightgray")
+        self.Name_with_Initials.place(x=350,y=350,width=250)
 
-        #vehicle expences
-        ex_auto=Label(frame1,text="vehicles",font=("times new roman",15,"bold"),bg="white",fg="gray").place(x=370,y=200)
-        self.txt_exauto=Entry(frame1,font=("times new roman",15),bg="lightgray")
-        self.txt_exauto.place(x=370,y=230,width=250)
-        
         #row 2------>>>
 
-        #health expences
-        ex_health=Label(frame1,text="Health",font=("times new roman",15,"bold"),bg="white",fg="gray").place(x=50,y=280)
-        self.txt_exhealth=Entry(frame1,font=("times new roman",15),bg="lightgray")
-        self.txt_exhealth.place(x=50,y=310,width=250)
-
-        #food expences
-        ex_food=Label(frame1,text="Food",font=("times new roman",15,"bold"),bg="white",fg="gray").place(x=370,y=280)
-        self.txt_food=Entry(frame1,font=("times new roman",15),bg="lightgray")
-        self.txt_food.place(x=370,y=310,width=250)
-
-
-        #row 3----->>>>
+        #Initials Standard For
+        Initials_Standard_For=Label(frame1,text="Initials Standard For",font=("times new roman",15,"bold"),bg="white",fg="gray").place(x=50,y=390)
+        self.Initials_Standard_For=Entry(frame1,font=("times new roman",15),bg="lightgray")
+        self.Initials_Standard_For.place(x=350,y=390,width=250)     
         
-        #Entertainment expences
-        ex_entertain=Label(frame1,text="Entertainment",font=("times new roman",15,"bold"),bg="white",fg="gray").place(x=50,y=360)
-        self.txt_exentertain=Entry(frame1,font=("times new roman",15),bg="lightgray")
-        self.txt_exentertain.place(x=50,y=390,width=250)
+        #row 3------>>>
 
-        #Education expences
-        ex_education=Label(frame1,text="Education",font=("times new roman",15,"bold"),bg="white",fg="gray").place(x=370,y=360)
-        self.txt_exeducation=Entry(frame1,font=("times new roman",15),bg="lightgray")
-        self.txt_exeducation.place(x=370,y=390,width=250)
+        #Date of Birth
+        DOB=Label(frame1,text="Date of Birth",font=("times new roman",15,"bold"),bg="white",fg="gray").place(x=50,y=430)
+        self.DOB=Entry(frame1,font=("times new roman",15),bg="lightgray")
+        self.DOB.place(x=350,y=430,width=250) 
+
+        #row 4------>>>
+
+        #Gender
+        Gender=Label(frame1,text="Gender",font=("times new roman",15,"bold"),bg="white",fg="gray").place(x=50,y=470)
+         
+        #row 5------>>>
+
+        #Marital Status
+        Marital_Status=Label(frame1,text="Marital Status",font=("times new roman",15,"bold"),bg="white",fg="gray").place(x=50,y=510)
+       
+        #row 6------>>>
+
+        #Nationality
+        Nationality=Label(frame1,text="Nationality",font=("times new roman",15,"bold"),bg="white",fg="gray").place(x=50,y=550)
+        self.Nationality=Entry(frame1,font=("times new roman",15),bg="lightgray")
+        self.Nationality.place(x=350,y=550,width=250)    
+         
+        #row 7------>>>
+
+        #other residance
+        other_residance=Label(frame1,text="Are you a citizen/resident of any other country",font=("times new roman",15,"bold"),bg="white",fg="gray").place(x=50,y=590)
+         
+        #row 8------>>>
+
+        #yes state
+        yes_state=Label(frame1,text="If ‘Yes’ please state",font=("times new roman",15,"bold"),bg="white",fg="gray").place(x=50,y=630)
+        self.yes_state=Entry(frame1,font=("times new roman",15),bg="lightgray")
+        self.yes_state.place(x=350,y=630,width=250)   
+       
+        #adding section B title
+        title=Label(frame1,text="Section B – Proof of Identity (if you have)",font=("times new roman",20,"bold"),bg="black",fg="white").place(x=50,y=670)
+        
+        #adding section B titles
+
+        #row 1 -------->>>
+
+        #National ID Card No.
+        NIC=Label(frame1,text="National ID Card No.",font=("times new roman",15,"bold"),bg="white",fg="gray").place(x=50,y=710)
+        self.NIC=Entry(frame1,font=("times new roman",15),bg="lightgray")
+        self.NIC.place(x=350,y=710,width=250)
+
+        #row 2------>>>
+
+        #Passport No.
+        Passport_No=Label(frame1,text="Passport No.",font=("times new roman",15,"bold"),bg="white",fg="gray").place(x=50,y=750)
+        self.Passport_No=Entry(frame1,font=("times new roman",15),bg="lightgray")
+        self.Passport_No.place(x=350,y=750,width=250)     
+        
+        #Expiration
+        Expiration=Label(frame1,text="Expiration Date",font=("times new roman",15,"bold"),bg="white",fg="gray").place(x=200,y=750)
+        self.Expiration=Entry(frame1,font=("times new roman",15),bg="lightgray")
+        self.Expiration.place(x=350,y=750,width=250)
+
+        #row 3------>>>
+
+        #Driving License No.
+        Driving_License_No=Label(frame1,text=" Driving License No.",font=("times new roman",15,"bold"),bg="white",fg="gray").place(x=50,y=750)
+        self.Driving_License_No=Entry(frame1,font=("times new roman",15),bg="lightgray")
+        self.Driving_License_No.place(x=350,y=750,width=250) 
+
+        #Expirations
+        Expirations=Label(frame1,text="Expiration Date",font=("times new roman",15,"bold"),bg="white",fg="gray").place(x=200,y=750)
+        self.Expirations=Entry(frame1,font=("times new roman",15),bg="lightgray")
+        self.Expirations.place(x=350,y=750,width=250)
 
 
-        #button inside the frame
-        btn_evaluate=Button(frame1,text="Evaluate",font=("times new roman",20),bd=0,cursor="hand2",command=self.register_data).place(x=250,y=450)
+        #adding section C titles
+        title=Label(frame1,text="Section C – Address Information (Residential/Permanent Address)",font=("times new roman",20,"bold"),bg="black",fg="white").place(x=50,y=790)
+        #row 1 ------>>>
 
-        #btn_cal=Button(frame1,text="calculate",font=("times new roman",20),bd=0,cursor="hand2",command=self.add_numbers).place(x=50,y=450)
+        #Address Line 01
 
-        #button outside the frame
-        #btn=Button(self.root,text="evaluate",font=("times new roman",20),bd=0,cursor="hand2").place(x=50,y=450)
+        Address_Line_1=Label(frame1,text="Address_Line_1",font=("times new roman",15,"bold"),bg="white",fg="gray").place(x=50,y=840)
+        self.Address_Line_1=Entry(frame1,font=("times new roman",15),bg="lightgray")
+        self.Address_Line_1.place(x=350,y=840,width=250)
 
-        ex_total=Label(frame1,text="Total expenses",font=("times new roman",15,"bold"),bg="white",fg="gray").place(x=50,y=530)
-        self.tot_ex=StringVar()
-        result=Label(frame1, text="", textvariable=self.tot_ex, font=("times new roman",15,"bold")).place(x=370,y=530)
+        #row 2 ------>>>
+
+        Address_Line_2=Label(frame1,text="Address_Line_2",font=("times new roman",15,"bold"),bg="white",fg="gray").place(x=50,y=880)
+        self.Address_Line_2=Entry(frame1,font=("times new roman",15),bg="lightgray")
+        self.Address_Line_2.place(x=350,y=880,width=250)
+
+        #row 3 ------>>>
+
+        Address_Line_3=Label(frame1,text="Address_Line_3",font=("times new roman",15,"bold"),bg="white",fg="gray").place(x=50,y=920)
+        self.Address_Line_3=Entry(frame1,font=("times new roman",15),bg="lightgray")
+        self.Address_Line_3.place(x=350,y=920,width=250)
+
+        #row 4 ------>>>
+
+        country=Label(frame1,text="Country",font=("times new roman",15,"bold"),bg="white",fg="gray").place(x=50,y=960)
+        self.country=Entry(frame1,font=("times new roman",15),bg="lightgray")
+        self.country.place(x=350,y=960,width=250)
 
 
-        rem_amount=Label(frame1,text="Remaining amount",font=("times new roman",15,"bold"),bg="white",fg="gray").place(x=50,y=570)
-        self.tot_rem=StringVar()
-        result=Label(frame1, text="", textvariable=self.tot_rem, font=("times new roman",15,"bold")).place(x=370,y=570)
+
+        #adding section D titles
+        title=Label(frame1,text="Section D – Contact Information",font=("times new roman",20,"bold"),bg="black",fg="white").place(x=50,y=1000)
+        #row 1 ------>>>
+
+        #Home tel. No.
+
+        Home_Tel=Label(frame1,text="Home Tel. No.",font=("times new roman",15,"bold"),bg="white",fg="gray").place(x=50,y=1040)
+        self.Home_Tel=Entry(frame1,font=("times new roman",15),bg="lightgray")
+        self.Home_Tel.place(x=350,y=1040,width=250)
+
+        #Mobile No.
+
+        Mobile_No=Label(frame1,text="Mobile No.",font=("times new roman",15,"bold"),bg="white",fg="gray").place(x=600,y=1040)
+        self.Mobile_No=Entry(frame1,font=("times new roman",15),bg="lightgray")
+        self.Mobile_No.place(x=780,y=1040,width=200)
+
+        #row 2 ------>>>
+
+        #work place tel. No.
+
+        Work_Tel=Label(frame1,text="Work Place Tel. No.",font=("times new roman",15,"bold"),bg="white",fg="gray").place(x=50,y=1080)
+        self.Work_Tel=Entry(frame1,font=("times new roman",15),bg="lightgray")
+        self.Work_Tel.place(x=350,y=1080,width=250)
+
+        #E-mail
+
+        Email=Label(frame1,text="E-mail",font=("times new roman",15,"bold"),bg="white",fg="gray").place(x=600,y=1080)
+        self.Email=Entry(frame1,font=("times new roman",15),bg="lightgray")
+        self.Email.place(x=780,y=1080,width=200)
+
+
+        #adding section E titles
+        title=Label(frame1,text="Section E – Employment Information",font=("times new roman",20,"bold"),bg="black",fg="white").place(x=50,y=1120)
+        #row 1 ------>>>
+        
+        
+        #Employee Status
+        date=Label(frame1,text="Date",font=("times new roman",15,"bold"),bg="white",fg="gray").place(x=600,y=1140)
+        
+
+
+
+#SPACE TO ADD CHECK BOXES
 
 
 
 
+        #occupation
+        Occupation=Label(frame1,text="Occupation",font=("times new roman",15,"bold"),bg="white",fg="gray").place(x=600,y=1250)
+        self.Occupation=Entry(frame1,font=("times new roman",15),bg="lightgray")
+        self.Occupation.place(x=350,y=1250,width=200)
 
-#===================================================================================================================================
-    
-    #function for taking total expences and total remainings
-    #def add_numbers(self):
-       # res=int(self.txt_hloans.get())+int(self.txt_exauto.get())+int(self.txt_exhealth.get())+int(self.txt_food.get())+int(self.txt_exentertain.get())+int(self.txt_exeducation.get())
-        #self.tot_ex.set(res)
+        #job title
+        Job_Title=Label(frame1,text="Job Title",font=("times new roman",15,"bold"),bg="white",fg="gray").place(x=600,y=1290)
+        self.Job_Title=Entry(frame1,font=("times new roman",15),bg="lightgray")
+        self.Job_Title.place(x=350,y=1290,width=200)
 
-       # rem=int(self.txt_tincome.get())-int(res)
-        #self.tot_rem.set(rem)
+        #Industry
+        Industry=Label(frame1,text="Industry",font=("times new roman",15,"bold"),bg="white",fg="gray").place(x=600,y=1330)
+        self.Industry=Entry(frame1,font=("times new roman",15),bg="lightgray")
+        self.Industry.place(x=350,y=1330,width=200)
 
-    #function to check all are numbers
-    def check_num(self):
-        try:
-            int(self.txt_tincome.get())
-            messagebox.showinfo("Number","done",parent=self.root)
-        except:
-            messagebox.showerror("not number","please enter numer",parent=self.root)
+        #length of services
+        Service_Length=Label(frame1,text="Length of Services",font=("times new roman",15,"bold"),bg="white",fg="gray").place(x=600,y=1370)
+        self.Service_Length=Entry(frame1,font=("times new roman",15),bg="lightgray")
+        self.Service_Length.place(x=350,y=1370,width=200)
 
-    
-    
-    def register_data(self):
-        #print(self.var_hloans.get())
 
-        try:
-            con=pymysql.connect(host="localhost",user="root",password="",database="dapp")
-            cur=con.cursor()
-            cur.execute("insert into details (t_income,h_loans,ex_auto,ex_health,ex_food,ex_entertain,ex_education,tot_ex,tot_rem) values(%s,%s,%s,%s,%s,%s,%s,%s,%s)",
-                            (self.txt_tincome.get(),
-                            self.txt_hloans.get(),
-                            self.txt_exauto.get(),
-                            self.txt_exhealth.get(),
-                            self.txt_food.get(),
-                            self.txt_exentertain.get(),
-                            self.txt_exeducation.get(),
-                            self.tot_ex.get(),
-                            self.tot_rem.get()
+        #adding section F titles
+        title=Label(frame1,text="Section F – Purpose of Business Relationship",font=("times new roman",20,"bold"),bg="black",fg="white").place(x=50,y=1400)
+        
+        #row 1 ------>>>
+        
+        #banking products
+        Banking_Products=Label(frame1,text="Please indicate the banking products which relates to you",font=("times new roman",15,"bold"),bg="white",fg="gray").place(x=600,y=1440)
+        
 
-                            ))
 
-            con.commit()
-            con.close()
-            messagebox.showinfo("sucess","register sucessful",parent=self.root)
-        except Exception as es:
-            messagebox.showerror("Error",f"error due to: {str(es)}",parent=self.root)
 
-        res=int(self.txt_hloans.get())+int(self.txt_exauto.get())+int(self.txt_exhealth.get())+int(self.txt_food.get())+int(self.txt_exentertain.get())+int(self.txt_exeducation.get())
-        self.tot_ex.set(res)
+        #SPACE TO ADD CHECK BOXES
 
-        rem=int(self.txt_tincome.get())-int(res)
-        self.tot_rem.set(rem)
 
+
+      
+        #adding section G titles
+        title=Label(frame1,text="Section G – Customer Declaration and Certification",font=("times new roman",20,"bold"),bg="black",fg="white").place(x=50,y=1460)
+        
+        #row 1 ------>>>
+        
+        #banking products
+        Declaration=Label(frame1,text="I declare that the information furnished by me is true and correct and the company is entitled to verify the same either directly or through any third party agent. I also agree that if such declaration made by me are found to be incorrect, the company shall be entitled to terminate the account relationship. I confirm having read and understood the account rules and hereby agree to be bound by the terms and conditions and amendments governing the account(s) issued by the company from time to time.",font=("times new roman",15,"bold"),bg="white",fg="gray").place(x=600,y=1500) 
+
+
+        #date
+        date=Label(frame1,text="Date",font=("times new roman",15,"bold"),bg="white",fg="gray").place(x=600,y=1540)
+        self.date=Entry(frame1,font=("times new roman",15),bg="lightgray")
+        self.date.place(x=350,y=1540,width=200)
+
+        #Signature
+        Signature=Label(frame1,text="Signature",font=("times new roman",15,"bold"),bg="white",fg="gray").place(x=600,y=1580)
+        self.Signature=Entry(frame1,font=("times new roman",15),bg="lightgray")
+        self.Signature.place(x=350,y=1580,width=200,height=20)
+
+
+
+        #adding section H titles
+        title=Label(frame1,text="Section H – For Office Use Only",font=("times new roman",20,"bold"),bg="black",fg="white").place(x=50,y=1620)
+        
+        #row 1 ------>>>
+        
+        #Office Use
+        Office_Use=Label(frame1,text="I checked the information that provide by the customer is correct.",font=("times new roman",15,"bold"),bg="white",fg="gray").place(x=600,y=1640) 
+
+
+        #Name of thw officer
+        Officer_Name=Label(frame1,text="Name of the Officer",font=("times new roman",15,"bold"),bg="white",fg="gray").place(x=50,y=1680)
+        self.Officer_Name=Entry(frame1,font=("times new roman",15),bg="lightgray")
+        self.Officer_Name.place(x=400,y=1680,width=250)
+
+        #Signature
+        Signature=Label(frame1,text="Signature of the Officer",font=("times new roman",15,"bold"),bg="white",fg="gray").place(x=600,y=1720)
+        self.Signature=Entry(frame1,font=("times new roman",15),bg="lightgray")
+        self.Signature.place(x=400,y=1720,width=200,height=20)
+
+        #date
+        date=Label(frame1,text="Date",font=("times new roman",15,"bold"),bg="white",fg="gray").place(x=600,y=1760)
+        self.date=Entry(frame1,font=("times new roman",15),bg="lightgray")
+        self.date.place(x=400,y=1760,width=200)
+
+        #Name of thw Manager
+        Officer_Name=Label(frame1,text="Name of the Manager",font=("times new roman",15,"bold"),bg="white",fg="gray").place(x=50,y=1800)
+        self.Officer_Name=Entry(frame1,font=("times new roman",15),bg="lightgray")
+        self.Officer_Name.place(x=400,y=1800,width=250)
+
+        #Signature
+        Signature=Label(frame1,text="Signature of the Manager",font=("times new roman",15,"bold"),bg="white",fg="gray").place(x=600,y=1840)
+        self.Signature=Entry(frame1,font=("times new roman",15),bg="lightgray")
+        self.Signature.place(x=400,y=1840,width=200,height=20)
+
+        #date
+        date=Label(frame1,text="Date",font=("times new roman",15,"bold"),bg="white",fg="gray").place(x=600,y=1880)
+        self.date=Entry(frame1,font=("times new roman",15),bg="lightgray")
+        self.date.place(x=400,y=1880,width=200)
 #=====================================================================================================================================
 
 root=tk.Tk()
