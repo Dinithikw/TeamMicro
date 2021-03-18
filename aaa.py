@@ -155,7 +155,42 @@ country=Label(second_frame,text="Country",font=("times new roman",15,"bold"),bg=
 second_frame.country=Entry(second_frame,font=("times new roman",15),bg="lightgray")
 second_frame.country.place(x=500,y=1010,width=350)
 
-btn_cal=Button(second_frame,text="Submit",font=("times new roman",20),bd=0,cursor="hand2",command=second_frame.insert_identity_data).place(x=250,y=1050)
+#Mobile No.
+Mobile_No=Label(second_frame,text="Mobile No.",font=("times new roman",15,"bold"),bg="white",fg="black").place(x=250,y=1050)
+second_frame.Mobile_No=Entry(second_frame,font=("times new roman",15),bg="lightgray")
+second_frame.Mobile_No.place(x=500,y=1050,width=350)
+
+#E-mail
+Email=Label(second_frame,text="E-mail",font=("times new roman",15,"bold"),bg="white",fg="black").place(x=250,y=1090)
+second_frame.Email=Entry(second_frame,font=("times new roman",15),bg="lightgray")
+second_frame.Email.place(x=500,y=1090,width=350)
+
+
+#Gender
+Gender=Label(second_frame,text="Have an account in bank ......?",font=("times new roman",15,"bold"),bg="white",fg="black").place(x=250,y=1150)
+
+second_frame.var1 = IntVar()
+Checkbutton(second_frame, text="male", variable=second_frame.var1).place(x=550,y=1150)
+second_frame.var2 = IntVar()
+Checkbutton(second_frame, text="female", variable=second_frame.var2).place(x=650,y=1150)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#btn_cal=Button(second_frame,text="Submit",font=("times new roman",20),bd=0,cursor="hand2",command=second_frame.insert_identity_data).place(x=250,y=1050)
 
 
 
@@ -185,29 +220,29 @@ btn_cal=Button(second_frame,text="Submit",font=("times new roman",20),bd=0,curso
 
 
 
-def insert_identity_data(second_frame):
+#def insert_identity_data(second_frame):
         #print(self.var_hloans.get())
 
-        try:
-            con=pymysql.connect(host="localhost",user="root",password="",database="kyc")
-            cur=con.cursor()
-            cur.execute("insert into details (name_with _initials, name_in_full, NIC, passport, driving_license, expiration_date_passport, expiration_date_driving_license, nationality, DOB) values(%s,%s,%s,%s,%s,%s,%s,%s,%s)",
-                            (second_frame.Name_with_Initials.get(),
-                            second_frame.Name_in_Full.get(),
-                            second_frame.NIC.get(),
-                            second_frame.Passport.get(),
-                            second_frame.driving_license.get(),
-                            second_frame.Exp_pass.get(),
-                            second_frame.Exp_drive.get(),
-                            second_frame.Nationality.get(),
-                            second_frame.DOB.get()
-                            ))
+    #    try:
+     #       con=pymysql.connect(host="localhost",user="root",password="",database="kyc")
+     #       cur=con.cursor()
+      #      cur.execute("insert into details (name_with _initials, name_in_full, NIC, passport, driving_license, expiration_date_passport, expiration_date_driving_license, nationality, DOB) values(%s,%s,%s,%s,%s,%s,%s,%s,%s)",
+      #                      (second_frame.Name_with_Initials.get(),
+       #                     second_frame.Name_in_Full.get(),
+        #                    second_frame.NIC.get(),
+        #                    second_frame.Passport.get(),
+        #                    second_frame.driving_license.get(),
+        #                    second_frame.Exp_pass.get(),
+         #                   second_frame.Exp_drive.get(),
+         #                   second_frame.Nationality.get(),
+         #                   second_frame.DOB.get()
+          #                  ))
 
-            con.commit()
-            con.close()
-            messagebox.showinfo("sucess","Inserted Successfully",parent=second_frame.root)
-        except Exception as es:
-            messagebox.showerror("Error",f"error due to: {str(es)}",parent=second_frame.root)
+     #       con.commit()
+    #        con.close()
+     #       messagebox.showinfo("sucess","Inserted Successfully",parent=second_frame.root)
+    #    except Exception as es:
+    #        messagebox.showerror("Error",f"error due to: {str(es)}",parent=second_frame.root)
 
 
 
