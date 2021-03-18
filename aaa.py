@@ -59,7 +59,7 @@ for thing in range(100):
 title=Label(second_frame,text="Know your Customer(KYC) profile form – (Individual)",font=("times new roman",20,"bold","underline"),bg="white",fg="black").place(x=400,y=30)
 
 #adding section A title
-title=Label(second_frame,text="Section A – Identity Information",font=("times new roman",20,"bold"),bg="black",fg="white").place(x=250,y=300)
+title=Label(second_frame,text="Section A – Identity Information",font=("times new roman",20,"bold"),bg="black",fg="white").place(x=250,y=290)
         
 #adding section A titles
 
@@ -155,6 +155,28 @@ country=Label(second_frame,text="Country",font=("times new roman",15,"bold"),bg=
 second_frame.country=Entry(second_frame,font=("times new roman",15),bg="lightgray")
 second_frame.country.place(x=500,y=1010,width=350)
 
+#Mobile No.
+Mobile_No=Label(second_frame,text="Mobile No.",font=("times new roman",15,"bold"),bg="white",fg="black").place(x=250,y=1050)
+second_frame.Mobile_No=Entry(second_frame,font=("times new roman",15),bg="lightgray")
+second_frame.Mobile_No.place(x=500,y=1050,width=350)
+
+#E-mail
+Email=Label(second_frame,text="E-mail",font=("times new roman",15,"bold"),bg="white",fg="black").place(x=250,y=1090)
+second_frame.Email=Entry(second_frame,font=("times new roman",15),bg="lightgray")
+second_frame.Email.place(x=500,y=1090,width=350)
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -179,9 +201,6 @@ second_frame.country.place(x=500,y=1010,width=350)
 
 
 
-#adding section C titles
-#title=Label(second_frame,text="Section C – Address Information (Residential/Permanent Address)",font=("times new roman",20,"bold"),bg="black",fg="white").place(x=50,y=790)
-#row 1 ------>>>
 
 
 
