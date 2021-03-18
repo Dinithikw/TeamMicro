@@ -166,9 +166,13 @@ second_frame.Email=Entry(second_frame,font=("times new roman",15),bg="lightgray"
 second_frame.Email.place(x=500,y=1090,width=350)
 
 
+#Gender
+Gender=Label(second_frame,text="Have an account in bank ......?",font=("times new roman",15,"bold"),bg="white",fg="black").place(x=250,y=1150)
 
-
-
+second_frame.var1 = IntVar()
+Checkbutton(second_frame, text="male", variable=second_frame.var1).place(x=550,y=1150)
+second_frame.var2 = IntVar()
+Checkbutton(second_frame, text="female", variable=second_frame.var2).place(x=650,y=1150)
 
 
 
