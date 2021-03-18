@@ -85,8 +85,8 @@ clicked = StringVar()
 clicked.set("<--- Select Category --->")
 
 drop = OptionMenu(second_frame, clicked ,"             NIC             ",
-                                 "             Passport             ",
-                                 "             Driving License             ")
+                                         "             Passport             ",
+                                         "             Driving License             ")
 
 drop.place(x=500,y=420)
 drop.config(width = 27)
@@ -107,9 +107,9 @@ second_frame.Exp_pass=Entry(second_frame,font=("times new roman",15),bg="lightgr
 second_frame.Exp_pass.place(x=800,y=580,width=200)
 
 #Driving License No.
-Passport=Label(second_frame,text="Driving License No.",font=("times new roman",15,"bold"),bg="white",fg="black").place(x=500,y=620)
-second_frame.Passport=Entry(second_frame,font=("times new roman",15),bg="lightgray")
-second_frame.Passport.place(x=500,y=660,width=200)
+Driving_License=Label(second_frame,text="Driving License No.",font=("times new roman",15,"bold"),bg="white",fg="black").place(x=500,y=620)
+second_frame.Driving_License=Entry(second_frame,font=("times new roman",15),bg="lightgray")
+second_frame.Driving_License.place(x=500,y=660,width=200)
 
 #Expiration Date
 Exp_drive=Label(second_frame,text="Expiration Date",font=("times new roman",15,"bold"),bg="white",fg="black").place(x=800,y=620)
@@ -119,40 +119,45 @@ second_frame.Exp_drive.place(x=800,y=660,width=200)
 #Nationality
 Nationality=Label(second_frame,text="Nationality",font=("times new roman",15,"bold"),bg="white",fg="black").place(x=250,y=700)
 second_frame.Nationality=Entry(second_frame,font=("times new roman",15),bg="lightgray")
-second_frame.Nationality.place(x=500,y=700,width=500)
+second_frame.Nationality.place(x=500,y=700,width=200)
+
+#Date od Birth
+DOB=Label(second_frame,text="Date or Birth",font=("times new roman",15,"bold"),bg="white",fg="black").place(x=250,y=740)
+second_frame.DOB=Entry(second_frame,font=("times new roman",15),bg="lightgray")
+second_frame.DOB.place(x=500,y=740,width=200)
 
 
-#Gender
-#Gender=Label(second_frame,text="Gender",font=("times new roman",15,"bold"),bg="white",fg="black").place(x=250,y=510)
-               
-#second_frame.var1 = IntVar()
-#Checkbutton(second_frame, text="Male", variable=second_frame.var1,font=("times new roman",15,"bold")).place(x=450,y=510)
-        
-#second_frame.var2 = IntVar()
-#Checkbutton(second_frame, text="Female", variable=second_frame.var2,font=("times new roman",15,"bold")).place(x=600,y=510)
-        
+#adding section B title
+title=Label(second_frame,text="Section B – Contact Information",font=("times new roman",20,"bold"),bg="black",fg="white").place(x=250,y=800)
 
-#row 5------>>>
+#House No.
+House_No=Label(second_frame,text="House No.",font=("times new roman",15,"bold"),bg="white",fg="black").place(x=250,y=850)
+second_frame.House_No=Entry(second_frame,font=("times new roman",15),bg="lightgray")
+second_frame.House_No.place(x=500,y=850,width=350)
 
-#Marital Status
-#Marital_Status=Label(second_frame,text="Marital Status",font=("times new roman",15,"bold"),bg="white",fg="black").place(x=50,y=510)
-       
-#second_frame.var1 = IntVar()
-#Checkbutton(second_frame, text="Single", variable=second_frame.var1,font=("times new roman",15,"bold")).place(x=350,y=510)
-        
-#second_frame.var2 = IntVar()
-#Checkbutton(second_frame, text="Married", variable=second_frame.var2,font=("times new roman",15,"bold")).place(x=450,y=510)
+#Street
+Street=Label(second_frame,text="Street",font=("times new roman",15,"bold"),bg="white",fg="black").place(x=250,y=890)
+second_frame.Street=Entry(second_frame,font=("times new roman",15),bg="lightgray")
+second_frame.Street.place(x=500,y=890,width=350)
 
-#second_frame.var3 = IntVar()
-#Checkbutton(second_frame, text="Divorced", variable=second_frame.var3,font=("times new roman",15,"bold")).place(x=600,y=510)
-        
-#second_frame.var4 = IntVar()
-#Checkbutton(second_frame, text="Widowed", variable=second_frame.var4,font=("times new roman",15,"bold")).place(x=750,y=510)
+#City
+City=Label(second_frame,text="City",font=("times new roman",15,"bold"),bg="white",fg="black").place(x=250,y=930)
+second_frame.City=Entry(second_frame,font=("times new roman",15),bg="lightgray")
+second_frame.City.place(x=500,y=930,width=350)
+
+#Postal Code
+Postal_Code=Label(second_frame,text="Postal Code",font=("times new roman",15,"bold"),bg="white",fg="black").place(x=250,y=970)
+second_frame.Postal_Code=Entry(second_frame,font=("times new roman",15),bg="lightgray")
+second_frame.Postal_Code.place(x=500,y=970,width=350)
+
+#Country
+country=Label(second_frame,text="Country",font=("times new roman",15,"bold"),bg="white",fg="black").place(x=250,y=1010)
+second_frame.country=Entry(second_frame,font=("times new roman",15),bg="lightgray")
+second_frame.country.place(x=500,y=1010,width=350)
 
 
-    
-         
-#row 7------>>>
+
+
 
 #other residance
 #other_residance=Label(second_frame,text="Are you a citizen/resident of any other country",font=("times new roman",15,"bold"),bg="white",fg="black").place(x=50,y=590)
@@ -178,29 +183,7 @@ second_frame.Nationality.place(x=500,y=700,width=500)
 #title=Label(second_frame,text="Section C – Address Information (Residential/Permanent Address)",font=("times new roman",20,"bold"),bg="black",fg="white").place(x=50,y=790)
 #row 1 ------>>>
 
-#Address Line 01
 
-#Address_Line_1=Label(second_frame,text="Address_Line_1",font=("times new roman",15,"bold"),bg="white",fg="black").place(x=50,y=840)
-#second_frame.Address_Line_1=Entry(second_frame,font=("times new roman",15),bg="lightgray")
-#second_frame.Address_Line_1.place(x=350,y=840,width=350)
-
-#row 2 ------>>>
-
-#Address_Line_2=Label(second_frame,text="Address_Line_2",font=("times new roman",15,"bold"),bg="white",fg="black").place(x=50,y=880)
-#second_frame.Address_Line_2=Entry(second_frame,font=("times new roman",15),bg="lightgray")
-#second_frame.Address_Line_2.place(x=350,y=880,width=350)
-
-#row 3 ------>>>
-
-#Address_Line_3=Label(second_frame,text="Address_Line_3",font=("times new roman",15,"bold"),bg="white",fg="black").place(x=50,y=920)
-#second_frame.Address_Line_3=Entry(second_frame,font=("times new roman",15),bg="lightgray")
-#second_frame.Address_Line_3.place(x=350,y=920,width=350)
-
-#row 4 ------>>>
-
-#country=Label(second_frame,text="Country",font=("times new roman",15,"bold"),bg="white",fg="black").place(x=50,y=960)
-#second_frame.country=Entry(second_frame,font=("times new roman",15),bg="lightgray")
-#second_frame.country.place(x=350,y=960,width=350)
 
 
 
