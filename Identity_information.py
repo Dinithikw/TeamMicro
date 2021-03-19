@@ -166,9 +166,13 @@ class expences:
                 
                 print("kyc exists")
             else:
-                
+
                 if(self.search_nic==self.result[0][4] and self.search_fprint==self.result[0][12]):
-                    print("kyc exists condition 2")
+                    print("kyc exists face fail")
+                    if(self.Name_with_Initials.get()==self.result[0][2]):
+                        print("kyc exists face fail and name exists")
+                    
+
           
 
 
