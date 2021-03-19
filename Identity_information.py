@@ -178,7 +178,7 @@ class expences:
         if not self.result:
             self.result= "kyc not exist "
             print(self.result)
-
+            #commiting code for the database=======================================================================================
             try:
                 
                 cur.execute("insert into identity_information (name_with_initials, name_in_full, NIC, passport , expiration_date_passport, driving_license, expiration_date_driving_license, nationality, DOB, face_recognition, finger_print1) values(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)",
@@ -202,10 +202,17 @@ class expences:
             except Exception as es:
                 messagebox.showerror("Error",f"error due to: {str(es)}",parent=self.root)
 
+        #******************* in each and every face recogniton part the face_model needed to integrate***********
+
+        #condition for  nic, fingerprint and face recognition=======================================================================
+
 
         elif((self.search_nic==self.result2[0][4] and self.search_fprint==self.result2[0][12]) and self.search_face<="0.25"):
             print("existing kyc main condtion")
             print("need to update")
+
+
+        #condition for nic and face recognition part and then check with name========================================================
 
 
         elif(self.search_nic==self.result[0][4] and self.search_face<="0.25"):
@@ -214,16 +221,21 @@ class expences:
                 print("need to update")
 
 
+        #condtion for nic and fingerprint and then check with name====================================================================
 
         elif(self.search_nic==self.result2[0][4] and self.search_fprint==self.result2[0][12]):
             if(self.search_name==self.result2[0][2]):
                 print("existing kyc fingerprint and nic and name")
                 print("need to update")
 
+        #condtion fingerprint and face recognition then check with name===============================================================
+
         elif(self.search_fprint==self.result1[0][12] and self.search_face<="0.25"):
             if(self.search_name==self.result1[0][2]):
                 print("existing kyc fingerprint and face and name")
                 print("need to update")
+
+        #condtion fingerprint and then check with name================================================================================
 
         elif(self.search_fprint==self.result1[0][12]):
             if(self.search_name==self.result1[0][2]):
@@ -253,6 +265,8 @@ class expences:
                 except Exception as es:
                     messagebox.showerror("Error",f"error due to: {str(es)}",parent=self.root)
 
+        #condtion for face recognition only and cross check===========================================================================
+
         elif(self.search_face<="0.25"):
             print("cross check face")
 
@@ -279,6 +293,8 @@ class expences:
             except Exception as es:
                 messagebox.showerror("Error",f"error due to: {str(es)}",parent=self.root)
         
+        #condition for nic only and needed for cross checking and assistand guide options================================================
+
         elif(self.search_nic==self.result[0][4]):
             print("cross check nic")
             print("assistant guide")
@@ -306,7 +322,7 @@ class expences:
             except Exception as es:
                 messagebox.showerror("Error",f"error due to: {str(es)}",parent=self.root)
             
-
+        #this is error handling if any conditon miss anything at alll :D=================================================
         else:
 
             try:
