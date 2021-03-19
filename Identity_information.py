@@ -149,13 +149,15 @@ class expences:
         #self.finger_nic = "SELECT * FROM identity_information WHERE NIC = %s AND  finger_print1= %s"
         self.find_nic = "SELECT * FROM identity_information WHERE NIC = %s"
         self.find_finger = "SELECT * FROM identity_information WHERE finger_print1= %s"
+        self.find_nic_finger = "SELECT * FROM identity_information WHERE NIC = %s AND finger_print1= %s"
         
 
         #comining two search results and cursor towords the database table
         #self.name = (self.search_nic, self.search_fprint)
         self.name = (self.search_nic, )
         self.name1 = (self.search_fprint, )
-
+        self.name2 = (self.search_nic, self.search_fprint)
+        
 
         self.result= cur.execute(self.find_nic, self.name)
         self.result= cur.fetchall()
@@ -163,20 +165,28 @@ class expences:
         self.result1= cur.execute(self.find_finger, self.name1)
         self.result1= cur.fetchall()
 
+        self.result2= cur.execute(self.find_nic_finger, self.name2)
+        self.result2= cur.fetchall()
+        
+
         #print(self.result[0][4])
 
         #if required fields are empty
         if not self.result:
             self.result= "kyc not exist "
             print(self.result)
-        
+
+        elif(self.search_nic==self.result2[0][4] and self.search_fprint==self.result2[0][12]):
+            if(self.search_name==self.result2[0][2]):
+                print("existing kyc fingerprint and nic and name")
+
         elif(self.search_fprint==self.result1[0][12] and self.search_face<="0.25"):
             if(self.search_name==self.result1[0][2]):
-                print("existing kyc fingerprint and face")
+                print("existing kyc fingerprint and face and name")
 
         elif(self.search_fprint==self.result1[0][12]):
             if(self.search_name==self.result1[0][2]):
-                print("existing kyc fingerprint")       
+                print("existing kyc fingerprint and name")       
 
         #if contain a field
         elif(self.search_face<="0.25"):
