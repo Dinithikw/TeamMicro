@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 19, 2021 at 09:34 AM
+-- Generation Time: Mar 19, 2021 at 10:33 AM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.2
 
@@ -107,7 +107,7 @@ CREATE TABLE `identity_information` (
   `nationality` varchar(25) NOT NULL,
   `DOB` date NOT NULL,
   `face_recognition` varchar(5) NOT NULL,
-  `finger_print1` int(10) NOT NULL,
+  `finger_print1` varchar(10) NOT NULL,
   `finger_print2` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -116,9 +116,9 @@ CREATE TABLE `identity_information` (
 --
 
 INSERT INTO `identity_information` (`serial_no`, `identification_code`, `name_with_initials`, `name_in_full`, `NIC`, `passport`, `driving_license`, `expiration_date_passport`, `expiration_date_driving_license`, `nationality`, `DOB`, `face_recognition`, `finger_print1`, `finger_print2`) VALUES
-(7, '', 'chathura', 'madusanka', '940792908v', '', '', '0000-00-00', '0000-00-00', 'srilankan', '1994-03-19', '0.36', 1234, ''),
-(8, '', 'chathura', 'kamal', '123456789v', '', '', '0000-00-00', '0000-00-00', 'srilankan', '1995-01-01', '0.44', 1598, ''),
-(9, '', 'madhushi', 'rajapaksha', '987654321v', '', '', '0000-00-00', '0000-00-00', 'srilankan', '1995-10-04', '0.65', 1010, '');
+(7, '', 'chathura', 'madusanka', '940792908v', '', '', '0000-00-00', '0000-00-00', 'srilankan', '1994-03-19', '0.36', '1234', ''),
+(8, '', 'chathura', 'kamal', '123456789v', '', '', '0000-00-00', '0000-00-00', 'srilankan', '1995-01-01', '0.44', '1598', ''),
+(9, '', 'madhushi', 'rajapaksha', '987654321v', '', '', '0000-00-00', '0000-00-00', 'srilankan', '1995-10-04', '0.65', '1010', '');
 
 -- --------------------------------------------------------
 
@@ -190,7 +190,7 @@ ALTER TABLE `customers`
 -- AUTO_INCREMENT for table `identity_information`
 --
 ALTER TABLE `identity_information`
-  MODIFY `serial_no` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `serial_no` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
