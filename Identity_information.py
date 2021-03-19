@@ -120,9 +120,19 @@ class expences:
         DOB=Label(frame1,text="Date or Birth",font=("times new roman",15,"bold"),bg="white",fg="black").place(x=0,y=550)
         self.DOB=Entry(frame1,font=("times new roman",15),bg="lightgray")
         self.DOB.place(x=200,y=550,width=500)
+        
+        #fingerprint values
+        finger=Label(frame1,text="Fingerprint input",font=("times new roman",15,"bold"),bg="white",fg="black").place(x=0,y=600)
+        self.finger=Entry(frame1,font=("times new roman",15),bg="lightgray")
+        self.finger.place(x=200,y=600,width=100)
+
+        #face recongnition values
+        face=Label(frame1,text="image input value",font=("times new roman",15,"bold"),bg="white",fg="black").place(x=0,y=650)
+        self.facer=Entry(frame1,font=("times new roman",15),bg="lightgray")
+        self.facer.place(x=200,y=650,width=100)
 
         #button inside the frame
-        btn_evaluate=Button(frame1,text="Submit",font=("times new roman",20),bd=0,cursor="hand2",command=self.register_data).place(x=0,y=600)
+        btn_evaluate=Button(frame1,text="Submit",font=("times new roman",20),bd=0,cursor="hand2",command=self.register_data).place(x=600,y=650)
 
 #===================================================================================================================================
 
@@ -132,7 +142,7 @@ class expences:
 
         try:
             
-            cur.execute("insert into identity_information (name_with_initials, name_in_full, NIC, passport , expiration_date_passport, driving_license, expiration_date_driving_license, nationality, DOB) values(%s,%s,%s,%s,%s,%s,%s,%s,%s)",
+            cur.execute("insert into identity_information (name_with_initials, name_in_full, NIC, passport , expiration_date_passport, driving_license, expiration_date_driving_license, nationality, DOB, face_recognition, finger_print1) values(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)",
                             (self.Name_with_Initials.get(),
                             self.Name_in_Full.get(),
                             self.NIC.get(),
@@ -141,7 +151,9 @@ class expences:
                             self.driving_license.get(),
                             self.Exp_drive.get(),
                             self.Nationality.get(),
-                            self.DOB.get()
+                            self.DOB.get(),
+                            self.facer.get(),
+                            self.finger.get()
 
                             ))
 
