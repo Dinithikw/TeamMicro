@@ -170,6 +170,10 @@ class expences:
 
         self.result2= cur.execute(self.find_nic_finger, self.name2)
         self.result2= cur.fetchall()
+
+        print(self.result)
+        print(self.result1)
+        print(self.result2)
         
 
         #print(self.result[0][4])
@@ -347,6 +351,20 @@ class expences:
                 messagebox.showinfo("sucess","register sucessful",parent=self.root)
             except Exception as es:
                 messagebox.showerror("Error",f"error due to: {str(es)}",parent=self.root)
+
+"""def clear():
+    
+    self.Name_with_Initials(0, END)
+    self.Name_in_Full(0, END)
+    self.NIC(0, END)
+    self.Passport(0, END)
+    self.Exp_pass(0, END)
+    self.driving_license(0, END)
+    self.Exp_drive(0, END)
+    self.Nationality(0, END)
+    self.DOB(0, END)
+    self.facer(0, END)
+    self.finge(0, END)"""
 
 
 
