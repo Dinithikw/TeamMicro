@@ -138,7 +138,61 @@ class expences:
 
     
     def register_data(self):
-        #print(self.var_hloans.get())
+        
+        #define variable for taking input values
+        self.search_nic = self.NIC.get()
+        self.search_fprint= self.finger.get()
+        self.search_face = self.facer.get()
+        
+        #selecting touples with nic and fingerprint details
+        self.finger_nic = "SELECT * FROM identity_information WHERE NIC = %s AND  finger_print1= %s"
+
+        #comining two search results and cursor towords the database table
+        self.name = (self.search_nic, self.search_fprint)
+        self.result= cur.execute(self.finger_nic, self.name)
+        self.result= cur.fetchall()
+
+        
+
+        #if required fields are empty
+        if not self.result:
+            self.result= "record not found"
+            print(self.result)
+
+        #if contain a field
+        else:
+            
+            #defining for loop to take every delatils in database where user "result" varible satisfies
+            for index, x in enumerate(self.result):
+                print(x,index)
+                num =0
+                index += 2
+                id_reference = str(x[4])
+
+                #for future use
+                lambda id_reference:id_reference
+
+                #taking thhe touples of the users where referece of the "result" variable maches id is maches
+                self.sql2 = "SELECT * FROM customers WHERE user_id = %s" 
+                self.name2 = (id_reference, )
+
+                
+                self.result2= cur.execute(self.sql2, self.name2)
+                self.result2= cur.fetchall()
+                #edit_button.grid(row=index, column=num)
+
+                print(id_reference)
+                """if(self.search_nic==(self.result2[0][4]) and self.search_fprint==(self.result2[0][12])):
+                    word="account exists"
+                    print(word)
+                
+                for y in x:
+                    #searched_label = Label(root, text=y)
+                    #searched_label.grid(row=index, column=num+1)
+                    num +=1
+            x +=1"""
+            
+
 
         try:
             
