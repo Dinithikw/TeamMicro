@@ -21,32 +21,14 @@ frame1.place(x=225,y=30,width=1100,height=775)
 #create a canvas
 
 my_canvas = Canvas(frame1)
-#my_canvas.pack(side=LEFT, fill = BOTH, expand=1)
-
-#add a scroll bar to the canvas
-
-#my_scrollbar = ttk.Scrollbar(frame1,orient = VERTICAL, command=my_canvas.yview)
-#my_scrollbar.pack(side=RIGHT, fill=Y)
-
-#configure the canvas
-
-#my_canvas.configure(yscrollcommand = my_scrollbar.set)
-#my_canvas.bind('<Configure>', lambda e: my_canvas.configure(scrollregion = my_canvas.bbox("all")))
 
 #create another frama INSIDE thr canvas
-
 second_frame = Frame(my_canvas)
 
-
 #add that new frame to a window in the canvas
-
 my_canvas.create_window((0,0), window = second_frame, anchor="nw")
 
- #background image
-
-second_frame.bg=ImageTk.PhotoImage(file="background/3.jpg")
-bg=Label(second_frame,image=second_frame.bg).place(x=0,y=0,relwidth=1,relheight=1)
-
+#background image
 frame1.bg=ImageTk.PhotoImage(file="background/4.jpg")
 bg=Label(frame1,image=frame1.bg).place(x=0,y=0,relwidth=1,relheight=1)
 
@@ -56,6 +38,7 @@ bg=Label(frame1,image=frame1.bg).place(x=0,y=0,relwidth=1,relheight=1)
 #adding  title
 title=Label(frame1,text="Know Your Customer(KYC) Profile Form – (Individual)",font=("times new roman",20,"bold","underline"),bg="lightblue",fg="black").place(x=225,y=10)
 
+#adding  office use only title
 title=Label(frame1,text="Office Use Only",font=("times new roman",15,"bold","italic"),bg="red",fg="white").place(x=60,y=60)
 
 #date
@@ -73,12 +56,10 @@ Branch_No=Label(frame1,text="Branch No.",font=("times new roman",15,"bold"),bg="
 frame1.Branch_No=Entry(frame1,font=("times new roman",15),bg="lightgray")
 frame1.Branch_No.place(x=220,y=240)
 
-
 #Officer’s S/No
 account_no=Label(frame1,text="Officer’s S/No.",font=("times new roman",15,"bold"),bg="white",fg="black").place(x=600,y=120)
 frame1.Officer_S_No=Entry(frame1,font=("times new roman",15),bg="lightgray")
 frame1.Officer_S_No.place(x=800,y=120)
-
 
 #Manager’s INTL
 Branch_No=Label(frame1,text="Manager’s INTL",font=("times new roman",15,"bold"),bg="white",fg="black").place(x=600,y=180)
@@ -88,17 +69,15 @@ frame1.Manager_INTL.place(x=800,y=180)
 #Risk Category
 rc=Label(frame1,text="Risk Category",font=("times new roman",15,"bold"),bg="white",fg="black").place(x=600,y=240)
 
-
 clicked = StringVar()
 clicked.set("<--- Select category --->")
 
-drop = OptionMenu(root, clicked ,"             Low             ",
-                                 "             Medium             ",
-                                 "             High             ")
+drop = OptionMenu(root, clicked ,"                Low                ",
+                                 "                Medium                ",
+                                 "                High                ")
 drop.pack()
 drop.place(x=1024,y=270)
 drop.config(width = 27)
-
 
 #Officer Authorization
 Office_Use=Label(frame1,text="Officer Authorization",font=("times new roman",15,"bold"),bg="lightgreen",fg="black").place(x=400,y=300) 
@@ -118,7 +97,6 @@ date=Label(frame1,text="Date",font=("times new roman",15,"bold"),bg="white",fg="
 frame1.date=Entry(frame1,font=("times new roman",15),bg="lightgray")
 frame1.date.place(x=500,y=450,width=250)
 
-
 #Manager Authorization
 Office_Use=Label(frame1,text="Manager Authorization",font=("times new roman",15,"bold"),bg="cyan",fg="black").place(x=400,y=500) 
 
@@ -137,7 +115,6 @@ date=Label(frame1,text="Date",font=("times new roman",15,"bold"),bg="white",fg="
 frame1.date=Entry(frame1,font=("times new roman",15),bg="lightgray")
 frame1.date.place(x=500,y=650,width=250)
 
-
 # create button 
 button = Button(frame1, text='Submit', bg='#0052cc', fg='#ffffff') 
 # apply font to the button label 
@@ -145,6 +122,5 @@ button['font'] = font.Font(family='Helvetica')
 # add button to gui window 
 button.pack()
 button.place(x=400,y=700,width=200,height=50) 
-
 
 root.mainloop()

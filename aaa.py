@@ -36,7 +36,7 @@ my_canvas.bind('<Configure>', lambda e: my_canvas.configure(scrollregion = my_ca
 
 #create another frama INSIDE thr canvas
 
-second_frame = Frame(my_canvas, bg = "white")
+second_frame = Frame(my_canvas, bg = "lightsteelblue")
 
 
 #add that new frame to a window in the canvas
@@ -45,11 +45,11 @@ my_canvas.create_window((0,0), window = second_frame, anchor="nw")
 
  #background image
 
-#second_frame.bg=Image.Tk.PhotoImage(file="background/2.jpg")
-#bg=Label(second_frame.root,image=self.bg).place(x=0,y=0,relwidth=1,relheight=1)
+#second_frame.bg=ImageTk.PhotoImage(file="background/3.jpg")
+#bg=Label(second_frame,image=second_frame.bg).place(x=0,y=0,relwidth=1,relheight=1)
 
 
-for thing in range(100):
+for thing in range(60):
     Button(second_frame, text=f'Button {thing} Yo!!').grid(row=thing, column=2000, pady=10, padx=2000)
 
 #my_label = Label(second_frame, text="Know your Customer(KYC) profile form – (Individual)").grid(row=1, column=2500)
@@ -66,8 +66,8 @@ title=Label(second_frame,text="Section A – Identity Information",font=("times 
 #row 1 -------->>>
 
 #Name with Initials
-Name_with_Initials=Label(second_frame,text="Name with Initials",font=("times new roman",15,"bold"),bg="white",fg="black").place(x=250,y=340)
-second_frame.Name_with_Initials=Entry(second_frame,font=("times new roman",15),bg="lightgray")
+Name_with_Initials=Label(second_frame,text="Name with Initials",font=("times new roman",15,"bold"),bg="light grey",fg="black").place(x=250,y=340)
+second_frame.Name_with_Initials=Entry(second_frame,font=("times new roman",15),bg="lavender")
 second_frame.Name_with_Initials.place(x=500,y=340,width=700)
 
 #row 2------>>>
@@ -169,54 +169,222 @@ second_frame.Email.place(x=500,y=1090,width=350)
 #Gender
 Gender=Label(second_frame,text="Have an account in bank ......?",font=("times new roman",15,"bold"),bg="white",fg="black").place(x=250,y=1150)
 
+clicked = StringVar()
+clicked.set("<--- Select Choice --->")
+
+drop = OptionMenu(second_frame, clicked ,"             Yes             ",
+                                         "             No             ")
+
+drop.place(x=500,y=420)
+drop.config(width = 27)
+
+
+#If Yes
+If_Yes=Label(second_frame,text="If 'Yes', Please Select Your Account Type",font=("times new roman",15,"bold"),bg="white",fg="black").place(x=350,y=1200)
+
 second_frame.var1 = IntVar()
-Checkbutton(second_frame, text="male", variable=second_frame.var1).place(x=550,y=1150)
+Checkbutton(second_frame, text="Fixed Deposite", variable=second_frame.var1).place(x=400,y=1240)
 second_frame.var2 = IntVar()
-Checkbutton(second_frame, text="female", variable=second_frame.var2).place(x=650,y=1150)
+Checkbutton(second_frame, text="Mutual Fund Account", variable=second_frame.var2).place(x=400,y=1280)
+second_frame.var3 = IntVar()
+Checkbutton(second_frame, text="Foreign Exchange", variable=second_frame.var3).place(x=400,y=1320)
+second_frame.var4 = IntVar()
+Checkbutton(second_frame, text="Lease", variable=second_frame.var4).place(x=650,y=1240)
+second_frame.var5 = IntVar()
+Checkbutton(second_frame, text="Vehicle Loan", variable=second_frame.var5).place(x=650,y=1280)
+second_frame.var6 = IntVar()
+Checkbutton(second_frame, text="Mortage Loan", variable=second_frame.var6).place(x=650,y=1320)
+second_frame.var7 = IntVar()
+Checkbutton(second_frame, text="Consumer Loans", variable=second_frame.var7).place(x=850,y=1240)
+second_frame.var8 = IntVar()
+Checkbutton(second_frame, text="Commercial Loan", variable=second_frame.var8).place(x=850,y=1280)
+second_frame.var9 = IntVar()
+Checkbutton(second_frame, text="Savings Account", variable=second_frame.var9).place(x=850,y=1320)
 
 
 
+#Purpose of the acoount
+If_Yes=Label(second_frame,text="Purpose of the Account",font=("times new roman",15,"bold"),bg="white",fg="black").place(x=350,y=1360)
+
+second_frame.var1 = IntVar()
+Checkbutton(second_frame, text="Business Transactions", variable=second_frame.var1).place(x=550,y=1400)
+second_frame.var2 = IntVar()
+Checkbutton(second_frame, text="Mutual Fund Account", variable=second_frame.var2).place(x=550,y=1440)
+second_frame.var3 = IntVar()
+Checkbutton(second_frame, text="Employeement/Professional Income", variable=second_frame.var3).place(x=550,y=1480)
+second_frame.var4 = IntVar()
+Checkbutton(second_frame, text="Rare Transactions", variable=second_frame.var4).place(x=550,y=1520)
+second_frame.var5 = IntVar()
+Checkbutton(second_frame, text="Upkeep of Family/Person", variable=second_frame.var5).place(x=850,y=1400)
+second_frame.var6 = IntVar()
+Checkbutton(second_frame, text="Utility Bill Payment", variable=second_frame.var6).place(x=850,y=1440)
+second_frame.var7 = IntVar()
+Checkbutton(second_frame, text="Savings", variable=second_frame.var7).place(x=850,y=1480)
+second_frame.var8 = IntVar()
+Checkbutton(second_frame, text="Loan Repayment", variable=second_frame.var8).place(x=850,y=1520)
+
+
+#adding section C title
+title=Label(second_frame,text="Section C – Employee Information",font=("times new roman",20,"bold"),bg="black",fg="white").place(x=250,y=1560)
+
+
+#Occupation Status
+os=Label(second_frame,text="Occupation Status",font=("times new roman",15,"bold"),bg="white",fg="black").place(x=250,y=1600)
+
+
+clicked = StringVar()
+clicked.set("<--- Select Category --->")
+
+drop = OptionMenu(second_frame, clicked ,"             Salaried Worker             ",
+                                         "             Retire             ",
+                                         "             Self Employee             ",
+                                         "             Un-Employeed             ",
+                                         "             Student             ")
+
+drop.place(x=500,y=1600)
+drop.config(width = 27)
 
 
 
+#Occupation
+Occupation=Label(second_frame,text="Occupation",font=("times new roman",15,"bold"),bg="white",fg="black").place(x=250,y=1650)
+second_frame.Occupation=Entry(second_frame,font=("times new roman",15),bg="lightgray")
+second_frame.Occupation.place(x=500,y=1650,width=700)
 
 
 
+#Source of Income
+If_Yes=Label(second_frame,text="Source of Income",font=("times new roman",15,"bold"),bg="white",fg="black").place(x=350,y=1700)
+
+second_frame.var1 = IntVar()
+Checkbutton(second_frame, text="Sales and Business Turnover", variable=second_frame.var1).place(x=400,y=1740)
+second_frame.var2 = IntVar()
+Checkbutton(second_frame, text="Family Remittances", variable=second_frame.var2).place(x=400,y=1780)
+second_frame.var3 = IntVar()
+Checkbutton(second_frame, text="Commission Income", variable=second_frame.var3).place(x=400,y=1820)
+second_frame.var4 = IntVar()
+Checkbutton(second_frame, text="Export Proceeds", variable=second_frame.var4).place(x=400,y=1860)
+second_frame.var5 = IntVar()
+Checkbutton(second_frame, text="Contract Proceeds", variable=second_frame.var5).place(x=800,y=1740)
+second_frame.var6 = IntVar()
+Checkbutton(second_frame, text="Donations/Charities(Local/Foreign)", variable=second_frame.var6).place(x=800,y=1780)
+second_frame.var7 = IntVar()
+Checkbutton(second_frame, text="Salary/Profit Income", variable=second_frame.var7).place(x=800,y=1820)
+second_frame.var8 = IntVar()
+Checkbutton(second_frame, text="Investment Proceeds", variable=second_frame.var8).place(x=800,y=1860)
+second_frame.var9 = IntVar()
+Checkbutton(second_frame, text="Other", variable=second_frame.var9).place(x=600,y=1900)
+
+second_frame.Occupation=Entry(second_frame,font=("times new roman",15),bg="lightgray")
+second_frame.Occupation.place(x=750,y=1900,width=200)
 
 
 
+#Average Income
+ai=Label(second_frame,text="Average Income",font=("times new roman",15,"bold"),bg="white",fg="black").place(x=250,y=1950)
+
+
+clicked = StringVar()
+clicked.set("<--- Select Category --->")
+
+drop = OptionMenu(second_frame, clicked ,"             Less than 100,000             ",
+                                         "             100,001 - 500,000             ",
+                                         "             500,001 - 1,000,000             ",
+                                         "             Above 1,000,000             ")
+
+drop.place(x=500,y=1950)
+drop.config(width = 27)
 
 
 
+#Mode of Transaction
+MOT=Label(second_frame,text="Mode of Transaction",font=("times new roman",15,"bold"),bg="white",fg="black").place(x=350,y=2000)
+
+second_frame.var1 = IntVar()
+Checkbutton(second_frame, text="Cash", variable=second_frame.var1).place(x=400,y=2040)
+second_frame.var2 = IntVar()
+Checkbutton(second_frame, text="Cheque", variable=second_frame.var2).place(x=400,y=2080)
+second_frame.var3 = IntVar()
+Checkbutton(second_frame, text="Standing Orders", variable=second_frame.var3).place(x=400,y=2120)
+second_frame.var4 = IntVar()
+Checkbutton(second_frame, text="Slips/Wire Transfer/RTGS", variable=second_frame.var4).place(x=800,y=2040)
+second_frame.var5 = IntVar()
+Checkbutton(second_frame, text="Foreign Remmitance", variable=second_frame.var5).place(x=800,y=2080)
+second_frame.var6 = IntVar()
+Checkbutton(second_frame, text="POS Transaction", variable=second_frame.var6).place(x=800,y=2120)
+second_frame.var7 = IntVar()
+Checkbutton(second_frame, text="Online Transaction", variable=second_frame.var7).place(x=600,y=2160)
+second_frame.var8 = IntVar()
+
+
+#Operating Authority of the Account
+ai=Label(second_frame,text="Operating Authority of the Account",font=("times new roman",15,"bold"),bg="white",fg="black").place(x=250,y=2200)
+
+
+clicked = StringVar()
+clicked.set("<--- Select Category --->")
+
+drop = OptionMenu(second_frame, clicked ,"             My Self             ",
+                                         "             Our Selves             ",
+                                         "             Guardian/Mother/Father             ",
+                                         "             Others             ")
+
+drop.place(x=500,y=2240)
+drop.config(width = 27)
+
+second_frame.Occupation=Entry(second_frame,font=("times new roman",15),bg="lightgray")
+second_frame.Occupation.place(x=750,y=2240,width=200)
+
+
+
+#Available of Verification doc. Address
+If_Yes=Label(second_frame,text="Available of Verification doc. Address",font=("times new roman",15,"bold"),bg="white",fg="black").place(x=350,y=2290)
+
+second_frame.var1 = IntVar()
+Checkbutton(second_frame, text="NIC/Passport", variable=second_frame.var1).place(x=400,y=2330)
+second_frame.var2 = IntVar()
+Checkbutton(second_frame, text="Utility Bill", variable=second_frame.var2).place(x=400,y=2370)
+second_frame.var3 = IntVar()
+Checkbutton(second_frame, text="Valid Driving License", variable=second_frame.var3).place(x=400,y=2410)
+second_frame.var4 = IntVar()
+Checkbutton(second_frame, text="Letter from Apublic Authority", variable=second_frame.var4).place(x=400,y=2450)
+second_frame.var5 = IntVar()
+Checkbutton(second_frame, text="Income Tax Receipt/Assessment Notice", variable=second_frame.var5).place(x=800,y=2330)
+second_frame.var6 = IntVar()
+Checkbutton(second_frame, text="Employment Contact", variable=second_frame.var6).place(x=800,y=2370)
+second_frame.var7 = IntVar()
+Checkbutton(second_frame, text="Tenacy Agreement", variable=second_frame.var7).place(x=800,y=2410)
+second_frame.var8 = IntVar()
+Checkbutton(second_frame, text="Grama Niladari", variable=second_frame.var8).place(x=800,y=2450)
+
+
+#PEP (Polotically Exposed Person)
+PEP=Label(second_frame,text="Are You a Polotically Exposed Person..?",font=("times new roman",15,"bold"),bg="white",fg="black").place(x=250,y=2500)
+
+clicked = StringVar()
+clicked.set("<--- Select Choice --->")
+
+drop = OptionMenu(second_frame, clicked ,"                 Yes             ",
+                                         "                 No             ")
+
+drop.place(x=650,y=2500)
+drop.config(width = 27)
+
+
+#US Citizen
+USC=Label(second_frame,text="Are You a Citizen of United States..?",font=("times new roman",15,"bold"),bg="white",fg="black").place(x=250,y=2550)
+
+clicked = StringVar()
+clicked.set("<--- Select Choice --->")
+
+drop = OptionMenu(second_frame, clicked ,"                 Yes             ",
+                                         "                 No             ")
+
+drop.place(x=650,y=2550)
+drop.config(width = 27)
 
 
 #btn_cal=Button(second_frame,text="Submit",font=("times new roman",20),bd=0,cursor="hand2",command=second_frame.insert_identity_data).place(x=250,y=1050)
-
-
-
-#other residance
-#other_residance=Label(second_frame,text="Are you a citizen/resident of any other country",font=("times new roman",15,"bold"),bg="white",fg="black").place(x=50,y=590)
-
-#second_frame.var1 = IntVar()
-#Checkbutton(second_frame, text="Yes", variable=second_frame.var1,font=("times new roman",15,"bold")).place(x=500,y=590)
-        
-#second_frame.var2 = IntVar()
-#Checkbutton(second_frame, text="No", variable=second_frame.var2,font=("times new roman",15,"bold")).place(x=600,y=590)
-
-
-#row 8------>>>
-
-#yes state
-#yes_state=Label(second_frame,text="If ‘Yes’ please state",font=("times new roman",15,"bold"),bg="white",fg="black").place(x=50,y=630)
-#second_frame.yes_state=Entry(second_frame,font=("times new roman",15),bg="lightgray")
-#second_frame.yes_state.place(x=350,y=630,width=500) 
-
-
-
-
-#adding section C titles
-#title=Label(second_frame,text="Section C – Address Information (Residential/Permanent Address)",font=("times new roman",20,"bold"),bg="black",fg="white").place(x=50,y=790)
-#row 1 ------>>>
 
 
 
