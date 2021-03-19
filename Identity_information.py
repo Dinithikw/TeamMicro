@@ -143,34 +143,70 @@ class expences:
         self.search_nic = self.NIC.get()
         self.search_fprint= self.finger.get()
         self.search_face = self.facer.get()
+        self.search_name = self.Name_with_Initials.get()
         
         #selecting touples with nic and fingerprint details
-        self.finger_nic = "SELECT * FROM identity_information WHERE NIC = %s AND  finger_print1= %s"
+        #self.finger_nic = "SELECT * FROM identity_information WHERE NIC = %s AND  finger_print1= %s"
+        self.find_nic = "SELECT * FROM identity_information WHERE NIC = %s"
+        self.find_finger = "SELECT * FROM identity_information WHERE finger_print1= %s"
 
         #comining two search results and cursor towords the database table
-        self.name = (self.search_nic, self.search_fprint)
-        self.result= cur.execute(self.finger_nic, self.name)
+        #self.name = (self.search_nic, self.search_fprint)
+        self.name = (self.search_nic, )
+        self.name1 = (self.search_fprint, )
+
+
+        self.result= cur.execute(self.find_nic, self.name)
         self.result= cur.fetchall()
+        
+        self.result1= cur.execute(self.find_finger, self.name1)
+        self.result1= cur.fetchall()
 
         #print(self.result[0][4])
 
         #if required fields are empty
         if not self.result:
-            self.result= "record not found"
+            self.result= "kyc not exist "
             print(self.result)
 
+
+        elif(self.search_fprint==self.result1[0][12]):
+            if(self.search_name==self.result1[0][2]):
+                print("existing kyc")       
+
         #if contain a field
-        else:
-            
-            if(self.search_nic==self.result[0][4] and self.search_fprint==self.result[0][12]) and self.search_face<="0.25":
+        elif(self.search_face<="0.25"):
+            print("cross check face")
+        
+        elif(self.search_nic==self.result[0][4]):
+            print("cross check nic")
+
+        
+            """self.finger_nic = "SELECT * FROM identity_information WHERE finger_print1= %s"
+            self.name = (self.search_nic, )
+            self.result= cur.execute(self.finger_nic, self.name)
+            self.result= cur.fetchall()
+
+            if(self.search_fprint==self.result[0][12]):"""
+
+
+
+            """if(self.search_nic==self.result[0][4] and self.search_fprint==self.result[0][12]) and self.search_face<="0.25":
                 
                 print("kyc exists")
             else:
 
-                if(self.search_nic==self.result[0][4] and self.search_fprint==self.result[0][12]):
+                if(self.search_nic==self.result[0][4] and self.search_face<="0.25"):
+                    print("kyc exists fingerprint fail")
+                    if(self.Name_with_Initials.get()==self.result[0][2]):
+                        print("kyc exists fingerprint fail and name exists")
+                
+                elif(self.search_nic==self.result[0][4] and self.search_fprint==self.result[0][12]):
                     print("kyc exists face fail")
                     if(self.Name_with_Initials.get()==self.result[0][2]):
-                        print("kyc exists face fail and name exists")
+                        print("kyc exists face fail and name exists")"""
+                
+                
                     
 
           
