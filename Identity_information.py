@@ -139,26 +139,29 @@ class expences:
     
     def register_data(self):
         
-        #define variable for taking input values
+        #define variable for taking input values==============================================================
+
         self.search_nic = self.NIC.get()
         self.search_fprint= self.finger.get()
         self.search_face = self.facer.get()
         self.search_name = self.Name_with_Initials.get()
         
-        #selecting touples with nic and fingerprint details
+        #selecting touples with different conditions==========================================================
+
         #self.finger_nic = "SELECT * FROM identity_information WHERE NIC = %s AND  finger_print1= %s"
         self.find_nic = "SELECT * FROM identity_information WHERE NIC = %s"
         self.find_finger = "SELECT * FROM identity_information WHERE finger_print1= %s"
         self.find_nic_finger = "SELECT * FROM identity_information WHERE NIC = %s AND finger_print1= %s"
         
 
-        #comining two search results and cursor towords the database table
+        #search results and cursor towords the database table===================================================
         #self.name = (self.search_nic, self.search_fprint)
+
         self.name = (self.search_nic, )
         self.name1 = (self.search_fprint, )
         self.name2 = (self.search_nic, self.search_fprint)
         
-
+        #defined cursors for each search list====================================================================
         self.result= cur.execute(self.find_nic, self.name)
         self.result= cur.fetchall()
         
