@@ -171,17 +171,21 @@ class expences:
 
         #print(self.result[0][4])
 
-        #if required fields are empty
+        #if required fields are empty or not satisfied
         if not self.result:
             self.result= "kyc not exist "
             print(self.result)
 
+            
+
         elif((self.search_nic==self.result2[0][4] and self.search_fprint==self.result2[0][12]) and self.search_face<="0.25"):
             print("existing kyc main condtion")
+
 
         elif(self.search_nic==self.result[0][4] and self.search_face<="0.25"):
             if(self.search_name==self.result[0][2]):
                 print("existing kyc Nic and face and name")
+
 
         elif(self.search_nic==self.result2[0][4] and self.search_fprint==self.result2[0][12]):
             if(self.search_name==self.result2[0][2]):
@@ -193,102 +197,108 @@ class expences:
 
         elif(self.search_fprint==self.result1[0][12]):
             if(self.search_name==self.result1[0][2]):
-                print("existing kyc fingerprint and name")       
+                print("existing kyc fingerprint and name")
 
-        #if contain a field
+                try:
+                    
+                    cur.execute("insert into identity_information_clone (name_with_initials, name_in_full, NIC, passport , expiration_date_passport, driving_license, expiration_date_driving_license, nationality, DOB, face_recognition, finger_print1) values(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)",
+                                    (self.Name_with_Initials.get(),
+                                    self.Name_in_Full.get(),
+                                    self.NIC.get(),
+                                    self.Passport.get(),
+                                    self.Exp_pass.get(),
+                                    self.driving_license.get(),
+                                    self.Exp_drive.get(),
+                                    self.Nationality.get(),
+                                    self.DOB.get(),
+                                    self.facer.get(),
+                                    self.finger.get()
+
+                                    ))
+
+                    con.commit()
+                    con.close()
+                    messagebox.showinfo("sucess","register sucessful",parent=self.root)
+                except Exception as es:
+                    messagebox.showerror("Error",f"error due to: {str(es)}",parent=self.root)
+
         elif(self.search_face<="0.25"):
             print("cross check face")
+
+            try:
+                    
+                cur.execute("insert into identity_information_clone (name_with_initials, name_in_full, NIC, passport , expiration_date_passport, driving_license, expiration_date_driving_license, nationality, DOB, face_recognition, finger_print1) values(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)",
+                                (self.Name_with_Initials.get(),
+                                self.Name_in_Full.get(),
+                                self.NIC.get(),
+                                self.Passport.get(),
+                                self.Exp_pass.get(),
+                                self.driving_license.get(),
+                                self.Exp_drive.get(),
+                                self.Nationality.get(),
+                                self.DOB.get(),
+                                self.facer.get(),
+                                self.finger.get()
+
+                                ))
+
+                con.commit()
+                con.close()
+                messagebox.showinfo("sucess","register sucessful",parent=self.root)
+            except Exception as es:
+                messagebox.showerror("Error",f"error due to: {str(es)}",parent=self.root)
         
         elif(self.search_nic==self.result[0][4]):
             print("cross check nic")
 
-        
-            """self.finger_nic = "SELECT * FROM identity_information WHERE finger_print1= %s"
-            self.name = (self.search_nic, )
-            self.result= cur.execute(self.finger_nic, self.name)
-            self.result= cur.fetchall()
-
-            if(self.search_fprint==self.result[0][12]):"""
-
-
-
-            """if(self.search_nic==self.result[0][4] and self.search_fprint==self.result[0][12]) and self.search_face<="0.25":
-                
-                print("kyc exists")
-            else:
-
-                if(self.search_nic==self.result[0][4] and self.search_face<="0.25"):
-                    print("kyc exists fingerprint fail")
-                    if(self.Name_with_Initials.get()==self.result[0][2]):
-                        print("kyc exists fingerprint fail and name exists")
-                
-                elif(self.search_nic==self.result[0][4] and self.search_fprint==self.result[0][12]):
-                    print("kyc exists face fail")
-                    if(self.Name_with_Initials.get()==self.result[0][2]):
-                        print("kyc exists face fail and name exists")"""
-                
-                
+            try:
                     
+                cur.execute("insert into identity_information_clone (name_with_initials, name_in_full, NIC, passport , expiration_date_passport, driving_license, expiration_date_driving_license, nationality, DOB, face_recognition, finger_print1) values(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)",
+                                (self.Name_with_Initials.get(),
+                                self.Name_in_Full.get(),
+                                self.NIC.get(),
+                                self.Passport.get(),
+                                self.Exp_pass.get(),
+                                self.driving_license.get(),
+                                self.Exp_drive.get(),
+                                self.Nationality.get(),
+                                self.DOB.get(),
+                                self.facer.get(),
+                                self.finger.get()
 
-          
+                                ))
 
-
-
-            #defining for loop to take every delatils in database where user "result" varible satisfies
-            """for index, x in enumerate(self.result):
-                print(x,index)
-                num =0
-                index += 2
-                id_reference = str(x[4])
-
-                #for future use
-                lambda id_reference:id_reference
-
-                #taking thhe touples of the users where referece of the "result" variable maches id is maches
-                self.sql2 = "SELECT * FROM customers WHERE user_id = %s" 
-                self.name2 = (id_reference, )
-
-                
-                self.result2= cur.execute(self.sql2, self.name2)
-                #self.result2= cur.fetchall()
-                #edit_button.grid(row=index, column=num)
-                
-                print(self.result2)
-
-                if(self.search_nic==str(self.result2[0][4]) and int(self.search_fprint)==(self.result2[0][12])):
-                    word="account exists"
-                    print(word)
-                
-                for y in x:
-                    #searched_label = Label(root, text=y)
-                    #searched_label.grid(row=index, column=num+1)
-                    num +=1"""
-            
+                con.commit()
+                con.close()
+                messagebox.showinfo("sucess","register sucessful",parent=self.root)
+            except Exception as es:
+                messagebox.showerror("Error",f"error due to: {str(es)}",parent=self.root)
             
 
+        else:
 
-        try:
-            
-            cur.execute("insert into identity_information (name_with_initials, name_in_full, NIC, passport , expiration_date_passport, driving_license, expiration_date_driving_license, nationality, DOB, face_recognition, finger_print1) values(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)",
-                            (self.Name_with_Initials.get(),
-                            self.Name_in_Full.get(),
-                            self.NIC.get(),
-                            self.Passport.get(),
-                            self.Exp_pass.get(),
-                            self.driving_license.get(),
-                            self.Exp_drive.get(),
-                            self.Nationality.get(),
-                            self.DOB.get(),
-                            self.facer.get(),
-                            self.finger.get()
+            try:
+                
+                cur.execute("insert into identity_information (name_with_initials, name_in_full, NIC, passport , expiration_date_passport, driving_license, expiration_date_driving_license, nationality, DOB, face_recognition, finger_print1) values(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)",
+                                (self.Name_with_Initials.get(),
+                                self.Name_in_Full.get(),
+                                self.NIC.get(),
+                                self.Passport.get(),
+                                self.Exp_pass.get(),
+                                self.driving_license.get(),
+                                self.Exp_drive.get(),
+                                self.Nationality.get(),
+                                self.DOB.get(),
+                                self.facer.get(),
+                                self.finger.get()
 
-                            ))
+                                ))
 
-            con.commit()
-            con.close()
-            messagebox.showinfo("sucess","register sucessful",parent=self.root)
-        except Exception as es:
-            messagebox.showerror("Error",f"error due to: {str(es)}",parent=self.root)
+                con.commit()
+                con.close()
+                messagebox.showinfo("sucess","register sucessful",parent=self.root)
+            except Exception as es:
+                messagebox.showerror("Error",f"error due to: {str(es)}",parent=self.root)
 
 
 
