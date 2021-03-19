@@ -181,16 +181,16 @@ class expences:
                 self.result2= cur.fetchall()
                 #edit_button.grid(row=index, column=num)
 
-                print(id_reference)
-                """if(self.search_nic==(self.result2[0][4]) and self.search_fprint==(self.result2[0][12])):
+                print(self.result2)
+                """if(self.search_nic==str(self.result2[0][4]) and int(self.search_fprint)==(self.result2[0][12])):
                     word="account exists"
                     print(word)
                 
                 for y in x:
                     #searched_label = Label(root, text=y)
                     #searched_label.grid(row=index, column=num+1)
-                    num +=1
-            x +=1"""
+                    num +=1"""
+            
             
 
 
