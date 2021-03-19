@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.4
+-- version 5.0.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 18, 2021 at 06:32 PM
--- Server version: 10.4.17-MariaDB
--- PHP Version: 8.0.0
+-- Generation Time: Mar 19, 2021 at 01:11 AM
+-- Server version: 10.4.14-MariaDB
+-- PHP Version: 7.4.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -66,18 +66,28 @@ CREATE TABLE `employment_information` (
 --
 
 CREATE TABLE `identity_information` (
-  `Serial No` int(50) NOT NULL,
-  `Identification Code` text NOT NULL,
-  `Name with Initials` varchar(50) NOT NULL,
-  `Name in Full` text NOT NULL,
-  `Identity Recognition` varchar(15) NOT NULL,
-  `Expiration Date` date NOT NULL,
-  `Nationality` varchar(25) NOT NULL,
+  `serial_no` int(50) NOT NULL,
+  `identification_code` text NOT NULL,
+  `name_with_initials` varchar(50) NOT NULL,
+  `name_in_full` text NOT NULL,
+  `NIC` varchar(12) NOT NULL,
+  `passport` varchar(50) NOT NULL,
+  `driving_license` varchar(50) NOT NULL,
+  `expiration_date_passport` date NOT NULL,
+  `expiration_date_driving_license` date NOT NULL,
+  `nationality` varchar(25) NOT NULL,
   `DOB` date NOT NULL,
-  `Face Recognition` text NOT NULL,
-  `Finger Print 01` varchar(10) NOT NULL,
-  `Finger Print 02` varchar(10) NOT NULL
+  `face_recognition` blob NOT NULL,
+  `finger_print1` blob NOT NULL,
+  `finger_print2` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `identity_information`
+--
+
+INSERT INTO `identity_information` (`serial_no`, `identification_code`, `name_with_initials`, `name_in_full`, `NIC`, `passport`, `driving_license`, `expiration_date_passport`, `expiration_date_driving_license`, `nationality`, `DOB`, `face_recognition`, `finger_print1`, `finger_print2`) VALUES
+(1, '', 'dsk', 'dinithi', '985310165V', '123', '456', '0000-00-00', '0000-00-00', 'sri lankan', '1998-01-31', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -121,7 +131,7 @@ ALTER TABLE `employment_information`
 -- Indexes for table `identity_information`
 --
 ALTER TABLE `identity_information`
-  ADD PRIMARY KEY (`Serial No`);
+  ADD PRIMARY KEY (`serial_no`);
 
 --
 -- Indexes for table `office_use`
@@ -137,7 +147,7 @@ ALTER TABLE `office_use`
 -- AUTO_INCREMENT for table `identity_information`
 --
 ALTER TABLE `identity_information`
-  MODIFY `Serial No` int(50) NOT NULL AUTO_INCREMENT;
+  MODIFY `serial_no` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
