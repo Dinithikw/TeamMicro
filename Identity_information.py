@@ -162,9 +162,14 @@ class expences:
         #if contain a field
         else:
             
-            if(self.search_nic==self.result[0][4] and self.search_fprint==self.result[0][12]):
+            if(self.search_nic==self.result[0][4] and self.search_fprint==self.result[0][12]) and self.search_face<="0.25":
                 
-                print(self.result[0][4])
+                print("kyc exists")
+            else:
+                
+                if(self.search_nic==self.result[0][4] and self.search_fprint==self.result[0][12]):
+                    print("kyc exists condition 2")
+          
 
 
 
