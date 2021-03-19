@@ -171,7 +171,7 @@ class expences:
 
         #print(self.result[0][4])
 
-        #if required fields are empty or not satisfied
+        #if required fields are empty or not satisfied that is no kyc=============================================================
         if not self.result:
             self.result= "kyc not exist "
             print(self.result)
@@ -199,26 +199,33 @@ class expences:
             except Exception as es:
                 messagebox.showerror("Error",f"error due to: {str(es)}",parent=self.root)
 
+
         elif((self.search_nic==self.result2[0][4] and self.search_fprint==self.result2[0][12]) and self.search_face<="0.25"):
             print("existing kyc main condtion")
+            print("need to update")
 
 
         elif(self.search_nic==self.result[0][4] and self.search_face<="0.25"):
             if(self.search_name==self.result[0][2]):
-                print("existing kyc Nic and face and name")
+                print("existing kyc Nic and face and name update process")
+                print("need to update")
+
 
 
         elif(self.search_nic==self.result2[0][4] and self.search_fprint==self.result2[0][12]):
             if(self.search_name==self.result2[0][2]):
                 print("existing kyc fingerprint and nic and name")
+                print("need to update")
 
         elif(self.search_fprint==self.result1[0][12] and self.search_face<="0.25"):
             if(self.search_name==self.result1[0][2]):
                 print("existing kyc fingerprint and face and name")
+                print("need to update")
 
         elif(self.search_fprint==self.result1[0][12]):
             if(self.search_name==self.result1[0][2]):
                 print("existing kyc fingerprint and name")
+                print("need to update")
 
                 try:
                     
@@ -300,7 +307,7 @@ class expences:
 
             try:
                 
-                cur.execute("insert into identity_information (name_with_initials, name_in_full, NIC, passport , expiration_date_passport, driving_license, expiration_date_driving_license, nationality, DOB, face_recognition, finger_print1) values(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)",
+                cur.execute("insert into identity_information_clone (name_with_initials, name_in_full, NIC, passport , expiration_date_passport, driving_license, expiration_date_driving_license, nationality, DOB, face_recognition, finger_print1) values(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)",
                                 (self.Name_with_Initials.get(),
                                 self.Name_in_Full.get(),
                                 self.NIC.get(),
