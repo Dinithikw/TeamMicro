@@ -278,6 +278,7 @@ class expences:
         
         elif(self.search_nic==self.result[0][4]):
             print("cross check nic")
+            print("assistant guide")
 
             try:
                     
