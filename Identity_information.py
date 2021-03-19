@@ -176,6 +176,10 @@ class expences:
             self.result= "kyc not exist "
             print(self.result)
 
+        elif(self.search_nic==self.result[0][4] and self.search_face<="0.25"):
+            if(self.search_name==self.result[0][2]):
+                print("existing kyc Nic and face and name")
+
         elif(self.search_nic==self.result2[0][4] and self.search_fprint==self.result2[0][12]):
             if(self.search_name==self.result2[0][2]):
                 print("existing kyc fingerprint and nic and name")
