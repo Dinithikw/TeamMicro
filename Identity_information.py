@@ -149,6 +149,7 @@ class expences:
         #self.finger_nic = "SELECT * FROM identity_information WHERE NIC = %s AND  finger_print1= %s"
         self.find_nic = "SELECT * FROM identity_information WHERE NIC = %s"
         self.find_finger = "SELECT * FROM identity_information WHERE finger_print1= %s"
+        
 
         #comining two search results and cursor towords the database table
         #self.name = (self.search_nic, self.search_fprint)
@@ -168,11 +169,14 @@ class expences:
         if not self.result:
             self.result= "kyc not exist "
             print(self.result)
-
+        
+        elif(self.search_fprint==self.result1[0][12] and self.search_face<="0.25"):
+            if(self.search_name==self.result1[0][2]):
+                print("existing kyc fingerprint and face")
 
         elif(self.search_fprint==self.result1[0][12]):
             if(self.search_name==self.result1[0][2]):
-                print("existing kyc")       
+                print("existing kyc fingerprint")       
 
         #if contain a field
         elif(self.search_face<="0.25"):
