@@ -213,13 +213,13 @@ Checkbutton(second_frame, text="Employeement/Professional Income", variable=seco
 second_frame.var4 = IntVar()
 Checkbutton(second_frame, text="Rare Transactions", variable=second_frame.var4, bg="lightsteelblue").place(x=500,y=1520)
 second_frame.var5 = IntVar()
-Checkbutton(second_frame, text="Upkeep of Family/Person", variable=second_frame.var5, bg="lightsteelblue").place(x=850,y=1400)
+Checkbutton(second_frame, text="Upkeep of Family/Person", variable=second_frame.var5, bg="lightsteelblue").place(x=800,y=1400)
 second_frame.var6 = IntVar()
-Checkbutton(second_frame, text="Utility Bill Payment", variable=second_frame.var6, bg="lightsteelblue").place(x=850,y=1440)
+Checkbutton(second_frame, text="Utility Bill Payment", variable=second_frame.var6, bg="lightsteelblue").place(x=800,y=1440)
 second_frame.var7 = IntVar()
-Checkbutton(second_frame, text="Savings", variable=second_frame.var7, bg="lightsteelblue").place(x=850,y=1480)
+Checkbutton(second_frame, text="Savings", variable=second_frame.var7, bg="lightsteelblue").place(x=800,y=1480)
 second_frame.var8 = IntVar()
-Checkbutton(second_frame, text="Loan Repayment", variable=second_frame.var8, bg="lightsteelblue").place(x=850,y=1520)
+Checkbutton(second_frame, text="Loan Repayment", variable=second_frame.var8, bg="lightsteelblue").place(x=800,y=1520)
 
 
 #adding section C title
@@ -247,7 +247,7 @@ drop.config(width = 27)
 #Occupation
 Occupation=Label(second_frame,text="Occupation",font=("times new roman",15,"bold"),bg="lightsteelblue",fg="black").place(x=250,y=1650)
 second_frame.Occupation=Entry(second_frame,font=("times new roman",15),bg="lavender")
-second_frame.Occupation.place(x=500,y=1650,width=700)
+second_frame.Occupation.place(x=500,y=1650,width=800)
 
 
 
@@ -357,7 +357,7 @@ Checkbutton(second_frame, text="Grama Niladari", variable=second_frame.var8, bg=
 
 
 #PEP (Polotically Exposed Person)
-PEP=Label(second_frame,text="Are You a Polotically Exposed Person..?",font=("times new roman",15,"bold"),bg="lightsteelblue",fg="black").place(x=250,y=2520)
+PEP=Label(second_frame,text="Are You a Polotically Exposed Person..?",font=("times new roman",15,"bold"),bg="lightsteelblue",fg="black").place(x=450,y=2520)
 
 clicked = StringVar()
 clicked.set("<--- Select Choice --->")
@@ -365,12 +365,12 @@ clicked.set("<--- Select Choice --->")
 drop = OptionMenu(second_frame, clicked ,"                 Yes             ",
                                          "                 No             ")
 
-drop.place(x=650,y=2520)
+drop.place(x=850,y=2520)
 drop.config(width = 27)
 
 
 #US Citizen
-USC=Label(second_frame,text="Are You a Citizen of United States..?",font=("times new roman",15,"bold"),bg="lightsteelblue",fg="black").place(x=250,y=2570)
+USC=Label(second_frame,text="Are You a Citizen of United States..?",font=("times new roman",15,"bold"),bg="lightsteelblue",fg="black").place(x=450,y=2570)
 
 clicked = StringVar()
 clicked.set("<--- Select Choice --->")
@@ -378,7 +378,7 @@ clicked.set("<--- Select Choice --->")
 drop = OptionMenu(second_frame, clicked ,"                 Yes             ",
                                          "                 No             ")
 
-drop.place(x=650,y=2570)
+drop.place(x=850,y=2570)
 drop.config(width = 27)
 
 
