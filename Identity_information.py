@@ -176,7 +176,28 @@ class expences:
             self.result= "kyc not exist "
             print(self.result)
 
-            
+            try:
+                
+                cur.execute("insert into identity_information (name_with_initials, name_in_full, NIC, passport , expiration_date_passport, driving_license, expiration_date_driving_license, nationality, DOB, face_recognition, finger_print1) values(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)",
+                                (self.Name_with_Initials.get(),
+                                self.Name_in_Full.get(),
+                                self.NIC.get(),
+                                self.Passport.get(),
+                                self.Exp_pass.get(),
+                                self.driving_license.get(),
+                                self.Exp_drive.get(),
+                                self.Nationality.get(),
+                                self.DOB.get(),
+                                self.facer.get(),
+                                self.finger.get()
+
+                                ))
+
+                con.commit()
+                con.close()
+                messagebox.showinfo("sucess","register sucessful",parent=self.root)
+            except Exception as es:
+                messagebox.showerror("Error",f"error due to: {str(es)}",parent=self.root)
 
         elif((self.search_nic==self.result2[0][4] and self.search_fprint==self.result2[0][12]) and self.search_face<="0.25"):
             print("existing kyc main condtion")
