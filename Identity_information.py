@@ -5,9 +5,15 @@ from tkinter import *
 from tkinter import ttk,messagebox
 #pip install pillow
 from PIL import Image,ImageTk 
-
+import mysql.connector
 #pip istall pymysql
 import pymysql
+#==============================================================================================================================
+# making connection to database
+con=pymysql.connect(host="localhost",user="root",password="",database="kyc")
+cur=con.cursor()
+
+
 
 #===============================================================================================================================
 #creating class call expences
@@ -125,9 +131,8 @@ class expences:
         #print(self.var_hloans.get())
 
         try:
-            con=pymysql.connect(host="localhost",user="root",password="",database="kyc")
-            cur=con.cursor()
-            cur.execute("insert into identity_information (name_with_initials, name_in_full, NIC, passport, driving_license, expiration_date_passport, expiration_date_driving_license, nationality, DOB) values(%s,%s,%s,%s,%s,%s,%s,%s,%s)",
+            
+            cur.execute("insert into identity_information (name_with_initials, name_in_full, NIC, passport , expiration_date_passport, driving_license, expiration_date_driving_license, nationality, DOB) values(%s,%s,%s,%s,%s,%s,%s,%s,%s)",
                             (self.Name_with_Initials.get(),
                             self.Name_in_Full.get(),
                             self.NIC.get(),
