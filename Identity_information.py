@@ -152,7 +152,7 @@ class expences:
         self.result= cur.execute(self.finger_nic, self.name)
         self.result= cur.fetchall()
 
-        
+        #print(self.result[0][4])
 
         #if required fields are empty
         if not self.result:
@@ -162,8 +162,14 @@ class expences:
         #if contain a field
         else:
             
+            if(self.search_nic==self.result[0][4] and self.search_fprint==self.result[0][12]):
+                
+                print(self.result[0][4])
+
+
+
             #defining for loop to take every delatils in database where user "result" varible satisfies
-            for index, x in enumerate(self.result):
+            """for index, x in enumerate(self.result):
                 print(x,index)
                 num =0
                 index += 2
@@ -178,11 +184,12 @@ class expences:
 
                 
                 self.result2= cur.execute(self.sql2, self.name2)
-                self.result2= cur.fetchall()
+                #self.result2= cur.fetchall()
                 #edit_button.grid(row=index, column=num)
-
+                
                 print(self.result2)
-                """if(self.search_nic==str(self.result2[0][4]) and int(self.search_fprint)==(self.result2[0][12])):
+
+                if(self.search_nic==str(self.result2[0][4]) and int(self.search_fprint)==(self.result2[0][12])):
                     word="account exists"
                     print(word)
                 
