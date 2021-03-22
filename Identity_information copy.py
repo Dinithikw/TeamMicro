@@ -183,20 +183,28 @@ class expences:
         if self.search_face>="0.25" or (not self.result2) :
             print("kyc not exists for all conditions (id, face, and fingerprint)")
 
-            if not self.result1:
-                print("kyc not exists for finger check")
+            if not self.result2:
+                print("kyc not exists for conditions (id, and fingerprint)")
 
-                if not self.result:
-                    print("kyc not exists for id check")
+                
+                if not self.result1:
+                    print("kyc not exists for finger check")
 
+                    if not self.result:
+                        print("kyc not exists for id check")
+
+                    else:
+                        print("id contain")
+                
                 else:
-                    print("id contain")
-            
+                    print("fingerprint contain")
+
             else:
-                print("fingerprint contain")
+                print("kyc exists for conditions (id, and fingerprint)")
         
         else:
             print("kyc exists for all conditions")
+            print("update")
 
 
         
