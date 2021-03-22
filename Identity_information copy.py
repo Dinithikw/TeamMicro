@@ -179,6 +179,28 @@ class expences:
         #print(self.result[0][4])
 
         #if required fields are empty or not satisfied that is no kyc=============================================================
+
+        if self.search_face>="0.25" or (not self.result2) :
+            print("kyc not exists for all conditions (id, face, and fingerprint)")
+
+            if not self.result1:
+                print("kyc not exists for finger check")
+
+                if not self.result:
+                    print("kyc not exists for id check")
+
+                else:
+                    print("id contain")
+            
+            else:
+                print("fingerprint contain")
+        
+        else:
+            print("kyc exists for all conditions")
+
+
+        
+        """
         if not self.result:
             self.result= "kyc not exist "
             print(self.result)
@@ -209,7 +231,7 @@ class expences:
         #******************* in each and every face recogniton part the face_model needed to integrate***********
 
         #condition for  nic, fingerprint and face recognition=======================================================================
-
+        elif not self.result:
 
         elif((self.search_nic==self.result2[0][4] and self.search_fprint==self.result2[0][12]) and self.search_face<="0.25"):
             print("existing kyc main condtion")
@@ -351,7 +373,7 @@ class expences:
                 messagebox.showinfo("sucess","register sucessful",parent=self.root)
             except Exception as es:
                 messagebox.showerror("Error",f"error due to: {str(es)}",parent=self.root)
-
+"""
 """def clear():
     
     self.Name_with_Initials(0, END)
