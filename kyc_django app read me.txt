@@ -1,2 +1,16 @@
 user name: kyc
 password: kyc12345
+
+
+
+#go to kyc_django folder using
+cd kyc_django
+
+#then create virtual environment
+python -m venv env
+
+#activate virtual environment
+env\scripts\activate 
+
+#to run server
+Python manage.py runserver
