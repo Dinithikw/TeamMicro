@@ -15,7 +15,11 @@ Including another URLconf
 """
 
 from django.conf.urls import url
+#import views from current directory
+from . import views
+
 
 urlpatterns = [
-    #path('admin/', admin.site.urls),
+    url(r'^$',views.index, name='index'),
+    url(r'^add_kyc/$',views.addkyc, name='add_kyc'),
 ]
