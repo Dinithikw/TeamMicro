@@ -12,5 +12,7 @@ python -m venv env
 #activate virtual environment
 env\scripts\activate 
 
+virtual\scripts\activate 
+
 #to run server
 Python manage.py runserver
