@@ -14,7 +14,14 @@
 
 
 <body>
-  <form action="/your-name/" method="post">
+  <div class="row">
+    <div class="col-md-5">
+      <form>
+        <h5>Personel Information</h5>
+      </form>
+    </div>
+  </div>
+  <!--<form action="/your-name/" method="post">
     <label for="your_name">Your name: </label>
     <input id="your_name" type="text" name="your_name" value="{{ current_name }}">
     <input type="submit" value="OK">
@@ -24,7 +31,7 @@
   <p>First Name: <input type="text" name="firstname"></p>
   <p>Last Name: <input type="text" name="lastname"></p>
   <p><input type="submit" value="Submit"></p>
-</form>
+</form>-->
 
 
     {% block content %}
