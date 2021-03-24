@@ -2,6 +2,16 @@
 
 {% block content %}
     
-    <p>html page 1</p>
+<form action="/your-name/" method="post">
+    <label for="your_name">Your name: </label>
+    <input id="your_name" type="text" name="your_name" value="{{ current_name }}">
+    <input type="submit" value="OK">
+</form>
+
+<form>
+  <p>First Name: <input type="text" name="firstname"></p>
+  <p>Last Name: <input type="text" name="lastname"></p>
+  <p><input type="submit" value="Submit"></p>
+</form>
 
 {% endblock %}
