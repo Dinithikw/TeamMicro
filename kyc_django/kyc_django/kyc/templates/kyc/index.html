@@ -17,14 +17,19 @@
       .personal_info{
         margin-left: 20px;
       }
+      .contact_info{
+        margin-left: 20px;
+      }
       form{
         border:1px solid #232322;
         border-radius: 15px;
+        height:600px;
       }
       input{
         border-radius: 5px;
         width:90%;
-        font-size: 15px;
+        height:30px;
+        font-size: 12px;
         border:1px solid #232322;
       }
       select{
@@ -41,6 +46,15 @@
         border-left: 1px solid #232322;
         padding-left: 10px;
       }
+      .title{
+        margin-bottom: 50px;
+        font-size: 30px;
+        background-color: #E4E3DA;
+      }
+      .contact tr td{
+        width:25%;
+        padding-bottom: 20px;
+      }
     </style>
 </head>
 
@@ -48,7 +62,7 @@
 <body>
   <div class="row">
     <div class="col-md-12 title">
-      <h3>Know Your Customer</h3>
+      <p style="padding-top:10px; padding-left:50px;"><b>Know Your Customer</b></p>
     </div>
   </div>
 
@@ -141,83 +155,70 @@
       <div class="col-md-5 contact_info">
         <form>
             <center><h5>Contact Information</h5></center>
-            <table align="center" width="90%">
-                <tr>
-                    <td>
-                        <p class = "name">Name in Full<br>
-                        <input class = "fullname" type = "text" name = "fullname" placeholder = "Full Name" required>
-                    </td>
-                    <td>
-                        <p class = "name">Name with Initials</br>
-                        <input class = "nwi" type = "text" name = "nwi" placeholder = "Name with Initials" required>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <p class = "ID_Recognitio">Identity Recognititon
-                        <select name="ID_type" id="ID_type">
-                            <option value="National ID">National ID</option>
-                            <option value="Passport">Passport</option>
-                            <option value="Driving License">Driving License</option>
-                            <!-- <option value="Senior Citizen ID">Senior Citizen ID</option> -->
-                            <option value="Other">Other</option>
-                          </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <p class = "NIC">NIC</br>
-                        <input class = "NIC" type = "text" name = "NIC" placeholder = "NIC" required>
-                    </td>
-                    <td>
-
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <p class = "Driving_License">Driving License</br>
-                        <input class = "Driving_License" type = "text" name = "driving_license" placeholder = "Driving License" required>
-                    </td>
-                    <td>
-                        <p class = "Exp">Expiration Date</br>
-                        <input class = "Exp" type = "text" name = "drive_exp" placeholder = "Expire Date" required>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <p class = "Passport">Passport No.<br>
-                        <input class = "Passport" type = "text" name = "passport" placeholder = "Passport" required>
-                    </td>
-                    <td>
-                        <p class = "Exp">Expiration Date</br>
-                        <input class = "Exp" type = "text" name = "passport_exp" placeholder = "Expire Date" required>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <p class = "Nationality"> Nationality<br>   
-                        <select name="Nationality" id="Nationality">
-                            <option value="Sri Lankan">Sri Lankan</option>
-                            <option value="Other">Other</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <p class = "Nationality"> If Other Please Specify<br>
-                        <input class = "Nationality" type = "text" name = "Nationality" placeholder = "Nationality" required>
-                    </td>
-                    <td>
-
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <p class = "DOB">Date of Birth <br>
-                        <input type="date" id="birthday" name="birthday">
-                    </td>
-                </tr>
+            <p style="padding-left: 35px;"><i>Residential Information</i></p>
+            <center><table class="contact" width="90%"></center>
+            <tr>
+              <td>
+                <label>House number</label>
+              </td>
+              <td>
+                <input type="text" name="house_number">
+              </td>
+              <td>
+                <label>Street</label>
+              </td>
+              <td>
+                <input type="text" name="street">
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label>City</label>
+              </td>
+              <td>
+                <input type="text" name="city">
+              </td>
+              <td>
+                <label>Country</label>
+              </td>
+              <td>
+                <input type="text" name="country">
+              </td>
+            </tr>
             </table>
+            <br>
+            <p style="text-align: left; padding-left: 35px;"><i>Contact Information</i></p>
+            <table class="contact" width="90%">
+              <tr>
+                <td>
+                  <p>Mobile number<br>
+                  <input type="text" name="mobile_number">
+                </td>
+                <td>
+                  <p>Office<br>
+                  <input type="text" name="office_number">
+                </td>
+                <td>
+                  <p>Home<br>
+                  <input type="text" name="home_number">
+                </td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>
+                  <p>Email Address</p>
+                </td>
+                <td>
+                  <input type="text" name="email">
+                </td>
+              </tr>
+            </table></center>
+            <br><br><br><br><br>
+            <p style="padding-left: 450px;"><button type="button" class="btn btn-primary">Next</button></p>
+          </form>
       </div>
       <div class="col-md-1">
           
