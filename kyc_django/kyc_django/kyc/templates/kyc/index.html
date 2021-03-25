@@ -10,6 +10,38 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <title>Document</title>
+    {% load static %}
+    <link rel="stytlesheet" href="{% static 'index.css' %}">
+
+    <style>
+      .personal_info{
+        margin-left: 20px;
+      }
+      form{
+        border:1px solid #232322;
+        border-radius: 15px;
+      }
+      input{
+        border-radius: 5px;
+        width:90%;
+        font-size: 15px;
+        border:1px solid #232322;
+      }
+      select{
+        border-radius: 5px;
+        width:90%;
+        font-size: 15px;
+        border:1px solid #232322;
+      }
+      table tr td{
+        width:50%;
+        padding-left: 10px;
+      }
+      .left_border{
+        border-left: 1px solid #232322;
+        padding-left: 10px;
+      }
+    </style>
 </head>
 
 
@@ -24,8 +56,8 @@
       <div class="col-md-1">
 
       </div>
-      <div class="col-md-5 personel_info" style="padding-left: 50px;;">
-        <form style="border:1px solid blue;">
+      <div class="col-md-5 personel_info">
+        <form>
             <center><h5>Personal Information</h5></center>
             <table align="center" width="90%">
                 <tr>
@@ -64,7 +96,7 @@
                         <p class = "Driving_License">Driving License</br>
                         <input class = "Driving_License" type = "text" name = "driving_license" placeholder = "Driving License" required>
                     </td>
-                    <td>
+                    <td class="left_border">
                         <p class = "Exp">Expiration Date</br>
                         <input class = "Exp" type = "text" name = "drive_exp" placeholder = "Expire Date" required>
                     </td>
@@ -74,7 +106,7 @@
                         <p class = "Passport">Passport No.<br>
                         <input class = "Passport" type = "text" name = "passport" placeholder = "Passport" required>
                     </td>
-                    <td>
+                    <td class="left_border">
                         <p class = "Exp">Expiration Date</br>
                         <input class = "Exp" type = "text" name = "passport_exp" placeholder = "Expire Date" required>
                     </td>
@@ -107,9 +139,9 @@
         </form>
       </div>
       <div class="col-md-5 contact_info">
-        <form style="border:1px solid blue;">
-            <center><h5>Personal Information</h5></center>
-            <table align="center" width="90%" border="1px solid #000">
+        <form>
+            <center><h5>Contact Information</h5></center>
+            <table align="center" width="90%">
                 <tr>
                     <td>
                         <p class = "name">Name in Full<br>
