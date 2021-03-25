@@ -16,21 +16,265 @@
 <body>
   <div class="row">
     <div class="col-md-12 title">
-      <p>Know Your Customer</p>
+      <h3>Know Your Customer</h3>
     </div>
   </div>
   <div class="row">
-    <div class="col-md-5">
+
+    <div class="col-md-6">
       <form>
         <h5>Personel Information</h5>
       </form>
     </div>
-    <div class="col-md-5">
+
+    <div class="col-md-6">
+      <form>
+        <h5>Contacts</h5>
+      </form>
+    </div>
+  </div>
+
+  <br>
+
+<div class="row">
+    <div class="col-md-3">
+      <form>
+        <h5 class = "name">Name in Full</h5>
+        <input class = "fullname" type = "text" name = "fullname" placeholder = "Full Name" required>
+      </form>
+    </div>
+
+    <div class="col-md-3">
+      <form>
+        <h5 class = "name">Name with Initials</h5>
+        <input class = "nwi" type = "text" name = "nwi" placeholder = "Name with Initials" required>
+      </form>
+    </div>
+
+
+    <div class="col-md-3">
+        <form>
+          <h5 class = "address">House No.</h5>
+          <input class = "House_No" type = "text" name = "House" placeholder = "House No." required>
+        </form>
+    </div>
+
+      <div class="col-md-3">
+        <form>
+          <h5 class = "address">Street</h5>
+          <input class = "Street" type = "text" name = "Street" placeholder = "Street" required>
+        </form>
+      </div>
+</div>
+
+<br>
+  <div class="row">
+      <div class="col-md-2">
+        <form>
+          <h5 class = "ID_Recognitio">Identity Recognititon</h5>
+        </form>
+      </div>
+  
+      <div class="col-md-4">
+        <form>
+          <select name="ID_type" id="ID_type">
+            <option value="National ID">National ID</option>
+            <option value="Passport">Passport</option>
+            <option value="Driving License">Driving License</option>
+            <!-- <option value="Senior Citizen ID">Senior Citizen ID</option> -->
+            <option value="Other">Other</option>
+          </select>
+        </form>
+      </div>
+
+      <div class="col-md-3">
+        <form>
+          <h5 class = "address">City</h5>
+          <input class = "City" type = "text" name = "City" placeholder = "City" required>
+        </form>
+      </div>
+
+      <div class="col-md-3">
+        <form>
+          <h5 class = "address">Country</h5>
+          <input class = "Country" type = "text" name = "Country" placeholder = "Country" required>
+        </form>
+      </div>
+  </div>
+
+<br>
+
+<div class="row">
+    <div class="col-md-3">
+      <form>
+        <h5 class = "NIC">NIC</h5> 
+      </form>
+    </div>
+
+      <div class="col-md-3">
+        <form>
+          <input class = "NIC" type = "text" name = "NIC" placeholder = "NIC" required>
+        </form>
+      </div>
+
+      <div class="col-md-3">
+        <form>
+          <h5 class = "address">Postal Code</h5>
+          <input class = "Postal_Code" type = "text" name = "Postal_Code" placeholder = "Postal Code" required>
+        </form>
+      </div>
+</div>
+
+<br>
+
+<div class="row">
+  <div class="col-md-3">
+    <form>
+      <h5 class = "Driving_License">Driving License</h5>
+      <input class = "Driving_License" type = "text" name = "Driving_License" placeholder = "Driving License" required>
+    </form>
+  </div>
+
+  <div class="col-md-3">
+    <form>
+      <h5 class = "Exp">Expiration Date</h5>
+      <input class = "Exp" type = "text" name = "Exp" placeholder = "Expire Date" required>
+    </form>
+  </div>
+
+<br>
+    <div class="col-md-6">
       <form>
         <h5>Contact Information</h5>
       </form>
     </div>
   </div>
+
+<br>
+
+<div class="row">
+  <div class="col-md-3">
+    <form>
+      <h5 class = "Passport">Passport No.</h5>
+      <input class = "Passport" type = "text" name = "Passport" placeholder = "Passport" required>
+    </form>
+  </div>
+
+  <div class="col-md-3">
+    <form>
+      <h5 class = "Exp">Expiration Date</h5>
+      <input class = "Exp" type = "text" name = "Exp" placeholder = "Expire Date" required>
+    </form>
+  </div>
+
+
+  <div class="col-md-2">
+    <form>
+      <h5 class = "Mobile">Mobile</h5>
+      <input class = "Mobile" type = "text" name = "Exp" placeholder = "Mobile" required>
+    </form>
+  </div>
+
+  <div class="col-md-2">
+    <form>
+      <h5 class = "Office">Office</h5>
+      <input class = "Office" type = "text" name = "Office" placeholder = "Office" required>
+    </form>
+  </div>
+
+  <div class="col-md-2">
+    <form>
+      <h5 class = "Home">Home</h5>
+      <input class = "Home" type = "text" name = "Home" placeholder = "Home" required>
+    </form>
+  </div>
+
+</div>
+
+<br>
+
+<div class="row">
+    <div class="col-md-6">
+      <form>
+        <h5 class = "VID">Enter your valid ID type </h5>
+          <input class = "VID" type = "text" name = "VID" placeholder = "Valid ID Type" required>        
+          <input class = "VID" type = "text" name = "VID" placeholder = "ID No." required>   
+    </div> 
+    
+    <div class="col-md-1">
+      <form>
+				<h5 class = "Email">E-mail</h5>
+    </div>
+
+    <div class="col-md-2">
+      <form>
+					<input class = "email" type = "email" name = "email" placeholder = "E-mail" required> 
+    </div>
+
+
+
+
+
+
+
+
+</div>  
+
+<br> 
+ 
+<div class="row">
+  <div class="col-md-3">
+    <h5 class = "Nationality"> Nationality</h5>
+  </div>  
+  <div class="col-md-3">  
+      <select name="Nationality" id="Nationality">
+        <option value="Sri Lankan">Sri Lankan</option>
+        <option value="Other">Other</option>
+      </select>
+
+  </div>
+</div>
+
+<br>
+
+<div class="row">
+  <div class="col-md-12">
+    <h5 class = "Nationality"> If Other Please Specify</h5>
+    <input class = "Nationality" type = "text" name = "Nationality" placeholder = "Nationality" required>
+  </div> 
+</div>
+
+<br>
+
+<div class="row">  
+     <div class="col-md-3">
+          <h5 class = "DOB">Date of Birth </h5>
+     </div>
+
+      <div class="col-md-3">        
+          <input type="date" id="birthday" name="birthday">
+    </div> 
+</div>  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   <!--<form action="/your-name/" method="post">
     <label for="your_name">Your name: </label>
     <input id="your_name" type="text" name="your_name" value="{{ current_name }}">
