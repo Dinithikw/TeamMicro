@@ -16,3 +16,14 @@ virtual\scripts\activate
 
 #to run server
 Python manage.py runserver
+
+
+to create modeled database
+python manage.py makemigrations kyc_web
+
+to migrate
+python manage.py migrate
+
+
+to check migrated py files
+python manage.py sqlmigrate kyc_web 0002
