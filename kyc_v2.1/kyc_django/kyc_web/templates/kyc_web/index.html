@@ -60,4 +60,10 @@
     <button type="submit" class="btn btn-primary btn-block mb-4" style="max-width: 100px;">Submit</button>
   </form>
 
+    {% for kycs in kyc_name %}
+        <p>{{kycs.name_init}}</p>
+    {% endfor %}
+
+
+
 {% endblock %}
