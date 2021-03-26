@@ -22,4 +22,6 @@ from . import views
 urlpatterns = [
     url(r'^$',views.index, name='index'),
     url(r'^add_kyc/$',views.addkyc, name='add_kyc'),
+    url(r'^add_kyc_submit/$',views.add_kyc_submit, name='add_kyc_submit'),
+
 ]
