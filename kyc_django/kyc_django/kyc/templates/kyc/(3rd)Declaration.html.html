@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <title>Document</title>
+    {% load static %}
+    <link rel="stytlesheet" href="{% static 'index.css' %}">
+
+    <style>
+      .personal_info{
+        margin-left: 20px;
+      }
+      .contact_info{
+        margin-left: 20px;
+      }
+      form{
+        border:1px solid #232322;
+        border-radius: 15px;
+        height:600px;
+      }
+      input{
+        border-radius: 5px;
+        width:90%;
+        height:30px;
+        font-size: 12px;
+        border:1px solid #232322;
+      }
+      select{
+        border-radius: 5px;
+        width:90%;
+        font-size: 15px;
+        border:1px solid #232322;
+      }
+      table tr td{
+        width:50%;
+        padding-left: 10px;
+      }
+      .left_border{
+        border-left: 1px solid #232322;
+        padding-left: 10px;
+      }
+      .title{
+        margin-bottom: 50px;
+        font-size: 30px;
+        background-color: #E4E3DA;
+      }
+      .contact tr td{
+        width:25%;
+        padding-bottom: 20px;
+      }
+      .check tr td{
+        width:25%;
+        padding-bottom: 20px;
+
+      }
+      .check {
+        height:20px;
+        width: 20px;
+      }
+
+      
+
+
+      .declaration{
+        text-align: justify;
+        text-justify: inter-word;
+      }
+
+    </style>
+</head>
+
+
+<body>
+
+<div class="row">
+  <div class="col-md-12 title">
+    <p style="padding-top:10px; padding-left:50px;"><b>Know Your Customer</b></p>
+  </div>
+</div>
+
+<div class="row">
+    <div class="col-md-1">
+
+    </div>
+    <div class="col-md-5 personel_info">
+      <form>
+  
+        <center><table class="contact" width="90%"></center>
+
+        <tr>
+
+          <div class="row" style="padding-top:20px;"> 
+            <div class="col-md-6">
+              <p class = "Author">Operating Authority of the Accounts</p>
+            </div>
+         
+            <div class="col-md-5">
+                
+						  <select name="Author" id="Author">
+                <option value="My-Self/Our-Selves">My-Self/Our-Selves</option>
+                <option value="Power of Attorney">Power of Attorney</option>
+                <option value="Guardian/Mother/Father">Guardian/Mother/Father</option>
+                <option value="Other">Other</option>
+              </select>
+        
+           </div>
+          </div>
+        </tr>
+
+        <tr>
+          <div class="row" style="padding-top:10px;"> 
+            <div class="col-md-5">
+              <label>If other please specify</label>
+            </div>
+         
+            <div class="col-md-6" style="padding-left: 70px;">  
+              <input type="text" name="Author">
+           </div>
+          </div>
+
+        </tr>
+
+<br>
+
+<tr>
+
+  <div class="row" style="padding-top:10px;"> 
+    <div class="col-md-2">
+      <input type = "checkbox" id = "c1">
+    </div>
+ 
+    <div class="col-md-1" style="padding-left: 10px;">  
+      <label for = "c1">NIC/Passport</label>
+   </div>
+  </div>
+
+</tr>
+        
+        <tr>
+          <td>
+            <input type = "checkbox" id = "c1">
+            <label for = "c1">NIC/Passport</label>
+          </td>
+          <td>
+            <input type = "checkbox" id = "c2">
+            <label for = "c2">Valid Driving License</label>
+          </td>
+          <td>
+            <input type = "checkbox" id = "c3">
+            <label for = "c1">Tenacy Agreement</label>
+          </td>
+
+        </tr>
+
+        <tr>
+          <td>
+            <input type = "checkbox" id = "c4">
+            <label for = "c4">Utility Bill</label>
+          </td>
+          <td>
+            <input type = "checkbox" id = "c5">
+            <label for = "c7">Employment Contract</label>
+          </td>
+          <td>
+            <input type = "checkbox" id = "c6">
+            <label for = "c6">Grama Niladari</label>
+          </td>
+
+        </tr>
+
+        <tr>
+          <td>
+            <input type = "checkbox" id = "c7">
+            <label for = "c5">Letter From apublic Authority</label>
+          </td>
+        <td>
+            <input type = "checkbox" id = "c8">
+            <label for = "c5">Income Tax Receipt/Assesment Notice</label>
+        </td>
+        </tr>
+                       
+          </table>
+      </form>
+    </div>
+
+      <div class="col-md-5 contact_info">
+        <form>
+<br>
+          <p style="padding-left: 35px;"><b>Customer Declaration</b></p>
+          <center><table class="contact" width="90%"></center>
+          
+          <div class="col-md-10 contact_info">  
+
+            <div class = "declaration">
+
+              <p>I declare that the information furnished by me is true and correct. I also agree that if such 
+              declaration made by me are found to be incorrect, the company shall be entitled to terminate the 
+              account relationship. I confirm having read and understood the account rules and hereby agree to be bound 
+              by the terms and conditions and amendments governing the account(s) issued by the company.</p>
+
+            </div>      
+          </div>
+
+            <tr>
+              <td>
+                <input type="radio" id="Agree" name="Agree" value="Agree"></td><td>
+                <label for="Agree">I Agree</label><br>
+              </td>
+            </tr>
+
+
+          </table></center>
+          <br><br>
+          <p style="padding-left: 450px;"><button type="button" class="btn btn-primary">Submit</button></p>
+        </form>
+    </div>
+    <div class="col-md-1">
+
+    </div>
+  </div>
+<br>
+
+
+    {% block content %}
+          
+    {% endblock %}
+
+
+</body>
+</html>
