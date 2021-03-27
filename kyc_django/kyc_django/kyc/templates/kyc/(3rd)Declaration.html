@@ -27,6 +27,14 @@
         font-size: 30px;
         background-color: #E4E3DA;
       }
+      input{
+        border-radius: 5px;
+        border:1px solid rgb(102, 101, 101);
+      }
+      select{
+        border-radius:5px;
+        width:180px;
+      }
     </style>
 </head>
 
@@ -62,6 +70,14 @@
           </tr>
           <tr>
             <td>
+              <br>
+            </td>
+            <td>
+              <br>
+            </td>
+          </tr>
+          <tr>
+            <td>
               If other please specify
             </td>
             <td> 
@@ -70,7 +86,7 @@
           </tr>
         </table>
         <br>
-        <p>Availability of address verification document</p>
+        <p><i><b>Availability of address verification document</b></i></p>
         <table width="100%">
           <tr>
             <td>
@@ -113,7 +129,31 @@
             </td>
           </tr>
         </table>
-        </form>
+        <br>
+        <table width="100%">
+          <tr>
+            <td>
+              Are you a Politically Exposed Person?
+            </td>
+            <td style="padding-bottom:20px;padding-right:20px;">
+              <input type="radio" id="Yes" name="Yes" value="Yes">Yes
+            </td>
+            <td style="padding-bottom:20px;"> 
+              <input type="radio" id="No" name="No" value="No">No 
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Are you a US citizen?
+            </td>
+            <td style="padding-bottom:20px;padding-right:20px;">
+              <input type="radio" id="Yes" name="Yes" value="Yes">Yes
+            </td>
+            <td style="padding-bottom:20px;"> 
+              <input type="radio" id="No" name="No" value="No">No 
+            </td>
+          </tr>
+        </table>
       </div>
       <div class="col-md-5 declaration">
         <br>
