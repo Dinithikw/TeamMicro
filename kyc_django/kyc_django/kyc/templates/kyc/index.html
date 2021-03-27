@@ -21,6 +21,17 @@
 
 
 <body>
+    {% for message in messages %}
+    <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+        <strong>Message </strong>{{message}}
+        <button type="button" class="close" data-dismiss="alert" aria-label="close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+
+    </div>
+
+    {% endfor %}
+
   <div class="row">
     <div class="col-md-12 title">
       <p style="padding-top:10px; padding-left:50px;"><b>Know Your Customer</b></p>
@@ -33,7 +44,8 @@
       </div>
 
       <div class="col-md-5 personel_info" style="border:1px solid #000; border-radius:25px;">
-      <form action="." method="POST">
+
+      <form action="insertkyc" method="POST">
           {% csrf_token %}
             <center><h5>Personal Information</h5></center>
         <!--<div class="col-md-5 personel_info" style="border:1px solid #000; border-radius:25px;">-->
