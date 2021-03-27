@@ -38,6 +38,7 @@ form{
       .left_border{
         border-left: 1px solid #232322;
         padding-left: 10px;
+        height:50px;
       }
       .title{
         margin-bottom: 50px;
