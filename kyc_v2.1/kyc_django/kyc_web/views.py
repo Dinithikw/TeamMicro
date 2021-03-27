@@ -1,15 +1,19 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from  .models import KycInfo
+from .models import KycInfo
 from django.contrib import messages
+
+
 # Create your views here.
 
 def index(request):
     all_kyc = KycInfo.objects.all()
     return render(request, "kyc_web/index.html", {'kyc_name': all_kyc})
 
+
 def addkyc(request):
     return HttpResponse("<h2> you can add kyc</h2>")
+
 
 def add_kyc_submit(request):
     print("submitted successfully.")
@@ -20,7 +24,6 @@ def add_kyc_submit(request):
     email_add = request.POST["email_add"]
     phone_num = request.POST["phone_num"]
     long_text = request.POST["details_area"]
-
 
     if KycInfo.objects.filter(email_add=email_add).exists():
         messages.warning(request, 'email already exists')
@@ -35,6 +38,5 @@ def add_kyc_submit(request):
         return redirect('index')
         all_kyc = KycInfo.objects.all()
 
-
     return render(request, "index.html", {'kyc_name': all_kyc})
-    #return render(request, "kyc_web/index.html")
+    # return render(request, "kyc_web/index.html")

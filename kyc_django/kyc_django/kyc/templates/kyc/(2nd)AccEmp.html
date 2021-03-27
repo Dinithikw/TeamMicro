@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <title>Document</title>
+
+    <style>
+      .account_info{
+        border:1px solid #000;
+        border-radius: 25px;
+        margin-right:10px;
+      }
+      .check{
+        padding-left:30px;
+      }
+      .title{
+        margin-bottom: 50px;
+        font-size: 30px;
+        background-color: #E4E3DA;
+      }
+      .contact_info{
+        border:1px solid #000;
+        border-radius: 25px;
+        margin-left:10px;
+      }
+      input{
+        border-radius: 5px;
+        border:1px solid rgb(102, 101, 101);
+      }
+      select{
+        border-radius:5px;
+        width:180px;
+      }
+    </style>
+</head>
+
+
+<body>
+
+    <div class="row">
+      <div class="col-md-12 title">
+        <p style="padding-top:10px; padding-left:50px;"><b>Know Your Customer</b></p>
+      </div>
+    </div>
+  
+    <div class="row">
+        <div class="col-md-1">
+  
+        </div>
+        <div class="col-md-5 account_info">
+          <form>
+              <center><h5>Account Information</h5></center><br>
+              <table width="100%">
+                <tr>
+                  <td>
+                    <p>Do you already have an account in our bank...?</p>
+                  </td>
+                  <td style="padding-bottom:20px;padding-right:20px;">
+                    <input type="radio" id="Yes" name="Yes" value="Yes">Yes
+                  </td>
+                  <td style="padding-bottom:20px;"> 
+                    <input type="radio" id="No" name="No" value="No">No 
+                  </td>
+                </tr>
+              </table>
+              <p><i><b>Select your account type(s)</b></i></p>
+                <table class="check" width="100%">
+                  <tr>
+                    <td><input type = "checkbox" id = "c1">
+                        <label for = "c1">Savings Accounts</label>
+                    </td>
+                    <td>
+                      <input type = "checkbox" id = "c2">
+                      <label for = "c2">Fixed Deposite</label>
+                    </td>
+                    <td>
+                      <input type = "checkbox" id = "c3">
+                      <label for = "c1">Mutual Fund Account</label>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <input type = "checkbox" id = "c4">
+                      <label for = "c4">Foreign Exchange</label>
+                    </td>
+                    <td>
+                      <input type = "checkbox" id = "c5">
+                      <label for = "c7">Lease</label>
+                    </td>
+                    <td>
+                      <input type = "checkbox" id = "c6">
+                      <label for = "c6">Vehicle Loan</label>
+                    </td>
+                  </tr>
+  
+                  <tr>
+                    <td>
+                      <input type = "checkbox" id = "c7">
+                      <label for = "c5">Mortagage Loan</label>
+                    </td>
+                    <td>
+                      <input type = "checkbox" id = "c8">
+                      <label for = "c3">Consumer Loan</label>
+                    </td>
+                    <td>
+                      <input type = "checkbox" id = "c9">
+                      <label for = "c9">Commercial Loan</label>
+                    </td>
+                  </tr>
+                  </table>
+                  <br>
+                  <p><i><b>Purpose(s) of the Account</b></i></p>
+
+                  <table class="check" width="100%">
+                    <tr>
+                      <td>
+                        <input type = "checkbox" id = "c1">
+                        <label for = "c1">Bussiness Transaction</label>
+                      </td>
+                      <td>
+                        <input type = "checkbox" id = "c2">
+                        <label for = "c2">Family Inward Remittance</label>
+                      </td></tr><tr>
+                      <td>
+                        <input type = "checkbox" id = "c3">
+                        <label for = "c1">Employeement/Professional Income</label>
+                      </td>
+                
+                      <td>
+                        <input type = "checkbox" id = "c4">
+                        <label for = "c4">Rare Transaction</label>
+                      </td></tr><tr>
+                      <td>
+                        <input type = "checkbox" id = "c5">
+                        <label for = "c7">Upkeep of Family/Person</label>
+                      </td>
+                      <td>
+                        <input type = "checkbox" id = "c6">
+                        <label for = "c6">Utility Bill Payment</label>
+                      </td>
+                    </tr>
+    
+                    <tr>
+                      <td>
+                        <input type = "checkbox" id = "c7">
+                        <label for = "c5">Savings</label>
+                      </td>
+                      <td>
+                        <input type = "checkbox" id = "c8">
+                        <label for = "c3">Loan Repayment</label>
+                      </td>
+                    </tr>
+                </table>
+            </div>    
+          <div class="col-md-5 contact_info">
+              <center><h5>Employment Details</h5></center><br>
+              <table class="contact" width="100%">
+                <tr> 
+                  <td>
+                  Occupation Status
+                  </td>
+                  <td>
+                    <select name="Occutation_Status" id="Occutation_Status">
+                      <option value="Salaried Worker">Salaried Worker</option>
+                      <option value="Retire">Retire</option>
+                      <option value="Self-Employee">Self-Employee</option>
+                      <option value="Unemployee">Unemployee</option>
+                      <option value="Student">Student</option>
+                    </select>
+                  </td>
+              </tr>
+              <tr>
+                <td>
+                  <label>Occupation</label>
+                </td>
+                <td>
+                  <input type="text" name="Occupation">
+                </td>
+              </tr>
+              </table>
+              <br>
+
+              <p><i><b>Source of Income</b></i></p>
+
+              <table class="contact" width="100%">
+                <tr>
+                  <td>
+                    <input type = "checkbox" id = "c1">
+                    <label for = "c1">Investment Proceeds</label>
+                  </td>
+                  <td>
+                    <input type = "checkbox" id = "c2">
+                    <label for = "c2">Family Remittance</label>
+                  </td></tr><tr>
+                  <td>
+                    <input type = "checkbox" id = "c3">
+                    <label for = "c1">Sales and Bussiness Turnover</label>
+                  </td>
+                  <td>
+                    <input type = "checkbox" id = "c4">
+                    <label for = "c4">Export Proceeds</label>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <input type = "checkbox" id = "c5">
+                    <label for = "c7">Salary/Profit Income</label>
+                  </td>
+                  <td>
+                    <input type = "checkbox" id = "c6">
+                    <label for = "c6">Donations/Charities(Local/Foreign)</label>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>
+                    <input type = "checkbox" id = "c7">
+                    <label for = "c5">Contract Proceeds</label>
+                  </td>
+                  <td>
+                    <input type = "checkbox" id = "c8">
+                    <label for = "c3">Commission Income</label>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <input type = "checkbox" id = "c9">
+                    <label for = "c9">Other</label>
+                  </td>
+                  <td></td>
+                </tr>
+              </table>
+              <table width="90%">
+                <tr>
+                  <td>
+                    <p>If Other Please Specify</p>
+                  </td>
+                  <td style="padding-bottom:20px;">
+                    <input type="text" name="Other_Income">
+                  </td>
+                </tr>
+                <tr>
+                  <td><br></td>
+                  <td><br></td>
+                </tr>
+                <tr>
+                  <td>   
+                    Average Income (Monthly)
+                  </td>
+                  <td>
+                    <select name="Average_Income" id="Average_Income">
+                    <option value="Less than 100,000">Less than 100,000</option>
+                    <option value="100,001 - 500,000">100,001 - 500,000</option>
+                    <option value="500,001 - 1,000,000">500,001 - 1,000,000</option>
+                    <option value="Above 1,000,000">Above 1,000,000</option>
+                    </select>
+                  </td>
+                </tr>
+              </table>
+              <br>
+              <p><i><b>Mode(s) of Transaction</b></i></p>
+              <table class="contact" width="90%">
+                  <tr>
+                    <td>
+                      <input type = "checkbox" id = "c1">
+                      <label for = "c1">Cash</label>
+                    </td>
+                    <td>
+                      <input type = "checkbox" id = "c2">
+                      <label for = "c2">Cheque</label>
+                    </td></tr><tr>
+                    <td>
+                      <input type = "checkbox" id = "c3">
+                      <label for = "c1">Standing Orders</label>
+                    </td>
+                    <td>
+                      <input type = "checkbox" id = "c4">
+                      <label for = "c4">POS Transaction</label>
+                    </td></tr><tr>
+                    <td>
+                      <input type = "checkbox" id = "c5">
+                      <label for = "c7">Foreign Remittance</label>
+                    </td>
+                    <td>
+                      <input type = "checkbox" id = "c6">
+                      <label for = "c6">Online Transaction</label>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <input type = "checkbox" id = "c7">
+                      <label for = "c5">Slips/Wire Transfers/RTGS</label>
+                    </td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                </table></center>
+                <br>
+                <p style="padding-left: 450px;"><button type="button" class="btn btn-primary">Next</button></p>
+              </form>
+          </div>
+          <div class="col-md-1">
+              
+          </div>
+        </div>
+      
+      
+    {% block content %}
+          
+    {% endblock %}
+
+
+</body>
+</html>
