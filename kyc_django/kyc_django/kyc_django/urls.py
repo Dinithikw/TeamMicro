@@ -17,8 +17,12 @@ from django.contrib import admin
 from django.urls import path,include
 
 from kyc.views import index
+from kyc.views import office, personal, account
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',index)
+    path('', index),
+    path('office', office),
+    path('personal', personal),
+    path('account', account),
 ]
