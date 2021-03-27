@@ -56,6 +56,109 @@
         padding-bottom: 20px;
       }
     </style>
+
+    <script type="text/javascript">
+      function validate()
+      {
+        //alert("hello");
+        var NIC = document.getElementById("NIC").value;
+        var drlicense = document.getElementById("drlicense").value;
+        var drive_exp = document.getElementById("drive_exp").value;
+        var passport = document.getElementById("passport").value;
+        var passport_exp = document.getElementById("passport_exp").value;
+        var Nationality = document.getElementById("Nationality").value;
+        var otherNationality = document.getElementById("otherNationality").value;
+        var birthday = document.getElementById("birthday").value;
+        var Mobile = document.getElementById("mobile").value;
+        var Officetel = document.getElementById("officetel").value;
+        var Hometel = document.getElementById("hometel").value;
+        var email = document.getElementById("email").value;
+        var fullName = document.getElementById("fullName").value;
+        var nwi = document.getElementById("nwi").value;
+        var ID_type = document.getElementById("ID_type").value;
+        var houseNo = document.getElementById("houseNo").value;
+        var street = document.getElementById("street").value;
+        var city = document.getElementById("city").value;
+        var country = document.getElementById("country").value;
+
+        
+        if(ID_type!="" && NIC!="" && NIC.length!=9 && NIC.length!=11)
+        {
+          alert("Invalid NIC Number");
+          return false;
+        }
+        else if(drlicense!="" && drive_exp=="")
+        {
+          alert("Fill the expiration date of driving licence.");
+          return false;
+        }
+        else if(passport!="" && passport_exp=="")
+        {
+          alert("Fill the expiration date of passport.");
+          return false;
+        }
+        else if(Nationality=="Other" && otherNationality=="")
+        {
+          alert("Fill Your Nationality.");
+          return false;
+        }
+        else if(Nationality=="Sri Lankan" && otherNationality!="")
+        {
+          alert("Fill Your Nationality Correctly.");
+          return false;
+        }
+        else if(fullName!="" && nwi!="" && ID_type!="" && NIC!="" && Nationality!="" && birthday!="" && houseNo!="" && street!="" && city!="" && country!="" && Mobile=="" && Officetel=="" && Hometel=="" && email=="")
+        {
+          alert("Fill aleast one of following contact information.");
+          return false;
+        }
+        else if(Mobile!="" && Mobile.length!=10)
+        {
+          alert("Fill the Mobile contact number with 10 digits.");
+          return false;
+        }
+        else if(Officetel!="" && Officetel.length!=10)
+        {
+          alert("Fill the Office contact number with 10 digits.");
+          return false;
+        }
+        else if(Hometel!="" && Hometel.length!=10)
+        {
+          alert("Fill the Home contact number with 10 digits.");
+          return false;
+        }
+        else if(email!="" &&(email.indexOf("@")==-1 || email.lastIndexOf(".")==-1))
+        {
+          alert("Email Address is Invalid");
+          return false;
+        }
+        else
+        {
+          return true;
+        }
+
+      }
+
+//===================================================
+      function isnumber(event)
+      {
+        var isNumb = String.fromCharCode(event.which);
+
+        if(!(/[0-9]/.test(isNumb)))
+        {
+          event.preventDefault();
+        }
+      }
+//======================================================
+      function lettersOnly(input)
+      {
+        var regex = /[^a-z]/gi;
+        input.value = input.value.replace(regex, "");
+      }
+    </script>
+
+
+
 </head>
 
 
@@ -71,23 +174,25 @@
 
       </div>
       <div class="col-md-5 personel_info">
-        <form action="#">
+      <form action="." method="POST">
+          {% csrf_token %}
             <center><h5>Personal Information</h5></center>
             <table align="center" width="90%">
                 <tr>
                     <td>
                         <p class = "name">Name in Full<br>
-                        <input class = "fullname" type = "text" name = "fullname" placeholder = "Full Name" required>
+                        <input class="fullname" type="text" name="fullname" placeholder="Full Name" id="fullName" required="">
                     </td>
                     <td>
                         <p class = "name">Name with Initials</br>
-                        <input class = "nwi" type = "text" name = "nwi" placeholder = "Name with Initials" required>
+                        <input class = "nwi" type = "text" name = "nwi" placeholder = "Name with Initials" id="nwi" required="">
                     </td>
                 </tr>
                 <tr>
                     <td>
                         <p class = "ID_Recognitio">Identity Recognititon
-                        <select name="ID_type" id="ID_type">
+                        <select name="ID_type" id="ID_type" required="">
+                            <option value="">Select Your ID Type</option>
                             <option value="National ID">National ID</option>
                             <option value="Passport">Passport</option>
                             <option value="Driving License">Driving License</option>
@@ -99,7 +204,7 @@
                 <tr>
                     <td>
                         <p class = "NIC">NIC</br>
-                        <input class = "NIC" type = "text" name = "NIC" placeholder = "NIC" required>
+                        <input class="NIC" type="text" name="NIC" placeholder="NIC (fill only numbers)" id="NIC" required="" onkeypress="isnumber(event)">
                     </td>
                     <td>
 
@@ -108,27 +213,28 @@
                 <tr>
                     <td>
                         <p class = "Driving_License">Driving License</br>
-                        <input class = "Driving_License" type = "text" name = "driving_license" placeholder = "Driving License" required>
+                        <input class="Driving_License" type="text" name="driving_license" placeholder="Driving License" id="drlicense">
                     </td>
                     <td class="left_border">
                         <p class = "Exp">Expiration Date</br>
-                        <input class = "Exp" type = "text" name = "drive_exp" placeholder = "Expire Date" required>
+                        <input class="Exp" type="date" name="drive_exp" placeholder="Expire Date" id="drive_exp">
                     </td>
                 </tr>
                 <tr>
                     <td>
                         <p class = "Passport">Passport No.<br>
-                        <input class = "Passport" type = "text" name = "passport" placeholder = "Passport" required>
+                        <input class="Passport" type="text" name="passport" placeholder="Passport" id="passport">
                     </td>
                     <td class="left_border">
                         <p class = "Exp">Expiration Date</br>
-                        <input class = "Exp" type = "text" name = "passport_exp" placeholder = "Expire Date" required>
+                        <input class="Exp" type="date" name="passport_exp" placeholder="Expire Date" id="passport_exp">
                     </td>
                 </tr>
                 <tr>
                     <td>
                         <p class = "Nationality"> Nationality<br>   
-                        <select name="Nationality" id="Nationality">
+                        <select name="Nationality" id="Nationality" required="">
+                            <option value="">Select Your Nationality</option>
                             <option value="Sri Lankan">Sri Lankan</option>
                             <option value="Other">Other</option>
                         </select>
@@ -137,7 +243,7 @@
                 <tr>
                     <td>
                         <p class = "Nationality"> If Other Please Specify<br>
-                        <input class = "Nationality" type = "text" name = "Nationality" placeholder = "Nationality" required>
+                        <input class="Nationality" type="text" name="Nationality" placeholder="Nationality" id="otherNationality" onkeyup="lettersOnly(this)">
                     </td>
                     <td>
 
@@ -146,14 +252,14 @@
                 <tr>
                     <td>
                         <p class = "DOB">Date of Birth <br>
-                        <input type="date" id="birthday" name="birthday">
+                        <input type="date" id="birthday" name="birthday" required="">
                     </td>
                 </tr>
             </table>
-        </form>
+        
       </div>
-      <div class="col-md-5 contact_info">
-        <form action="#">
+      <div class="col-md-5 contact_info" style="border-radius: 15px; border:1px solid #232322;">
+        
             <center><h5>Contact Information</h5></center>
             <p style="padding-left: 35px;"><i>Residential Information</i></p>
             <center><table class="contact" width="90%"></center>
@@ -162,13 +268,13 @@
                 <label>House number</label>
               </td>
               <td>
-                <input type="text" name="house_number">
+                <input type="text" name="house_number" id="houseNo" required="" >
               </td>
               <td>
                 <label>Street</label>
               </td>
               <td>
-                <input type="text" name="street">
+                <input type="text" name="street" id="street" required="" >
               </td>
             </tr>
             <tr>
@@ -176,31 +282,31 @@
                 <label>City</label>
               </td>
               <td>
-                <input type="text" name="city">
+                <input type="text" name="city" id="city" required="" onkeyup="lettersOnly(this)">
               </td>
               <td>
                 <label>Country</label>
               </td>
               <td>
-                <input type="text" name="country">
+                <input type="text" name="country" id="country" required="" onkeyup="lettersOnly(this)">
               </td>
             </tr>
             </table>
             <br>
-            <p style="text-align: left; padding-left: 35px;"><i>Contact Information</i></p>
+            <p style="text-align:left; padding-left:35px;"><i>Contact Information</i></p>
             <table class="contact" width="90%">
               <tr>
                 <td>
                   <p>Mobile number<br>
-                  <input type="text" name="mobile_number">
+                  <input type="text" name="mobile_number" id="mobile" onkeypress="isnumber(event)">
                 </td>
                 <td>
                   <p>Office<br>
-                  <input type="text" name="office_number">
+                  <input type="text" name="office_number" id="officetel" onkeypress="isnumber(event)">
                 </td>
                 <td>
                   <p>Home<br>
-                  <input type="text" name="home_number">
+                  <input type="text" name="home_number" id="hometel" onkeypress="isnumber(event)">
                 </td>
               </tr>
               <tr>
@@ -212,13 +318,13 @@
                   <p>Email Address</p>
                 </td>
                 <td>
-                  <input type="text" name="email">
+                  <input type="email" name="email" id="email">
                 </td>
               </tr>
             </table></center>
             <br><br><br><br><br>
-            <p style="padding-left: 450px;"><button type="button" class="btn btn-primary">Next</button></p>
-          </form>
+            <p style="padding-left: 450px;"><button type="submit" class="btn btn-primary" name="submit" onclick="return validate()" >Next</button></p>
+     </form>
       </div>
       <div class="col-md-1">
           
