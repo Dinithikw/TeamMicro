@@ -13,7 +13,7 @@
     {% load static %}
     <link rel="stytlesheet" href="{% static 'index.css' %}">
 
-    <style>
+    <!--<style>
       .personal_info{
         margin-left: 20px;
       }
@@ -73,6 +73,15 @@
         text-justify: inter-word;
       }
 
+    </style>-->
+    <style>
+      .account_info{
+        border:1px solid #000;
+        border-radius: 25px;
+      }
+      .check{
+        padding-left:30px;
+      }
     </style>
 </head>
 
@@ -89,35 +98,27 @@
         <div class="col-md-1">
   
         </div>
-        <div class="col-md-5 personel_info">
+        <div class="col-md-5 account_info">
           <form>
               <center><h5>Account Information</h5></center>
-              <table align="center" width="90%">
-                  <tr>
-                      <td>
-                      
-                          <p>Do you already have an account in our bank...?</p>   
-                  
-                            <input type="radio" id="Yes" name="Yes" value="Yes">Yes
-                            
-  
-                            <input type="radio" id="No" name="No" value="No">No 
-                            
-                      </td>
-                </tr>
-
- <br>
+              <table width="90%">
                 <tr>
                   <td>
-                    <p style="text-align: left; padding-left: 35px;"><i>Select your account type(s)</i></p>
+                    <p>Do you already have an account in our bank...?</p>
+                  </td>
+                  <td style="padding-bottom:20px;padding-right:20px;">
+                    <input type="radio" id="Yes" name="Yes" value="Yes">Yes
+                  </td>
+                  <td style="padding-bottom:20px;"> 
+                    <input type="radio" id="No" name="No" value="No">No 
                   </td>
                 </tr>
-
+              </table>
+              <p><i>Select your account type(s)</i></p>
                 <table class="check" width="90%">
                   <tr>
-                    <td>
-                      <input type = "checkbox" id = "c1">
-                      <label for = "c1">Savings Accounts</label>
+                    <td><input type = "checkbox" id = "c1">
+                        <label for = "c1">Savings Accounts</label>
                     </td>
                     <td>
                       <input type = "checkbox" id = "c2">
@@ -128,7 +129,6 @@
                       <label for = "c1">Mutual Fund Account</label>
                     </td>
                   </tr>
-  
                   <tr>
                     <td>
                       <input type = "checkbox" id = "c4">
@@ -158,14 +158,10 @@
                       <label for = "c9">Commercial Loan</label>
                     </td>
                   </tr>
-<br><br>
+                  </table>
+                  <br>
+                  <p><i>Purpose(s) of the Account</i></p>
 
-                  <tr>
-                    <td>
-                      <p style="text-align: left; padding-left: 25px;"><i>Purpose(s) of the Account</i></p>
-                    </td>
-                  </tr>
-  
                   <table class="check" width="90%">
                     <tr>
                       <td>
@@ -209,12 +205,12 @@
                     </tr>
 
                 </table>
-              </form>
+              
             </div>
+        </div>
 
              
         <div class="col-md-5 contact_info">
-          <form>
               <center><h5>Employment Details</h5></center>
  
               <center><table class="contact" width="90%"></center>

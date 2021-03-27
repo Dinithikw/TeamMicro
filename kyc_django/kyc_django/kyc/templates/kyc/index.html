@@ -13,6 +13,7 @@
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/index.css' %}">
     <script src="{% static 'js/index_min.js' %}" type="text/javascript"></script>
+    <link rel="stylesheet" href="index.css">
 </head>
 
 
@@ -27,7 +28,7 @@
       <div class="col-md-1">
 
       </div>
-      <div class="col-md-5 personel_info">
+      <div class="col-md-5 personel_info" style="border:1px solid #000; border-radius:25px;">
         <form action="#">
             <center><h5>Personal Information</h5></center>
             <table align="center" width="90%">
@@ -107,10 +108,8 @@
                     </td>
                 </tr>
             </table>
-        </form>
       </div>
-      <div class="col-md-5 contact_info">
-        <form action="#">
+      <div class="col-md-5 contact_info" style="border:1px solid #000; border-radius:25px;">
             <center><h5>Contact Information</h5></center>
             <p style="padding-left: 35px;"><i>Residential Information</i></p>
             <center><table class="contact" width="90%"></center>
