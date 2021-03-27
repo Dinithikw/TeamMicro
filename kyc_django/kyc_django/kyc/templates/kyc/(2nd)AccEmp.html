@@ -78,9 +78,20 @@
       .account_info{
         border:1px solid #000;
         border-radius: 25px;
+        margin-right:10px;
       }
       .check{
         padding-left:30px;
+      }
+      .title{
+        margin-bottom: 50px;
+        font-size: 30px;
+        background-color: #E4E3DA;
+      }
+      .contact_info{
+        border:1px solid #000;
+        border-radius: 25px;
+        margin-left:10px;
       }
     </style>
 </head>
@@ -201,38 +212,29 @@
                         <label for = "c3">Loan Repayment</label>
                       </td>
                     </tr>
-
                 </table>
-              
-            </div>
-        </div>
-
-             
-        <div class="col-md-5 contact_info">
+            </div>    
+          <div class="col-md-5 contact_info">
               <center><h5>Employment Details</h5></center>
- 
-              <center><table class="contact" width="90%"></center>
-              <tr>
-                <td>   
-                    <p class = "Occstatus">Occupation Status</h2>
-                </td>
-                <td>
-                  <select name="Occutation_Status" id="Occutation_Status">
-                    <option value="Salaried Worker">Salaried Worker</option>
-                    <option value="Retire">Retire</option>
-                    <option value="Self-Employee">Self-Employee</option>
-                    <option value="Unemployee">Unemployee</option>
-                    <option value="Student">Student</option>
-              </select>
-                </td>
-
+              <table class="contact" width="100%">
+                <tr> 
+                  <td>
+                  Occupation Status
+                  </td>
+                  <td>
+                    <select name="Occutation_Status" id="Occutation_Status">
+                      <option value="Salaried Worker">Salaried Worker</option>
+                      <option value="Retire">Retire</option>
+                      <option value="Self-Employee">Self-Employee</option>
+                      <option value="Unemployee">Unemployee</option>
+                      <option value="Student">Student</option>
+                    </select>
+                  </td>
               </tr>
               <tr>
                 <td>
                   <label>Occupation</label>
                 </td>
-
-
                 <td>
                   <input type="text" name="Occupation">
                 </td>
@@ -240,13 +242,9 @@
               </table>
               <br>
 
-              <tr>
-                <td>
-                  <p style="text-align: left; padding-left: 35px;"><i>Source of Income</i></p>
-                </td>
-              </tr>
+              <p><i>Source of Income</i></p>
 
-              <table class="contact" width="90%">
+              <table class="contact" width="100%">
                 <tr>
                   <td>
                     <input type = "checkbox" id = "c1">
@@ -255,18 +253,17 @@
                   <td>
                     <input type = "checkbox" id = "c2">
                     <label for = "c2">Family Remittance</label>
-                  </td>
+                  </td></tr><tr>
                   <td>
                     <input type = "checkbox" id = "c3">
                     <label for = "c1">Sales and Bussiness Turnover</label>
                   </td>
-                </tr>
-
-                <tr>
                   <td>
                     <input type = "checkbox" id = "c4">
                     <label for = "c4">Export Proceeds</label>
                   </td>
+                </tr>
+                <tr>
                   <td>
                     <input type = "checkbox" id = "c5">
                     <label for = "c7">Salary/Profit Income</label>
@@ -286,34 +283,39 @@
                     <input type = "checkbox" id = "c8">
                     <label for = "c3">Commission Income</label>
                   </td>
+                </tr>
+                <tr>
                   <td>
                     <input type = "checkbox" id = "c9">
                     <label for = "c9">Other</label>
                   </td>
+                  <td></td>
                 </tr>
-
+              </table>
+              <table width="90%">
                 <tr>
                   <td>
                     <p>If Other Please Specify</p>
                   </td>
-                  <td>
+                  <td style="padding-bottom:20px;">
                     <input type="text" name="Other_Income">
                   </td>
                 </tr>
-
+              
                 <tr>
-                <td>   
-                      <p class = "Income">Average Income (Monthly)</p>
+                  <td>   
+                    Average Income (Monthly)
                   </td>
                   <td>
-                        <select name="Average_Income" id="Average_Income">
-                      <option value="Less than 100,000">Less than 100,000</option>
-                      <option value="100,001 - 500,000">100,001 - 500,000</option>
-                      <option value="500,001 - 1,000,000">500,001 - 1,000,000</option>
-                      <option value="Above 1,000,000">Above 1,000,000</option>
-                </select>
+                    <select name="Average_Income" id="Average_Income">
+                    <option value="Less than 100,000">Less than 100,000</option>
+                    <option value="100,001 - 500,000">100,001 - 500,000</option>
+                    <option value="500,001 - 1,000,000">500,001 - 1,000,000</option>
+                    <option value="Above 1,000,000">Above 1,000,000</option>
+                    </select>
                   </td>
                 </tr>
+              </table>
 
                 <tr>
                   <td>
