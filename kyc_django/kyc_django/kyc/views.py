@@ -34,7 +34,7 @@ def insertkyc(request):
     print(name_init)
     print(id_type)
     print(nics_no)
-    
+
 
     submit_kyc = Kyc_Info()
     submit_kyc = Kyc_Info(full_name=full_name, name_init=name_init, id_type=id_type, nics_no=nics_no)
