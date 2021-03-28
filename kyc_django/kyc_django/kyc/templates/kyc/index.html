@@ -12,10 +12,157 @@
     <title>Document</title>
     {% load static %}
 
-    
+    <link rel="stytlesheet" href="{% static 'index.css' %}">
+
+    <!--<style>
+      .personal_info{
+        margin-left: 20px;
+      }
+      .contact_info{
+        margin-left: 20px;
+      }
+      form{
+        border:1px solid #232322;
+        border-radius: 15px;
+        height:600px;
+      }
+      input{
+        border-radius: 5px;
+        width:90%;
+        height:30px;
+        font-size: 12px;
+        border:1px solid #232322;
+      }
+      select{
+        border-radius: 5px;
+        width:90%;
+        font-size: 15px;
+        border:1px solid #232322;
+      }
+      table tr td{
+        width:50%;
+        padding-left: 10px;
+      }
+      .left_border{
+        border-left: 1px solid #232322;
+        padding-left: 10px;
+      }
+      .title{
+        margin-bottom: 50px;
+        font-size: 30px;
+        background-color: #E4E3DA;
+      }
+      .contact tr td{
+        width:25%;
+        padding-bottom: 20px;
+      }
+    </style>-->
+
+    <script type="text/javascript">
+      function validate()
+      {
+        //alert("hello");
+        var NIC = document.getElementById("NIC").value;
+        var drlicense = document.getElementById("drlicense").value;
+        var drive_exp = document.getElementById("drive_exp").value;
+        var passport = document.getElementById("passport").value;
+        var passport_exp = document.getElementById("passport_exp").value;
+        var Nationality = document.getElementById("Nationality").value;
+        var otherNationality = document.getElementById("otherNationality").value;
+        var birthday = document.getElementById("birthday").value;
+        var Mobile = document.getElementById("mobile").value;
+        var Officetel = document.getElementById("officetel").value;
+        var Hometel = document.getElementById("hometel").value;
+        var email = document.getElementById("email").value;
+        var fullName = document.getElementById("fullName").value;
+        var nwi = document.getElementById("nwi").value;
+        var ID_type = document.getElementById("ID_type").value;
+        var houseNo = document.getElementById("houseNo").value;
+        var street = document.getElementById("street").value;
+        var city = document.getElementById("city").value;
+        var country = document.getElementById("country").value;
+
+        
+        if(ID_type!="" && NIC!="" && NIC.length!=9 && NIC.length!=11)
+        {
+          alert("Invalid NIC Number");
+          return false;
+        }
+        else if(drlicense!="" && drive_exp=="")
+        {
+          alert("Fill the expiration date of driving licence.");
+          return false;
+        }
+        else if(passport!="" && passport_exp=="")
+        {
+          alert("Fill the expiration date of passport.");
+          return false;
+        }
+        else if(Nationality=="Other" && otherNationality=="")
+        {
+          alert("Fill Your Nationality.");
+          return false;
+        }
+        else if(Nationality=="Sri Lankan" && otherNationality!="")
+        {
+          alert("Fill Your Nationality Correctly.");
+          return false;
+        }
+        else if(fullName!="" && nwi!="" && ID_type!="" && NIC!="" && Nationality!="" && birthday!="" && houseNo!="" && street!="" && city!="" && country!="" && Mobile=="" && Officetel=="" && Hometel=="" && email=="")
+        {
+          alert("Fill aleast one of following contact information.");
+          return false;
+        }
+        else if(Mobile!="" && Mobile.length!=10)
+        {
+          alert("Fill the Mobile contact number with 10 digits.");
+          return false;
+        }
+        else if(Officetel!="" && Officetel.length!=10)
+        {
+          alert("Fill the Office contact number with 10 digits.");
+          return false;
+        }
+        else if(Hometel!="" && Hometel.length!=10)
+        {
+          alert("Fill the Home contact number with 10 digits.");
+          return false;
+        }
+        else if(email!="" &&(email.indexOf("@")==-1 || email.lastIndexOf(".")==-1))
+        {
+          alert("Email Address is Invalid");
+          return false;
+        }
+        else
+        {
+          return true;
+        }
+
+      }
+
+//===================================================
+      function isnumber(event)
+      {
+        var isNumb = String.fromCharCode(event.which);
+
+        if(!(/[0-9]/.test(isNumb)))
+        {
+          event.preventDefault();
+        }
+      }
+//======================================================
+      function lettersOnly(input)
+      {
+        var regex = /[^a-z]/gi;
+        input.value = input.value.replace(regex, "");
+      }
+    </script>
+
+
+
     <link rel="stylesheet" href="{% static 'css/index.css' %}">
     <script src="{% static 'js/index_min.js' %}" type="text/javascript"></script>
-    
+    <link rel="stylesheet" href="index.css">
 
 </head>
 
