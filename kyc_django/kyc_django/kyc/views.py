@@ -6,13 +6,11 @@ from django.contrib import messages
 def index(request):
     return render(request, 'kyc/index.html')
 
-
-def personal(request):
-    return render(request, 'kyc/(1st)PersonContact.html')
-
-
 def account(request):
     return render(request, 'kyc/(2nd)AccEmp.html')
+
+def personal(request):
+    return render(request, 'kyc/(3rd)Declaration.html')
 
 
 def office(request):
