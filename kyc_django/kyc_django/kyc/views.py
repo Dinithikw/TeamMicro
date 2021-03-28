@@ -29,16 +29,12 @@ def insertkyc(request):
 
     messages.success(request, 'Successfully saved')
 
-    render(request, 'kyc/(2nd)AccEmp.html')
-
-    
-
 
     print(full_name)
     print(name_init)
     print(id_type)
     print(nics_no)
-    print(occu_state)
+    
 
     submit_kyc = Kyc_Info()
     submit_kyc = Kyc_Info(full_name=full_name, name_init=name_init, id_type=id_type, nics_no=nics_no)
