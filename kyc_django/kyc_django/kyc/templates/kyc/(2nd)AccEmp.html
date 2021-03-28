@@ -10,25 +10,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <title>Document</title>
-
     {% load static %}
-    <link rel="stylesheet" href="{% static 'css/' %}">
-    <script type="text/javascript">
-    
-    function validation_1()
-{
-    var have_account = document.getElementById("have_account").value;
-    var No_account = document.getElementById("No_account").value;
 
-    if (have_account=="" && No_account=="")
-    {
-        alert("Fill the ");
-        return false;
-
-    }
-
-    
-    </script>
 
     <style>
       .account_info{
@@ -58,10 +41,14 @@
         width:180px;
       }
     </style>
+
+    <script src="{% static 'js/Account.js' %}" type="text/javascript"></script>
+
 </head>
 
 
-<body style="background:url({% static 'img/1.jpg' %}) no-repeat fixed; background-position:center; background-repeat:no-repeat; background-size:cover;">
+
+<body style="background: url({% static 'img/1.jpg' %}) no-repeat fixed; background-position: center;background-repeat: no-repeat; background-size: cover;">
     <div class="row">
       <div class="col-md-12 title" style="background-color: #f3f3f300;">
         <p style="padding-top:10px; padding-left:50px;color:#000"><b>Know Your Customer (KYC) Form</b></p>
@@ -73,9 +60,9 @@
   
         </div>
         <div class="col-md-5 account_info">
-          <form action="insertkyc1" method="post">
-            
-            {% csrf_token %}
+      <form action="insertkyc1" method="post">
+          {% csrf_token %}
+
               <center><h5>Account Information</h5></center><br>
               <table width="100%">
                 <tr>
@@ -83,54 +70,54 @@
                     <p>Do you already have an account in our bank...?</p>
                   </td>
                   <td style="padding-bottom:20px;padding-right:20px;">
-                    <input type="radio" id="have_account" name="have_account" value="Yes" >Yes
+                    <input type="radio"  name="haveAccount" id="haveAcc" value="Yes">Yes
                   </td>
                   <td style="padding-bottom:20px;"> 
-                    <input type="radio" id="No_account" name="have_account" value="No" >No 
+                    <input type="radio"  name="haveAccount" id="noAcc" value="No">No 
                   </td>
                 </tr>
               </table>
               <p><i><b>Select your account type(s)</b></i></p>
                 <table class="check" width="100%">
                   <tr>
-                    <td><input type = "checkbox" id = "c1">
+                    <td><input type = "checkbox" id = "c1" name="chec1">
                         <label for = "c1">Savings Accounts</label>
                     </td>
                     <td>
-                      <input type = "checkbox" id = "c2">
+                      <input type = "checkbox" id = "c2" name="chec1">
                       <label for = "c2">Fixed Deposite</label>
                     </td>
                     <td>
-                      <input type = "checkbox" id = "c3">
+                      <input type = "checkbox" id = "c3" name="chec1">
                       <label for = "c1">Mutual Fund Account</label>
                     </td>
                   </tr>
                   <tr>
                     <td>
-                      <input type = "checkbox" id = "c4">
+                      <input type = "checkbox" id = "c4" name="chec1">
                       <label for = "c4">Foreign Exchange</label>
                     </td>
                     <td>
-                      <input type = "checkbox" id = "c5">
+                      <input type = "checkbox" id = "c5" name="chec1">
                       <label for = "c7">Lease</label>
                     </td>
                     <td>
-                      <input type = "checkbox" id = "c6">
+                      <input type = "checkbox" id = "c6" name="chec1">
                       <label for = "c6">Vehicle Loan</label>
                     </td>
                   </tr>
   
                   <tr>
                     <td>
-                      <input type = "checkbox" id = "c7">
+                      <input type = "checkbox" id = "c7" name="chec1">
                       <label for = "c5">Mortagage Loan</label>
                     </td>
                     <td>
-                      <input type = "checkbox" id = "c8">
+                      <input type = "checkbox" id = "c8" name="chec1">
                       <label for = "c3">Consumer Loan</label>
                     </td>
                     <td>
-                      <input type = "checkbox" id = "c9">
+                      <input type = "checkbox" id = "c9" name="chec1">
                       <label for = "c9">Commercial Loan</label>
                     </td>
                   </tr>
@@ -141,44 +128,46 @@
                   <table class="check" width="100%">
                     <tr>
                       <td>
-                        <input type = "checkbox" id = "c1">
+                        <input type = "checkbox" id = "c1" name="chec2">
                         <label for = "c1">Bussiness Transaction</label>
                       </td>
                       <td>
-                        <input type = "checkbox" id = "c2">
+                        <input type = "checkbox" id = "c2" name="chec2">
                         <label for = "c2">Family Inward Remittance</label>
                       </td></tr><tr>
                       <td>
-                        <input type = "checkbox" id = "c3">
+                        <input type = "checkbox" id = "c3" name="chec2">
                         <label for = "c1">Employeement/Professional Income</label>
                       </td>
                 
                       <td>
-                        <input type = "checkbox" id = "c4">
+                        <input type = "checkbox" id = "c4" name="chec2">
                         <label for = "c4">Rare Transaction</label>
                       </td></tr><tr>
                       <td>
-                        <input type = "checkbox" id = "c5">
+                        <input type = "checkbox" id = "c5" name="chec2">
                         <label for = "c7">Upkeep of Family/Person</label>
                       </td>
                       <td>
-                        <input type = "checkbox" id = "c6">
+                        <input type = "checkbox" id = "c6" name="chec2">
                         <label for = "c6">Utility Bill Payment</label>
                       </td>
                     </tr>
     
                     <tr>
                       <td>
-                        <input type = "checkbox" id = "c7">
+                        <input type = "checkbox" id = "c7" name="chec2">
                         <label for = "c5">Savings</label>
                       </td>
                       <td>
-                        <input type = "checkbox" id = "c8">
+                        <input type = "checkbox" id = "c8" name="chec2">
                         <label for = "c3">Loan Repayment</label>
                       </td>
                     </tr>
                 </table>
-            </div>    
+            </div>   
+            
+            
           <div class="col-md-5 contact_info">
               <center><h5>Employment Details</h5></center><br>
               <table class="contact" width="100%">
@@ -187,7 +176,8 @@
                   Occupation Status
                   </td>
                   <td>
-                    <select name="Occutation_Status" id="Occutation_Status">
+                    <select name="Occutation_Status" id="Occutation_Status" required="">
+                      <option value="">Your Occupation.</option>
                       <option value="Salaried Worker">Salaried Worker</option>
                       <option value="Retire">Retire</option>
                       <option value="Self-Employee">Self-Employee</option>
@@ -201,7 +191,7 @@
                   <label>Occupation</label>
                 </td>
                 <td>
-                  <input type="text" name="Occupation">
+                  <input type="text" name="Occupation" id="occupation" required="" onkeyup="lettersOnly(this)" >
                 </td>
               </tr>
               </table>
@@ -212,47 +202,47 @@
               <table class="contact" width="100%">
                 <tr>
                   <td>
-                    <input type = "checkbox" id = "c1">
+                    <input type = "checkbox" id = "c1" name="chec3">
                     <label for = "c1">Investment Proceeds</label>
                   </td>
                   <td>
-                    <input type = "checkbox" id = "c2">
+                    <input type = "checkbox" id = "c2" name="chec3">
                     <label for = "c2">Family Remittance</label>
                   </td></tr><tr>
                   <td>
-                    <input type = "checkbox" id = "c3">
+                    <input type = "checkbox" id = "c3" name="chec3">
                     <label for = "c1">Sales and Bussiness Turnover</label>
                   </td>
                   <td>
-                    <input type = "checkbox" id = "c4">
+                    <input type = "checkbox" id = "c4" name="chec3">
                     <label for = "c4">Export Proceeds</label>
                   </td>
                 </tr>
                 <tr>
                   <td>
-                    <input type = "checkbox" id = "c5">
+                    <input type = "checkbox" id = "c5" name="chec3">
                     <label for = "c7">Salary/Profit Income</label>
                   </td>
                   <td>
-                    <input type = "checkbox" id = "c6">
+                    <input type = "checkbox" id = "c6" name="chec3">
                     <label for = "c6">Donations/Charities(Local/Foreign)</label>
                   </td>
                 </tr>
 
                 <tr>
                   <td>
-                    <input type = "checkbox" id = "c7">
+                    <input type = "checkbox" id = "c7" name="chec3">
                     <label for = "c5">Contract Proceeds</label>
                   </td>
                   <td>
-                    <input type = "checkbox" id = "c8">
+                    <input type = "checkbox" id = "c8" name="chec3">
                     <label for = "c3">Commission Income</label>
                   </td>
                 </tr>
                 <tr>
                   <td>
-                    <input type = "checkbox" id = "c9">
-                    <label for = "c9">Other</label>
+                    <input type = "checkbox" id = "otherIncome" name="chec3">
+                    <label for = "otherIncome">Other</label>
                   </td>
                   <td></td>
                 </tr>
@@ -263,7 +253,7 @@
                     <p>If Other Please Specify</p>
                   </td>
                   <td style="padding-bottom:20px;">
-                    <input type="text" name="Other_Income">
+                    <input type="text" name="Other_Income" id="other_Incometypes">
                   </td>
                 </tr>
                 <tr>
@@ -275,11 +265,12 @@
                     Average Income (Monthly)
                   </td>
                   <td>
-                    <select name="Average_Income" id="Average_Income">
-                    <option value="Less than 100,000">Less than 100,000</option>
-                    <option value="100,001 - 500,000">100,001 - 500,000</option>
-                    <option value="500,001 - 1,000,000">500,001 - 1,000,000</option>
-                    <option value="Above 1,000,000">Above 1,000,000</option>
+                    <select name="Average_Income" id="Average_Income" required="">
+                      <option value="">Average Monthly Income</option>
+                      <option value="Less than 100,000">Less than 100,000</option>
+                      <option value="100,001 - 500,000">100,001 - 500,000</option>
+                      <option value="500,001 - 1,000,000">500,001 - 1,000,000</option>
+                      <option value="Above 1,000,000">Above 1,000,000</option>
                     </select>
                   </td>
                 </tr>
@@ -289,33 +280,33 @@
               <table class="contact" width="90%">
                   <tr>
                     <td>
-                      <input type = "checkbox" id = "c1">
+                      <input type = "checkbox" id = "c1" name="chec4">
                       <label for = "c1">Cash</label>
                     </td>
                     <td>
-                      <input type = "checkbox" id = "c2">
+                      <input type = "checkbox" id = "c2" name="chec4">
                       <label for = "c2">Cheque</label>
                     </td></tr><tr>
                     <td>
-                      <input type = "checkbox" id = "c3">
+                      <input type = "checkbox" id = "c3" name="chec4">
                       <label for = "c1">Standing Orders</label>
                     </td>
                     <td>
-                      <input type = "checkbox" id = "c4">
+                      <input type = "checkbox" id = "c4" name="chec4">
                       <label for = "c4">POS Transaction</label>
                     </td></tr><tr>
                     <td>
-                      <input type = "checkbox" id = "c5">
+                      <input type = "checkbox" id = "c5" name="chec4">
                       <label for = "c7">Foreign Remittance</label>
                     </td>
                     <td>
-                      <input type = "checkbox" id = "c6">
+                      <input type = "checkbox" id = "c6" name="chec4">
                       <label for = "c6">Online Transaction</label>
                     </td>
                   </tr>
                   <tr>
                     <td>
-                      <input type = "checkbox" id = "c7">
+                      <input type = "checkbox" id = "c7" name="chec4">
                       <label for = "c5">Slips/Wire Transfers/RTGS</label>
                     </td>
                     <td></td>
@@ -323,7 +314,7 @@
                   </tr>
                 </table></center>
                 <br>
-                <p style="padding-left: 450px;"><button type="submit" class="btn btn-primary" onclick="return validation_1()">Next</button></p>
+                <p style="padding-left: 450px;"><button type="submit" class="btn btn-primary" onclick="return validate_2()">Next</button></p>
               </form>
           </div>
           <div class="col-md-1">

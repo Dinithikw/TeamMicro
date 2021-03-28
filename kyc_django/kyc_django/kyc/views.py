@@ -18,6 +18,8 @@ def office(request):
 
 def insertkyc1(request):
     occu_state = request.POST["Occutation_Status"]
+    return render(request, 'kyc/(2nd)AccEmp.html')
+
 
 def insertkyc(request):
     print("successfully completed")
