@@ -12,7 +12,7 @@
     <title>Document</title>
     {% load static %}
 
-    <link rel="stytlesheet" href="{% static 'index.css' %}">
+    <link rel="stytlesheet" href="{% static 'css/index.css' %}">
 
     <!--<style>
       .personal_info{
@@ -167,7 +167,7 @@
 </head>
 
 
-<body>
+<body style="background: url({% static 'img/1.jpg' %}) no-repeat fixed; background-position: center;background-repeat: no-repeat; background-size: cover;">
     {% for message in messages %}
     <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
         <strong>Message </strong>{{message}}
@@ -180,12 +180,12 @@
     {% endfor %}
 
   <div class="row">
-    <div class="col-md-12 title">
-      <p style="padding-top:10px; padding-left:50px;"><b>Know Your Customer</b></p>
+    <div class="col-md-12 title" style="background-color: #f3f3f300;">
+      <p style="padding-top:10px; padding-left:50px;color:#000"><b>Know Your Customer (KYC) Form</b></p>
     </div>
   </div>
 
-  <div class="row">
+  <div class="row" style="margin-top: -50px;">
       <div class="col-md-1">
 
       </div>
@@ -291,13 +291,13 @@
                 <label>House number</label>
               </td>
               <td>
-                <input type="text" name="house_number" id="houseNo" required="" >
+                <input type="text" name="house_number" id="houseNo" required="" placeholder="Ex; 50">
               </td>
               <td class="left_border">
                 <label>Street</label>
               </td>
               <td>
-                <input type="text" name="street" id="street" required="" >
+                <input type="text" name="street" id="street" required="" placeholder="Ex; Jaffna Rd" >
               </td>
             </tr>
             <tr>
@@ -305,19 +305,17 @@
                 <label>City</label>
               </td>
               <td>
-                <input type="text" name="city" id="city" required="" onkeyup="lettersOnly(this)">
+                <input type="text" name="city" id="city" required="" onkeyup="lettersOnly(this)" placeholder="Ex; Mihinthale">
               </td>
               <td class="left_border">
                 <label>Country</label>
               </td>
               <td>
-                <input type="text" name="country" id="country" required="" onkeyup="lettersOnly(this)">
+                <input type="text" name="country" id="country" required="" onkeyup="lettersOnly(this)" placeholder="Ex; Sri Lanka">
               </td>
             </tr>
             </table>
             <br>
-
-            <p style="text-align:left; padding-left:35px;"><i>Contact Information</i></p>
             <p style="text-align: left; padding-left: 35px;"><i><b>Contact Information</b></i></p>
             <table class="contact" width="90%">
               <tr>
@@ -343,7 +341,7 @@
                   <p>Email Address</p>
                 </td>
                 <td>
-                  <input type="email" name="email" id="email">
+                  <input type="email" name="email" id="email" placeholder="Ex; abc@gmail.com">
                 </td>
               </tr>
             </table></center>
