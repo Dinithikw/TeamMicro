@@ -16,6 +16,9 @@ def personal(request):
 def office(request):
     return render(request, 'kyc/(4th)office.html')
 
+def insertkyc1(request):
+    occu_state = request.POST["Occutation_Status"]
+
 def insertkyc(request):
     print("successfully completed")
     full_name = request.POST["fullname"]
@@ -23,10 +26,19 @@ def insertkyc(request):
     id_type = request.POST["ID_type"]
     nics_no = request.POST["NIC"]
 
+
+    messages.success(request, 'Successfully saved')
+
+    render(request, 'kyc/(2nd)AccEmp.html')
+
+    
+
+
     print(full_name)
     print(name_init)
     print(id_type)
     print(nics_no)
+    print(occu_state)
 
     submit_kyc = Kyc_Info()
     submit_kyc = Kyc_Info(full_name=full_name, name_init=name_init, id_type=id_type, nics_no=nics_no)
