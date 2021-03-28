@@ -10,6 +10,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <title>Document</title>
+    {% load static %}
+
+    <link rel="stytlesheet" href="{% static 'css/index.css' %}">
 
     <style>
       .personel_info{
@@ -44,15 +47,14 @@
 </head>
 
 
-<body>
-
+<body style="background: url({% static 'img/1.jpg' %}) no-repeat fixed; background-position: center;background-repeat: no-repeat; background-size: cover;">
   <div class="row">
-    <div class="col-md-12 title">
-      <p style="padding-top:10px; padding-left:50px;"><b>Know Your Customer</b></p>
+    <div class="col-md-12 title" style="background-color: #f3f3f300;">
+      <p style="padding-top:10px; padding-left:50px;color:#000"><b>Know Your Customer (KYC) Form</b></p>
     </div>
   </div>
 
-  <div class="row">
+  <div class="row" style="margin-top: -50px;">
       <div class="col-md-1">
 
       </div>
