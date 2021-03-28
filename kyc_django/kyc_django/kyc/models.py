@@ -5,7 +5,7 @@ class Kyc_Info(models.Model):
     full_name = models.CharField(max_length=200)
     name_init = models.CharField(max_length=100)
     id_type = models.CharField(max_length=50)
-    #nics_no = models.CharField(max_length=50)
+    nics_no = models.CharField(max_length=50)
 
     """company_name = models.CharField(max_length=50)
     address_full = models.CharField(max_length=250)
