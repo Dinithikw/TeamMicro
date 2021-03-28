@@ -33,7 +33,7 @@ def insertkyc(request):
     submit_kyc.save()
     messages.success(request, 'Successfully submitted')
 
-    return render(request, 'kyc/index.html')
+    return render(request, 'kyc/(2nd)AccEmp.html')
 
     """if request.method=='POST':
         if request.POST.get('ID_type'):
