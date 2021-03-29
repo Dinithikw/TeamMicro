@@ -85,6 +85,11 @@ function validate_2()
     alert("Mention Your Other Incomes.");
     return false;
   }
+  else if(document.getElementById("other_Incometypes").value!="" && document.getElementById("otherIncome").checked!=true)
+  {
+    alert("To provide the other income source(s), please tick the 'Other' option in income feild.");
+    return false;
+  }
   else if(document.getElementById("Average_Income").value=="")
   {
     alert("Please Select Your Average Monthly Income.");
