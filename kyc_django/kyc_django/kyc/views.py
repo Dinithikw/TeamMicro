@@ -4,7 +4,7 @@ from django.contrib import messages
 
 
 
-
+#define method
 def index(request):
     return render(request, 'kyc/index.html')
 
