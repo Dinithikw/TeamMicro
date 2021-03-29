@@ -67,12 +67,16 @@ def insertkyc(request):
     date_of_birth = request.POST["birthday"]
 
     # calling variables for form inputs in residential detail section
-    house_no = request.POST[""]
-    street = request.POST[""]
-    city = request.POST[""]
-    country = request.POST[""]
+    house_no = request.POST["house_number"]
+    street = request.POST["street"]
+    city = request.POST["city"]
+    country = request.POST["country"]
 
-    # calling variables for form inputs in residential detail section
+    # calling variables for form inputs in contact detail section
+    mob_no = request.POST["mobile_number"]
+    office = request.POST["office_number"]
+    home = request.POST["home_number"]
+    email_add = request.POST["email"]
 
     messages.success(request, 'Successfully saved')
 

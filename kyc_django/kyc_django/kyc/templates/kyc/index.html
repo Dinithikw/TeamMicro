@@ -43,167 +43,206 @@
 
       <div class="col-md-5 personel_info" style="border:1px solid #000; border-radius:25px;">
 
-      <form action="insertkyc" method="post">
-          {% csrf_token %}
-            <center><h5>Personal Information</h5></center>
-        <!--<div class="col-md-5 personel_info" style="border:1px solid #000; border-radius:25px;">-->
-            <table align="center" width="90%">
-                <tr>
-                    <td>
-                        <p class = "name">Name in Full<br>
-                        <input class="fullname" type="text" name="fullname" placeholder="Full Name" id="fullName" required="">
-                    </td>
-                    <td>
-                        <p class = "name">Name with Initials</br>
-                        <input class = "nwi" type = "text" name = "nwi" placeholder = "Name with Initials" id="nwi" required="">
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <p class = "ID_Recognitio">Identity Recognititon
-                        <select name="ID_type" id="ID_type" required="">
-                            <option value="">Select Your ID Type</option>
-                            <option value="National ID">National ID</option>
-                            <option value="Passport">Passport</option>
-                            <option value="Driving License">Driving License</option>
-                            <!-- <option value="Senior Citizen ID">Senior Citizen ID</option> -->
-                            <option value="Other">Other</option>
-                          </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <p class = "NIC">NIC</br>
-                        <input class="NIC" type="text" name="NIC" placeholder="NIC (fill only numbers)" id="NIC" required="" onkeypress="isnumber(event)">
-                    </td>
-                    <td>
+          <form action="insertkyc" method="post">
+              {% csrf_token %}
+                <center><h5>Personal Information</h5></center>
+            <!--<div class="col-md-5 personel_info" style="border:1px solid #000; border-radius:25px;">-->
+                <table align="center" width="90%">
+                    <tr>
+                        <td>
+                            <p class = "name">Name in Full<br>
+                            <input class="fullname" type="text" name="fullname" placeholder="Full Name" id="fullName" required="">
+                        </td>
+                        <td>
+                            <p class = "name">Name with Initials</br>
+                            <input class = "nwi" type = "text" name = "nwi" placeholder = "Name with Initials" id="nwi" required="">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p class = "ID_Recognitio">Identity Recognititon
+                            <select name="ID_type" id="ID_type" required="">
+                                <option value="">Select Your ID Type</option>
+                                <option value="National ID">National ID</option>
+                                <option value="Passport">Passport</option>
+                                <option value="Driving License">Driving License</option>
+                                <!-- <option value="Senior Citizen ID">Senior Citizen ID</option> -->
+                                <option value="Other">Other</option>
+                              </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p class = "NIC">NIC</br>
+                            <input class="NIC" type="text" name="NIC" placeholder="NIC (fill only numbers)" id="NIC" required="" onkeypress="isnumber(event)">
+                        </td>
+                        <td>
 
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <p class = "Driving_License">Driving License</br>
-                        <input class="Driving_License" type="text" name="driving_license" placeholder="Driving License" id="drlicense">
-                    </td>
-                    <td class="left_border">
-                        <p class = "Exp">Expiration Date</p></br>
-                        <input class="Exp" type="date" name="drive_exp" placeholder="Expire Date" id="drive_exp">
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <p class = "Passport">Passport No.<br>
-                        <input class="Passport" type="text" name="passport" placeholder="Passport" id="passport">
-                    </td>
-                    <td class="left_border">
-                        <p class = "Exp">Expiration Date</br>
-                        <input class="Exp" type="date" name="passport_exp" placeholder="Expire Date" id="passport_exp">
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <p class = "Nationality"> Nationality<br>   
-                        <select name="Nationality" id="Nationality" required="">
-                            <option value="">Select Your Nationality</option>
-                            <option value="Sri Lankan">Sri Lankan</option>
-                            <option value="Other">Other</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <p class = "Nationality"> If Other Please Specify<br>
-                        <input class="Nationality" type="text" name="Nationality_other" placeholder="Nationality" id="otherNationality" onkeyup="lettersOnly(this)">
-                    </td>
-                    <td>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p class = "Driving_License">Driving License</br>
+                            <input class="Driving_License" type="text" name="driving_license" placeholder="Driving License" id="drlicense">
+                        </td>
+                        <td class="left_border">
+                            <p class = "Exp">Expiration Date</p></br>
+                            <input class="Exp" type="date" name="drive_exp" placeholder="Expire Date" id="drive_exp">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p class = "Passport">Passport No.<br>
+                            <input class="Passport" type="text" name="passport" placeholder="Passport" id="passport">
+                        </td>
+                        <td class="left_border">
+                            <p class = "Exp">Expiration Date</br>
+                            <input class="Exp" type="date" name="passport_exp" placeholder="Expire Date" id="passport_exp">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p class = "Nationality"> Nationality<br>
+                            <select name="Nationality" id="Nationality" required="">
+                                <option value="">Select Your Nationality</option>
+                                <option value="Sri Lankan">Sri Lankan</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p class = "Nationality"> If Other Please Specify<br>
+                            <input class="Nationality" type="text" name="Nationality_other" placeholder="Nationality" id="otherNationality" onkeyup="lettersOnly(this)">
+                        </td>
+                        <td>
 
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <p class = "DOB">Date of Birth <br>
-                        <input type="date" id="birthday" name="birthday" required="">
-                    </td>
-                </tr>
-            </table>
-        
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p class = "DOB">Date of Birth <br>
+                            <input type="date" id="birthday" name="birthday" required="">
+                        </td>
+                    </tr>
+                </table>
       </div>
+        
+
       <!--<div class="col-md-5 contact_info" style="border-radius: 15px; border:1px solid #232322;">
         
             <center><h5>Contact Information</h5></center>
             <p style="padding-left: 35px;"><i>Residential Information</i></p>
       </div>-->
-      <div class="col-md-5 contact_info" style="border:1px solid #000; border-radius:25px;">
-            <center><h5>Contact Information</h5></center><br>
-            <p style="padding-left: 35px;"><i><b>Residential Information</b></i></p>
-            <center><table class="contact" width="90%"></center>
-            <tr>
-              <td>
-                <label>House number</label>
-              </td>
-              <td>
-                <input type="text" name="house_number" id="houseNo" required="" placeholder="Ex; 50">
-              </td>
-              <td class="left_border">
-                <label>Street</label>
-              </td>
-              <td>
-                <input type="text" name="street" id="street" required="" placeholder="Ex; Jaffna Rd" >
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <label>City</label>
-              </td>
-              <td>
-                <input type="text" name="city" id="city" required="" onkeyup="lettersOnly(this)" placeholder="Ex; Mihinthale">
-              </td>
-              <td class="left_border">
-                <label>Country</label>
-              </td>
-              <td>
-                <input type="text" name="country" id="country" required="" onkeyup="lettersOnly(this)" placeholder="Ex; Sri Lanka">
-              </td>
-            </tr>
-            </table>
-            <br>
-            <p style="text-align: left; padding-left: 35px;"><i><b>Contact Information</b></i></p>
-            <table class="contact" width="90%">
-              <tr>
-                <td>
-                  <p>Mobile number<br>
-                  <input type="text" name="mobile_number" id="mobile" onkeypress="isnumber(event)">
-                </td>
-                <td>
-                  <p>Office<br>
-                  <input type="text" name="office_number" id="officetel" onkeypress="isnumber(event)">
-                </td>
-                <td>
-                  <p>Home<br>
-                  <input type="text" name="home_number" id="hometel" onkeypress="isnumber(event)">
-                </td>
-              </tr>
-              <tr>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr>
-                <td>
-                  <p>Email Address</p>
-                </td>
-                <td>
-                  <input type="email" name="email" id="email" placeholder="Ex; abc@gmail.com">
-                </td>
-              </tr>
-            </table></center>
-            <br><br><br><br><br>
-            <p style="padding-left: 450px;"><button type="submit" class="btn btn-primary" name="submit" onclick="return validate()" >Next</button></p>
-     </form>
+            <div class="col-md-5 contact_info" style="border:1px solid #000; border-radius:25px;">
+                <center>
+                    <h5>Contact Information</h5>
+                </center><br>
+
+                <p style="padding-left: 35px;"><i><b>Residential Information</b></i></p>
+
+                <center>
+                    <table class="contact" width="90%">
+
+                        <tr>
+
+                            <td>
+                                <label>House number</label>
+                            </td>
+
+                            <td>
+                                <input type="text" name="house_number" id="houseNo" required="" placeholder="Ex; 50">
+                            </td>
+
+                            <td class="left_border">
+                                <label>Street</label>
+                            </td>
+
+                            <td>
+                                <input type="text" name="street" id="street" required="" placeholder="Ex; Jaffna Rd" >
+                            </td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>
+                                <label>City</label>
+                            </td>
+
+                            <td>
+                                <input type="text" name="city" id="city" required="" onkeyup="lettersOnly(this)" placeholder="Ex; Mihinthale">
+                            </td>
+
+                            <td class="left_border">
+                                <label>Country</label>
+                            </td>
+
+                            <td>
+                                <input type="text" name="country" id="country" required="" onkeyup="lettersOnly(this)" placeholder="Ex; Sri Lanka">
+                            </td>
+
+                        </tr>
+
+                    </table>
+
+                    <br>
+                    <p style="text-align: left; padding-left: 35px;"><i><b>Contact Information</b></i></p>
+
+                    <table class="contact" width="90%">
+
+                        <tr>
+                            <td>
+
+                                <p>Mobile number<br>
+                                    <input type="text" name="mobile_number" id="mobile" onkeypress="isnumber(event)">
+                                </p>
+
+                            </td>
+
+                            <td>
+                                <p>Office<br>
+                                    <input type="text" name="office_number" id="officetel" onkeypress="isnumber(event)">
+                                </p>
+                            </td>
+
+                            <td>
+                                <p>Home<br>
+                                <input type="text" name="home_number" id="hometel" onkeypress="isnumber(event)">
+                                </p>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td></td>
+                            <td></td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <p>Email Address</p>
+                            </td>
+
+                            <td>
+                                <input type="email" name="email" id="email" placeholder="Ex; abc@gmail.com">
+                            </td>
+
+                        </tr>
+
+                    </table>
+
+                </center>
+
+                <br><br><br><br><br>
+                <p style="padding-left: 450px;"><button type="submit" class="btn btn-primary" name="submit" onclick="return validate()" >Next</button></p>
+          </form>
       </div>
+
       <div class="col-md-1">
           
       </div>
-    </div>
+      
+  </div>
   
 
 
