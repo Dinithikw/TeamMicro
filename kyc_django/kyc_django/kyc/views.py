@@ -24,15 +24,26 @@ def office(request):
 
 # -----------------------------------------------------------------------------------------------------------------------
 
+
+
+
+
+
 # defining method to call accounts page and applying values to the variables
 def insertkyc1(request):
+
+    # *************variables of second form********************
     global occu_state
+
     occu_state = request.POST["Occutation_Status"]
     print(occu_state)
     print(full_name)
     print(name_init)
 
-    submit_kyc = Kyc_Info(full_name=full_name, name_init=name_init, id_type=id_type, nics_no=nics_no,
+    submit_kyc = Kyc_Info(full_name=full_name, name_init=name_init, id_type=id_type, nics_no=nics_no, driv_lic=driv_lic,
+                          pass_no=pass_no, nationality=nationality,
+                          nationality_other=nationality_other, house_no=house_no, street=street,
+                          city=city, country=country, mob_no=mob_no, office_num=office_num, home=home, email_add=email_add,
                           occu_state=occu_state)
     submit_kyc.save()
     messages.success(request, 'Successfully saved')
@@ -43,7 +54,11 @@ def insertkyc1(request):
 def insertkyc(request):
     print("successfully completed")
 
-    # variables of personal information
+    # definging global variables
+    # -----------------------------------------------------------------------------------------------------------------------
+
+    # ***************** variables of personal information first form ***************
+
     global full_name, name_init, id_type, nics_no, driv_lic, driv_exp, pass_no, pass_exp, nationality
     global nationality_other, date_of_birth
 
@@ -51,7 +66,7 @@ def insertkyc(request):
     global house_no, street, city, country
 
     # variables of contact information
-    global mob_no, office, home, email_add
+    global mob_no, office_num, home, email_add
 
     # calling variables for form inputs in personal detail section
     full_name = request.POST["fullname"]
@@ -74,7 +89,7 @@ def insertkyc(request):
 
     # calling variables for form inputs in contact detail section
     mob_no = request.POST["mobile_number"]
-    office = request.POST["office_number"]
+    office_num = request.POST["office_number"]
     home = request.POST["home_number"]
     email_add = request.POST["email"]
 
@@ -84,6 +99,7 @@ def insertkyc(request):
     print(name_init)
     print(id_type)
     print(nics_no)
+    print(date_of_birth)
 
     # submit_kyc = Kyc_Info(full_name=full_name, name_init=name_init, id_type=id_type, nics_no=nics_no)
     # submit_kyc.save()
