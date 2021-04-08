@@ -37,3 +37,34 @@ class Kyc_Info(models.Model):
 
     def __str__(self):
         return self.full_name
+
+class Kyc_Infotemp(models.Model):
+    full_name_temp = models.CharField(max_length=200)
+    name_init_temp = models.CharField(max_length=100)
+    nics_no_temp = models.CharField(max_length=50)
+    driv_lic_temp = models.CharField(max_length=50)
+    driv_exp_temp = models.CharField(max_length=20)
+    pass_no_temp = models.CharField(max_length=50)
+    pass_exp_temp = models.CharField(max_length=20)
+    nationality_temp = models.CharField(max_length=50)
+    nationality_other_temp = models.CharField(max_length=50)
+    date_of_birth_temp = models.DateField('%Y-%m-%d')
+    house_no_temp = models.CharField(max_length=20)
+    street_temp = models.CharField(max_length=20)
+    city_temp = models.CharField(max_length=20)
+    country_temp = models.CharField(max_length=20)
+    mob_no_temp = models.CharField(max_length=20)
+    office_num_temp = models.CharField(max_length=20)
+    home_num_temp = models.CharField(max_length=20)
+    email_add_temp = models.CharField(max_length=50)
+    occu_state_temp = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.full_name_temp
+
+class Id_Info(models.Model):
+    nic_no = models.CharField(max_length=50)
+    name_full = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.name_full

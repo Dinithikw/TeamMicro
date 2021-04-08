@@ -1,5 +1,5 @@
-from django.shortcuts import render
-from .models import Kyc_Info
+from django.shortcuts import render, redirect
+from .models import Kyc_Info, Kyc_Infotemp, Id_Info
 from django.contrib import messages
 
 
@@ -25,13 +25,8 @@ def office(request):
 # -----------------------------------------------------------------------------------------------------------------------
 
 
-
-
-
-
 # defining method to call accounts page and applying values to the variables
 def insertkyc1(request):
-
     # *************variables of second form********************
     global occu_state
 
@@ -43,7 +38,8 @@ def insertkyc1(request):
     submit_kyc = Kyc_Info(full_name=full_name, name_init=name_init, id_type=id_type, nics_no=nics_no, driv_lic=driv_lic,
                           pass_no=pass_no, nationality=nationality,
                           nationality_other=nationality_other, house_no=house_no, street=street,
-                          city=city, country=country, mob_no=mob_no, office_num=office_num, home_num=home_num, email_add=email_add,
+                          city=city, country=country, mob_no=mob_no, office_num=office_num, home_num=home_num,
+                          email_add=email_add,
                           occu_state=occu_state, date_of_birth=date_of_birth, driv_exp=driv_exp)
     submit_kyc.save()
     messages.success(request, 'Successfully saved')
@@ -93,20 +89,25 @@ def insertkyc(request):
     home_num = request.POST["home_number"]
     email_add = request.POST["email"]
 
-    messages.success(request, 'Successfully saved')
+    if Id_Info.objects.filter(nic_no=nics_no).exists():
+        messages.warning(request, 'Nic alredy exist')
+        return render(request, 'kyc/index.html')
+    else:
 
-    print(full_name)
-    print(name_init)
-    print(id_type)
-    print(nics_no)
-    print(date_of_birth)
-    print(driv_exp)
+        messages.success(request, 'Successfully saved')
 
-    # submit_kyc = Kyc_Info(full_name=full_name, name_init=name_init, id_type=id_type, nics_no=nics_no)
-    # submit_kyc.save()
-    # messages.success(request, 'Successfully submitted')
+        print(full_name)
+        print(name_init)
+        print(id_type)
+        print(nics_no)
+        print(date_of_birth)
+        print(driv_exp)
 
-    return render(request, 'kyc/(2nd)AccEmp.html')
+        # submit_kyc = Kyc_Info(full_name=full_name, name_init=name_init, id_type=id_type, nics_no=nics_no)
+        # submit_kyc.save()
+        # messages.success(request, 'Successfully submitted')
+
+        return render(request, 'kyc/(2nd)AccEmp.html')
 
     """if request.method=='POST':
         if request.POST.get('ID_type'):
