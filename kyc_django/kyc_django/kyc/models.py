@@ -1,4 +1,5 @@
 from django.db import models
+from datetime import datetime, date
 
 
 # Create your models here.
@@ -8,19 +9,19 @@ class Kyc_Info(models.Model):
     id_type = models.CharField(max_length=50)
     nics_no = models.CharField(max_length=50)
     driv_lic = models.CharField(max_length=50)
-    #driv_exp = models.DateField('%Y-%m-%d')
+    driv_exp = models.CharField(max_length=20)
     pass_no = models.CharField(max_length=50)
-    #pass_exp = models.DateField('%Y-%m-%d')
+    pass_exp = models.CharField(max_length=20)
     nationality = models.CharField(max_length=50)
     nationality_other = models.CharField(max_length=50)
-    #date_of_birth = models.DateField('%Y-%m-%d')
+    date_of_birth = models.DateField('%Y-%m-%d')
     house_no = models.CharField(max_length=20)
     street = models.CharField(max_length=20)
     city = models.CharField(max_length=20)
     country = models.CharField(max_length=20)
     mob_no = models.CharField(max_length=20)
     office_num = models.CharField(max_length=20)
-    home = models.CharField(max_length=20)
+    home_num = models.CharField(max_length=20)
     email_add = models.CharField(max_length=50)
     occu_state = models.CharField(max_length=50)
 

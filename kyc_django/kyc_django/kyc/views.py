@@ -43,8 +43,8 @@ def insertkyc1(request):
     submit_kyc = Kyc_Info(full_name=full_name, name_init=name_init, id_type=id_type, nics_no=nics_no, driv_lic=driv_lic,
                           pass_no=pass_no, nationality=nationality,
                           nationality_other=nationality_other, house_no=house_no, street=street,
-                          city=city, country=country, mob_no=mob_no, office_num=office_num, home=home, email_add=email_add,
-                          occu_state=occu_state)
+                          city=city, country=country, mob_no=mob_no, office_num=office_num, home_num=home_num, email_add=email_add,
+                          occu_state=occu_state, date_of_birth=date_of_birth, driv_exp=driv_exp)
     submit_kyc.save()
     messages.success(request, 'Successfully saved')
 
@@ -66,7 +66,7 @@ def insertkyc(request):
     global house_no, street, city, country
 
     # variables of contact information
-    global mob_no, office_num, home, email_add
+    global mob_no, office_num, home_num, email_add
 
     # calling variables for form inputs in personal detail section
     full_name = request.POST["fullname"]
@@ -90,7 +90,7 @@ def insertkyc(request):
     # calling variables for form inputs in contact detail section
     mob_no = request.POST["mobile_number"]
     office_num = request.POST["office_number"]
-    home = request.POST["home_number"]
+    home_num = request.POST["home_number"]
     email_add = request.POST["email"]
 
     messages.success(request, 'Successfully saved')
@@ -100,6 +100,7 @@ def insertkyc(request):
     print(id_type)
     print(nics_no)
     print(date_of_birth)
+    print(driv_exp)
 
     # submit_kyc = Kyc_Info(full_name=full_name, name_init=name_init, id_type=id_type, nics_no=nics_no)
     # submit_kyc.save()
