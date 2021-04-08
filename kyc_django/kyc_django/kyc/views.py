@@ -35,16 +35,24 @@ def insertkyc1(request):
     print(full_name)
     print(name_init)
 
-    submit_kyc = Kyc_Info(full_name=full_name, name_init=name_init, id_type=id_type, nics_no=nics_no, driv_lic=driv_lic,
-                          pass_no=pass_no, nationality=nationality,
-                          nationality_other=nationality_other, house_no=house_no, street=street,
-                          city=city, country=country, mob_no=mob_no, office_num=office_num, home_num=home_num,
-                          email_add=email_add,
-                          occu_state=occu_state, date_of_birth=date_of_birth, driv_exp=driv_exp)
-    submit_kyc.save()
-    messages.success(request, 'Successfully saved')
+    if Kyc_Info.objects.filter(nics_no=nics_no).exists():
+        submit_kyc_temp = Kyc_Infotemp(full_name_temp=full_name_temp, name_init_temp=name_init_temp, occu_state_temp=occu_state,
+                                       date_of_birth_temp=date_of_birth)
+        submit_kyc_temp.save()
+        messages.success(request, 'saved look')
+        return render(request, 'kyc/(2nd)AccEmp.html')
 
-    return render(request, 'kyc/(2nd)AccEmp.html')
+    else:
+        submit_kyc = Kyc_Info(full_name=full_name, name_init=name_init, id_type=id_type, nics_no=nics_no, driv_lic=driv_lic,
+                              pass_no=pass_no, nationality=nationality,
+                              nationality_other=nationality_other, house_no=house_no, street=street,
+                              city=city, country=country, mob_no=mob_no, office_num=office_num, home_num=home_num,
+                              email_add=email_add,
+                              occu_state=occu_state, date_of_birth=date_of_birth, driv_exp=driv_exp)
+        submit_kyc.save()
+        messages.success(request, 'Successfully saved')
+
+        return render(request, 'kyc/(2nd)AccEmp.html')
 
 
 def insertkyc(request):
@@ -57,6 +65,8 @@ def insertkyc(request):
 
     global full_name, name_init, id_type, nics_no, driv_lic, driv_exp, pass_no, pass_exp, nationality
     global nationality_other, date_of_birth
+
+    global full_name_temp, name_init_temp, date_of_birth_temp
 
     # variables of residential details
     global house_no, street, city, country
@@ -90,24 +100,33 @@ def insertkyc(request):
     email_add = request.POST["email"]
 
     if Id_Info.objects.filter(nic_no=nics_no).exists():
-        messages.warning(request, 'Nic alredy exist')
-        return render(request, 'kyc/index.html')
-    else:
+        messages.success(request, 'NIC validated successfully')
 
-        messages.success(request, 'Successfully saved')
+        if Kyc_Info.objects.filter(nics_no=nics_no).exists():
+            messages.success(request, 'successfully proceed to next step')
+            full_name_temp = full_name
+            name_init_temp = name_init
 
-        print(full_name)
-        print(name_init)
-        print(id_type)
-        print(nics_no)
-        print(date_of_birth)
-        print(driv_exp)
+            return render(request, 'kyc/(2nd)AccEmp.html')
+    
+        else:
+
+            print(full_name)
+            print(name_init)
+            print(id_type)
+            print(nics_no)
+            print(date_of_birth)
+            print(driv_exp)
 
         # submit_kyc = Kyc_Info(full_name=full_name, name_init=name_init, id_type=id_type, nics_no=nics_no)
         # submit_kyc.save()
         # messages.success(request, 'Successfully submitted')
 
         return render(request, 'kyc/(2nd)AccEmp.html')
+    else:
+
+        messages.warning(request, 'Invalid NIC Number. please check again')
+        return render(request, 'kyc/index.html')
 
     """if request.method=='POST':
         if request.POST.get('ID_type'):
