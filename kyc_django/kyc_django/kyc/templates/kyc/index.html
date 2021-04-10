@@ -41,7 +41,7 @@
 
       </div>
 
-      <div class="col-md-5 personel_info" style="border:1px solid #000; border-radius:25px;">
+      <div class="col-md-5 personel_info" style="border:1px solid #000; border-radius:25px; height:920px;">
 
           <form action="insertkyc" method="post">
               {% csrf_token %}
@@ -63,9 +63,15 @@
                         </td>
                     </tr>
                     <tr>
-                        <td>
+                        <td colspan="2">
                             <p class = "name">Name in Full<br>
-                            <input class="fullname" type="text" name="fullname" placeholder="Full Name" id="fullName" required="">
+                            <input class="fullname" type="text" name="fullname" placeholder="Full Name" id="fullName" required="" style="width:95%;">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <p class = "name">Former Names<br>
+                            <input class="former_name" type="text" name="former_name" placeholder="Enter your former names if you have any" id="former_name" style="width:95%;">
                         </td>
                     </tr>
                     <tr>
@@ -116,12 +122,45 @@
                             <select name="Nationality" id="Nationality" required="">
                                 <option value="">Select Your Nationality</option>
                                 <option value="Sri Lankan">Sri Lankan</option>
-                                <option value="Other">Other</option>
+                                <option value="Other">Sri Lankan with dual citizenship</option>
+                                <option value="Other">Sri Lankan with foreign citizenship</option>
+                                <option value="Other">Foreign National</option>
                             </select>
                         </td>
                         <td>
-                            <br><p class = "Nationality"> If Other Please Specify<br>
+                            <br><p class = "Nationality">Nationality<br>
                             <input class="Nationality" type="text" name="Nationality_other" placeholder="Nationality" id="otherNationality" onkeyup="lettersOnly(this)">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>Type of Visa<br>
+                            <select>
+                                <option>Permanent Resident</option>
+                                <option>Temporary Resident</option>
+                                <option>Green Card</option>
+                                <option>Other</option>
+                            </select>
+                        </td>
+                        <td class="left_border">
+                            <p class = "Exp">Expiration Date</br>
+                            <input class="Exp" type="date" name="passport_exp" placeholder="Expire Date" id="passport_exp">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>If other please specify<br>
+                            <input class="type_of_visa" type="text" name="type_of_visa" placeholder="Type of your visa" id="type_of_your_visa">
+                        </td>
+                        <td class="left_border">
+                            <p class = "Exp">Expiration Date</br>
+                            <input class="Exp" type="date" name="passport_exp" placeholder="Expire Date" id="passport_exp">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <p>Foreign Address<br>
+                            <input type="text" name="foreign_address" placeholder="Enter your foreign address, if you have any" style="width:95%;">
                         </td>
                     </tr>
                     <tr>
