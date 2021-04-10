@@ -41,6 +41,7 @@ class Kyc_Info(models.Model):
 class Kyc_Infotemp(models.Model):
     full_name_temp = models.CharField(max_length=200)
     name_init_temp = models.CharField(max_length=100)
+    id_type_temp = models.CharField(max_length=50)
     nics_no_temp = models.CharField(max_length=50)
     driv_lic_temp = models.CharField(max_length=50)
     driv_exp_temp = models.CharField(max_length=20)
