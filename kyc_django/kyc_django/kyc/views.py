@@ -4,6 +4,7 @@ from django.contrib import messages
 from kyc.models import Kyc_Infotemp
 
 
+
 # define method for calling pages
 # -----------------------------------------------------------------------------------------------------------------------
 
@@ -22,10 +23,14 @@ def personal(request):
 def office(request):
     return render(request, 'kyc/(4th)office.html')
 
-def update(request):
-    result = Kyc_Infotemp.objects.all()
 
-    return render(request, 'kyc/update.html', {"Kyc_Infotemp": result})
+def update(request):
+    result = Kyc_Infotemp.objects.filter(blue_flagadd_temp=True)
+    result2 = Kyc_Infotemp.objects.filter(blue_flag_temp=True)
+
+    return render(request, 'kyc/update.html', {"Kyc_Infotemp1": result, "Kyc_Infotemp2": result2})
+
+
 # -----------------------------------------------------------------------------------------------------------------------
 
 
@@ -40,12 +45,17 @@ def insertkyc1(request):
     print(name_init)
 
     if Kyc_Info.objects.filter(nics_no=nics_no).exists():
-        submit_kyc_temp = Kyc_Infotemp(full_name_temp=full_name, name_init_temp=name_init, id_type_temp=id_type, driv_lic_temp=driv_lic,
+        submit_kyc_temp = Kyc_Infotemp(full_name_temp=full_name, name_init_temp=name_init, id_type_temp=id_type,
+                                       driv_lic_temp=driv_lic,
                                        pass_no_temp=pass_no, nationality_temp=nationality,
-                                       nationality_other_temp=nationality_other, house_no_temp=house_no, street_temp=street,
-                                       city_temp=city, mob_no_temp=mob_no, office_num_temp=office_num, home_num_temp=home_num,
+                                       nationality_other_temp=nationality_other, house_no_temp=house_no,
+                                       street_temp=street,
+                                       city_temp=city, mob_no_temp=mob_no, office_num_temp=office_num,
+                                       home_num_temp=home_num,
                                        email_add_temp=email_add,
-                                       occu_state_temp=occu_state, date_of_birth_temp=date_of_birth, driv_exp_temp=driv_exp)
+                                       occu_state_temp=occu_state, date_of_birth_temp=date_of_birth,
+                                       driv_exp_temp=driv_exp,
+                                       blue_flagadd_temp=green_flag, blue_flag_temp=blue_flag)
         submit_kyc_temp.save()
         messages.success(request, 'saved look')
         return render(request, 'kyc/(2nd)AccEmp.html')
@@ -53,7 +63,8 @@ def insertkyc1(request):
     else:
 
         if Id_Info.objects.filter(name_full=full_name).exists():
-            submit_kyc = Kyc_Info(full_name=full_name, name_init=name_init, id_type=id_type, nics_no=nics_no, driv_lic=driv_lic,
+            submit_kyc = Kyc_Info(full_name=full_name, name_init=name_init, id_type=id_type, nics_no=nics_no,
+                                  driv_lic=driv_lic,
                                   pass_no=pass_no, nationality=nationality,
                                   nationality_other=nationality_other, house_no=house_no, street=street,
                                   city=city, mob_no=mob_no, office_num=office_num, home_num=home_num,
@@ -76,13 +87,18 @@ def insertkyc(request):
     global full_name, name_init, id_type, nics_no, driv_lic, driv_exp, pass_no, pass_exp, nationality
     global nationality_other, date_of_birth
 
-    #global full_name_temp, name_init_temp, date_of_birth_temp
+    # global full_name_temp, name_init_temp, date_of_birth_temp
 
     # variables of residential details
     global house_no, street, city
 
     # variables of contact information
     global mob_no, office_num, home_num, email_add
+
+    # variable for flags
+    global green_flag, blue_flag
+    green_flag = False
+    blue_flag = False
 
     # calling variables for form inputs in personal detail section
     full_name = request.POST["fullname"]
@@ -102,7 +118,6 @@ def insertkyc(request):
     street = request.POST["street"]
     city = request.POST["city"]
 
-
     # calling variables for form inputs in contact detail section
     mob_no = request.POST["mobile_number"]
     office_num = request.POST["office_number"]
@@ -111,6 +126,7 @@ def insertkyc(request):
 
     # checking is there ID exists in Identity information database
     if Id_Info.objects.filter(nic_no=nics_no).exists():
+
         # if exists id number proceed to next step
         messages.success(request, 'NIC validated successfully')
 
@@ -118,33 +134,41 @@ def insertkyc(request):
         if Kyc_Info.objects.filter(nics_no=nics_no).exists():
 
             # if true for existing kyc
-            messages.success(request, 'existing kyc')
+            # messages.success(request, 'existing kyc')
 
             # check whether the full name is similar to id info database
             if Id_Info.objects.filter(nic_no=nics_no, name_full=full_name).exists():
 
-
-            #return to next page
-            #return render(request, 'kyc/(2nd)AccEmp.html')
+                # return to next page
+                # return render(request, 'kyc/(2nd)AccEmp.html')
 
                 # give an message if name is true
-                messages.success(request, 'existing kyc, name true')
+                # messages.success(request, 'existing kyc, name true')
 
                 # check if birthday is true according to id info database
                 if Id_Info.objects.filter(nic_no=nics_no, name_full=full_name, birth_day=date_of_birth).exists():
 
                     # giving a message if dob is true
-                    messages.success(request, 'existing kyc, name true,dob ture')
+                    # messages.success(request, 'existing kyc, name true,dob ture')
 
-
-                    if Id_Info.objects.filter(nic_no=nics_no, name_full=full_name, birth_day=date_of_birth, house_num=house_no,
+                    if Id_Info.objects.filter(nic_no=nics_no, name_full=full_name, birth_day=date_of_birth,
+                                              house_num=house_no,
                                               street_add=street, city_ref=city).exists():
+                        
+
                         messages.success(request, 'existing kyc, name true, dob ture, address true')
-                        return render(request, 'kyc/index.html')
+
+                        green_flag = 'True'
+                        print(green_flag)
+                        return render(request, 'kyc/(2nd)AccEmp.html')
+
                     else:
 
-                        messages.warning(request, 'existing kyc, name true,dob false, address false')
-                        return render(request, 'kyc/index.html')
+                        messages.warning(request, 'existing kyc, name true,dob true, address false attach proof '
+                                                  'document')
+
+                        blue_flag = 'True'
+                        return render(request, 'kyc/(2nd)AccEmp.html')
 
 
 
@@ -157,7 +181,7 @@ def insertkyc(request):
                 # give an message if name is false
                 messages.warning(request, 'existing kyc, name false')
                 return render(request, 'kyc/index.html')
-    
+
         else:
 
             print(full_name)
@@ -167,12 +191,50 @@ def insertkyc(request):
             print(date_of_birth)
             print(driv_exp)
 
-        # submit_kyc = Kyc_Info(full_name=full_name, name_init=name_init, id_type=id_type, nics_no=nics_no)
-        # submit_kyc.save()
-            messages.success(request, 'Successfully submitted')
+            # check whether the full name is similar to id info database
+            if Id_Info.objects.filter(nic_no=nics_no, name_full=full_name).exists():
+
+                # return to next page
+                # return render(request, 'kyc/(2nd)AccEmp.html')
+
+                # give an message if name is true
+                # messages.success(request, 'existing kyc, name true')
+
+                # check if birthday is true according to id info database
+                if Id_Info.objects.filter(nic_no=nics_no, name_full=full_name, birth_day=date_of_birth).exists():
+
+                    # giving a message if dob is true
+                    # messages.success(request, 'existing kyc, name true,dob ture')
+
+                    if Id_Info.objects.filter(nic_no=nics_no, name_full=full_name, birth_day=date_of_birth,
+                                              house_num=house_no,
+                                              street_add=street, city_ref=city).exists():
+
+                        messages.success(request, 'existing kyc, name true, dob ture, address true')
+                        return render(request, 'kyc/(2nd)AccEmp.html')
+
+                    else:
+
+                        messages.warning(request, 'no kyc, name true,dob true, address false attach proof '
+                                                  'document')
+                        return render(request, 'kyc/(2nd)AccEmp.html')
+
+
+
+                # if date of birth is false
+                else:
+                    # give an error message
+                    messages.warning(request, 'no kyc, name true,dob false')
+                    return render(request, 'kyc/index.html')
+            else:
+                # give an message if name is false
+                messages.warning(request, 'no kyc, name false')
+                return render(request, 'kyc/index.html')
+
+            # messages.success(request, 'Successfully submitted')
             # return to next page
-            #return render(request, 'kyc/(2nd)AccEmp.html')
-            return render(request, 'kyc/index.html')
+            # return render(request, 'kyc/(2nd)AccEmp.html')
+            # return render(request, 'kyc/index.html')
 
     # it there is no id number in id information system give error message
     else:
