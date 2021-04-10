@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path,include
 
 from kyc.views import index
-from kyc.views import office, personal, account, insertkyc, insertkyc1
+from kyc.views import office, personal, account, insertkyc, insertkyc1, update
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -25,6 +25,7 @@ urlpatterns = [
     path('office', office),
     path('personal', personal),
     path('account', account),
+    path('update', update),
     path('insertkyc', insertkyc),
     path('insertkyc1', insertkyc1)
 ]

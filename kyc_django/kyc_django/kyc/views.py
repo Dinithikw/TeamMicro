@@ -21,7 +21,8 @@ def personal(request):
 def office(request):
     return render(request, 'kyc/(4th)office.html')
 
-
+def update(request):
+    return render(request, 'kyc/update.html')
 # -----------------------------------------------------------------------------------------------------------------------
 
 
