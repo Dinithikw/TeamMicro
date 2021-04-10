@@ -50,12 +50,22 @@
                 <table align="center" width="90%">
                     <tr>
                         <td>
-                            <p class = "name">Name in Full<br>
-                            <input class="fullname" type="text" name="fullname" placeholder="Full Name" id="fullName" required="">
+                            <select name="solutation" id="solutation" required="" style="width:100px;">
+                                <option>Mr</option>
+                                <option>Mrs</option>
+                                <option>Miss</option>
+                                <option>Rev</option>
+                            </select>
                         </td>
                         <td>
                             <p class = "name">Name with Initials</br>
                             <input class = "nwi" type = "text" name = "nwi" placeholder = "Name with Initials" id="nwi" required="">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p class = "name">Name in Full<br>
+                            <input class="fullname" type="text" name="fullname" placeholder="Full Name" id="fullName" required="">
                         </td>
                     </tr>
                     <tr>
@@ -82,11 +92,11 @@
                     </tr>
                     <tr>
                         <td>
-                            <p class = "Driving_License">Driving License</br>
+                            <p class = "Driving_License">Driving License<br>
                             <input class="Driving_License" type="text" name="driving_license" placeholder="Driving License" id="drlicense">
                         </td>
                         <td class="left_border">
-                            <p class = "Exp">Expiration Date</p></br>
+                            <p class = "Exp">Expiration Date<br>
                             <input class="Exp" type="date" name="drive_exp" placeholder="Expire Date" id="drive_exp">
                         </td>
                     </tr>
@@ -102,21 +112,16 @@
                     </tr>
                     <tr>
                         <td>
-                            <p class = "Nationality"> Nationality<br>
+                            <br><p class = "Nationality"> Nationality<br>
                             <select name="Nationality" id="Nationality" required="">
                                 <option value="">Select Your Nationality</option>
                                 <option value="Sri Lankan">Sri Lankan</option>
                                 <option value="Other">Other</option>
                             </select>
                         </td>
-                    </tr>
-                    <tr>
                         <td>
-                            <p class = "Nationality"> If Other Please Specify<br>
+                            <br><p class = "Nationality"> If Other Please Specify<br>
                             <input class="Nationality" type="text" name="Nationality_other" placeholder="Nationality" id="otherNationality" onkeyup="lettersOnly(this)">
-                        </td>
-                        <td>
-
                         </td>
                     </tr>
                     <tr>
@@ -124,6 +129,7 @@
                             <p class = "DOB">Date of Birth <br>
                             <input type="date" id="birthday" name="birthday" required="">
                         </td>
+                        <td></td>
                     </tr>
                 </table>
       </div>
