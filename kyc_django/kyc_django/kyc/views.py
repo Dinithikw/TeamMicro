@@ -33,7 +33,7 @@ def update(request):
 def edit(request, id):
     update_val = Kyc_Infotemp.objects.get(id=id)
 
-    return render(request, {"Kyc_Infotemp": update_val})
+    return render(request, 'kyc/edit.html', {"Kyc_Infotemp": update_val})
 
 
 # -----------------------------------------------------------------------------------------------------------------------
