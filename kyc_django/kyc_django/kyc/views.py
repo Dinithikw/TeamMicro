@@ -51,16 +51,18 @@ def insertkyc1(request):
         return render(request, 'kyc/(2nd)AccEmp.html')
 
     else:
-        submit_kyc = Kyc_Info(full_name=full_name, name_init=name_init, id_type=id_type, nics_no=nics_no, driv_lic=driv_lic,
-                              pass_no=pass_no, nationality=nationality,
-                              nationality_other=nationality_other, house_no=house_no, street=street,
-                              city=city, country=country, mob_no=mob_no, office_num=office_num, home_num=home_num,
-                              email_add=email_add,
-                              occu_state=occu_state, date_of_birth=date_of_birth, driv_exp=driv_exp)
-        submit_kyc.save()
-        messages.success(request, 'Successfully saved')
 
-        return render(request, 'kyc/(2nd)AccEmp.html')
+        if Id_Info.objects.filter(name_full=full_name).exists():
+            submit_kyc = Kyc_Info(full_name=full_name, name_init=name_init, id_type=id_type, nics_no=nics_no, driv_lic=driv_lic,
+                                  pass_no=pass_no, nationality=nationality,
+                                  nationality_other=nationality_other, house_no=house_no, street=street,
+                                  city=city, country=country, mob_no=mob_no, office_num=office_num, home_num=home_num,
+                                  email_add=email_add,
+                                  occu_state=occu_state, date_of_birth=date_of_birth, driv_exp=driv_exp)
+            submit_kyc.save()
+            messages.success(request, 'Successfully saved')
+
+            return render(request, 'kyc/(2nd)AccEmp.html')
 
 
 def insertkyc(request):
@@ -107,15 +109,54 @@ def insertkyc(request):
     home_num = request.POST["home_number"]
     email_add = request.POST["email"]
 
+    # checking is there ID exists in Identity information database
     if Id_Info.objects.filter(nic_no=nics_no).exists():
+        # if exists id number proceed to next step
         messages.success(request, 'NIC validated successfully')
 
+        # check whether there are existing kyc in the database to the given id number
         if Kyc_Info.objects.filter(nics_no=nics_no).exists():
-            messages.success(request, 'successfully proceed to next step')
-            #full_name_temp = full_name
-            #name_init_temp = name_init
 
-            return render(request, 'kyc/(2nd)AccEmp.html')
+            # if true for existing kyc
+            messages.success(request, 'existing kyc')
+
+            # check whether the full name is similar to id info database
+            if Id_Info.objects.filter(nic_no=nics_no, name_full=full_name).exists():
+
+
+            #return to next page
+            #return render(request, 'kyc/(2nd)AccEmp.html')
+
+                # give an message if name is true
+                messages.success(request, 'existing kyc, name true')
+
+                # check if birthday is true according to id info database
+                if Id_Info.objects.filter(nic_no=nics_no, name_full=full_name, birth_day=date_of_birth).exists():
+
+                    # giving a message if dob is true
+                    messages.success(request, 'existing kyc, name true,dob ture')
+
+
+                    if Id_Info.objects.filter(nic_no=nics_no, name_full=full_name, birth_day=date_of_birth, house_num=house_no,
+                                              street_add=street, city_ref=city).exists():
+                        messages.success(request, 'existing kyc, name true, dob ture, address true')
+                        return render(request, 'kyc/index.html')
+                    else:
+
+                        messages.warning(request, 'existing kyc, name true,dob false, address false')
+                        return render(request, 'kyc/index.html')
+
+
+
+                # if date of birth is false
+                else:
+                    # give an error message
+                    messages.warning(request, 'existing kyc, name true,dob false')
+                    return render(request, 'kyc/index.html')
+            else:
+                # give an message if name is false
+                messages.warning(request, 'existing kyc, name false')
+                return render(request, 'kyc/index.html')
     
         else:
 
@@ -128,9 +169,12 @@ def insertkyc(request):
 
         # submit_kyc = Kyc_Info(full_name=full_name, name_init=name_init, id_type=id_type, nics_no=nics_no)
         # submit_kyc.save()
-        # messages.success(request, 'Successfully submitted')
+            messages.success(request, 'Successfully submitted')
+            # return to next page
+            #return render(request, 'kyc/(2nd)AccEmp.html')
+            return render(request, 'kyc/index.html')
 
-        return render(request, 'kyc/(2nd)AccEmp.html')
+    # it there is no id number in id information system give error message
     else:
 
         messages.warning(request, 'Invalid NIC Number. please check again')
