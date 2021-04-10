@@ -59,9 +59,9 @@ class Kyc_Infotemp(models.Model):
     home_num_temp = models.CharField(max_length=20)
     email_add_temp = models.CharField(max_length=50)
     occu_state_temp = models.CharField(max_length=50)
-    id_red_flag_temp = models.BooleanField(default=False)
-    idname_blue_flag_temp = models.BooleanField(default=False)
-    iddob_blue_flag_temp = models.BooleanField(default=False)
+    red_flag_temp = models.CharField(max_length=5)
+    blue_flagadd_temp = models.CharField(max_length=5)
+    blue_flag_temp = models.CharField(max_length=5)
 
     def __str__(self):
         return self.full_name_temp
