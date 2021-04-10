@@ -4,7 +4,6 @@ from django.contrib import messages
 from kyc.models import Kyc_Infotemp
 
 
-
 # define method for calling pages
 # -----------------------------------------------------------------------------------------------------------------------
 
@@ -29,6 +28,12 @@ def update(request):
     result2 = Kyc_Infotemp.objects.filter(blue_flag_temp=True)
 
     return render(request, 'kyc/update.html', {"Kyc_Infotemp1": result, "Kyc_Infotemp2": result2})
+
+
+def edit(request, id):
+    update_val = Kyc_Infotemp.objects.get(id=id)
+
+    return render(request, {"Kyc_Infotemp": update_val})
 
 
 # -----------------------------------------------------------------------------------------------------------------------
@@ -154,7 +159,6 @@ def insertkyc(request):
                     if Id_Info.objects.filter(nic_no=nics_no, name_full=full_name, birth_day=date_of_birth,
                                               house_num=house_no,
                                               street_add=street, city_ref=city).exists():
-                        
 
                         messages.success(request, 'existing kyc, name true, dob ture, address true')
 
