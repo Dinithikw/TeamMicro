@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from .models import Kyc_Info, Kyc_Infotemp, Id_Info
 from django.contrib import messages
+from kyc.models import Kyc_Infotemp
 
 
 # define method for calling pages
@@ -22,7 +23,9 @@ def office(request):
     return render(request, 'kyc/(4th)office.html')
 
 def update(request):
-    return render(request, 'kyc/update.html')
+    result = Kyc_Infotemp.objects.all()
+
+    return render(request, 'kyc/update.html', {"Kyc_Infotemp": result})
 # -----------------------------------------------------------------------------------------------------------------------
 
 
