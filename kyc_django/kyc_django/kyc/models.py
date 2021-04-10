@@ -60,6 +60,7 @@ class Kyc_Infotemp(models.Model):
     occu_state_temp = models.CharField(max_length=50)
     id_red_flag_temp = models.BooleanField(default=False)
     idname_blue_flag_temp = models.BooleanField(default=False)
+    iddob_blue_flag_temp = models.BooleanField(default=False)
 
     def __str__(self):
         return self.full_name_temp
