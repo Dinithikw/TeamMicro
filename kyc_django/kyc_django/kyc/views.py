@@ -43,7 +43,7 @@ def insertkyc1(request):
         submit_kyc_temp = Kyc_Infotemp(full_name_temp=full_name, name_init_temp=name_init, id_type_temp=id_type, driv_lic_temp=driv_lic,
                                        pass_no_temp=pass_no, nationality_temp=nationality,
                                        nationality_other_temp=nationality_other, house_no_temp=house_no, street_temp=street,
-                                       city_temp=city, country_temp=country, mob_no_temp=mob_no, office_num_temp=office_num, home_num_temp=home_num,
+                                       city_temp=city, mob_no_temp=mob_no, office_num_temp=office_num, home_num_temp=home_num,
                                        email_add_temp=email_add,
                                        occu_state_temp=occu_state, date_of_birth_temp=date_of_birth, driv_exp_temp=driv_exp)
         submit_kyc_temp.save()
@@ -56,7 +56,7 @@ def insertkyc1(request):
             submit_kyc = Kyc_Info(full_name=full_name, name_init=name_init, id_type=id_type, nics_no=nics_no, driv_lic=driv_lic,
                                   pass_no=pass_no, nationality=nationality,
                                   nationality_other=nationality_other, house_no=house_no, street=street,
-                                  city=city, country=country, mob_no=mob_no, office_num=office_num, home_num=home_num,
+                                  city=city, mob_no=mob_no, office_num=office_num, home_num=home_num,
                                   email_add=email_add,
                                   occu_state=occu_state, date_of_birth=date_of_birth, driv_exp=driv_exp)
             submit_kyc.save()
@@ -79,7 +79,7 @@ def insertkyc(request):
     #global full_name_temp, name_init_temp, date_of_birth_temp
 
     # variables of residential details
-    global house_no, street, city, country
+    global house_no, street, city
 
     # variables of contact information
     global mob_no, office_num, home_num, email_add
@@ -101,7 +101,7 @@ def insertkyc(request):
     house_no = request.POST["house_number"]
     street = request.POST["street"]
     city = request.POST["city"]
-    country = request.POST["country"]
+
 
     # calling variables for form inputs in contact detail section
     mob_no = request.POST["mobile_number"]
