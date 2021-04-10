@@ -30,7 +30,7 @@ def update(request):
     return render(request, 'kyc/update.html', {"Kyc_Infotemp1": result, "Kyc_Infotemp2": result2})
 
 
-def edit(request, id):
+def edit_val(request, id):
     update_val = Kyc_Infotemp.objects.get(id=id)
 
     return render(request, 'kyc/edit.html', {"Kyc_Infotemp": update_val})
@@ -51,7 +51,7 @@ def insertkyc1(request):
 
     if Kyc_Info.objects.filter(nics_no=nics_no).exists():
         submit_kyc_temp = Kyc_Infotemp(full_name_temp=full_name, name_init_temp=name_init, id_type_temp=id_type,
-                                       driv_lic_temp=driv_lic,
+                                       nics_no_temp=nics_no, driv_lic_temp=driv_lic,
                                        pass_no_temp=pass_no, nationality_temp=nationality,
                                        nationality_other_temp=nationality_other, house_no_temp=house_no,
                                        street_temp=street,
