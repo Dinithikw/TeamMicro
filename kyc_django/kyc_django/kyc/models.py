@@ -41,6 +41,7 @@ class Kyc_Info(models.Model):
 class Kyc_Infotemp(models.Model):
     full_name_temp = models.CharField(max_length=200)
     name_init_temp = models.CharField(max_length=100)
+    id_type_temp = models.CharField(max_length=50)
     nics_no_temp = models.CharField(max_length=50)
     driv_lic_temp = models.CharField(max_length=50)
     driv_exp_temp = models.CharField(max_length=20)
@@ -58,6 +59,9 @@ class Kyc_Infotemp(models.Model):
     home_num_temp = models.CharField(max_length=20)
     email_add_temp = models.CharField(max_length=50)
     occu_state_temp = models.CharField(max_length=50)
+    id_red_flag_temp = models.BooleanField(default=False)
+    idname_blue_flag_temp = models.BooleanField(default=False)
+    iddob_blue_flag_temp = models.BooleanField(default=False)
 
     def __str__(self):
         return self.full_name_temp

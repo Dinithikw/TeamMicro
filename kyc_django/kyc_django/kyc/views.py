@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from .models import Kyc_Info, Kyc_Infotemp, Id_Info
 from django.contrib import messages
+from kyc.models import Kyc_Infotemp
 
 
 # define method for calling pages
@@ -22,7 +23,9 @@ def office(request):
     return render(request, 'kyc/(4th)office.html')
 
 def update(request):
-    return render(request, 'kyc/update.html')
+    result = Kyc_Infotemp.objects.all()
+
+    return render(request, 'kyc/update.html', {"Kyc_Infotemp": result})
 # -----------------------------------------------------------------------------------------------------------------------
 
 
@@ -37,8 +40,12 @@ def insertkyc1(request):
     print(name_init)
 
     if Kyc_Info.objects.filter(nics_no=nics_no).exists():
-        submit_kyc_temp = Kyc_Infotemp(full_name_temp=full_name_temp, name_init_temp=name_init_temp, occu_state_temp=occu_state,
-                                       date_of_birth_temp=date_of_birth)
+        submit_kyc_temp = Kyc_Infotemp(full_name_temp=full_name, name_init_temp=name_init, id_type_temp=id_type, driv_lic_temp=driv_lic,
+                                       pass_no_temp=pass_no, nationality_temp=nationality,
+                                       nationality_other_temp=nationality_other, house_no_temp=house_no, street_temp=street,
+                                       city_temp=city, country_temp=country, mob_no_temp=mob_no, office_num_temp=office_num, home_num_temp=home_num,
+                                       email_add_temp=email_add,
+                                       occu_state_temp=occu_state, date_of_birth_temp=date_of_birth, driv_exp_temp=driv_exp)
         submit_kyc_temp.save()
         messages.success(request, 'saved look')
         return render(request, 'kyc/(2nd)AccEmp.html')
@@ -67,7 +74,7 @@ def insertkyc(request):
     global full_name, name_init, id_type, nics_no, driv_lic, driv_exp, pass_no, pass_exp, nationality
     global nationality_other, date_of_birth
 
-    global full_name_temp, name_init_temp, date_of_birth_temp
+    #global full_name_temp, name_init_temp, date_of_birth_temp
 
     # variables of residential details
     global house_no, street, city, country
@@ -105,8 +112,8 @@ def insertkyc(request):
 
         if Kyc_Info.objects.filter(nics_no=nics_no).exists():
             messages.success(request, 'successfully proceed to next step')
-            full_name_temp = full_name
-            name_init_temp = name_init
+            #full_name_temp = full_name
+            #name_init_temp = name_init
 
             return render(request, 'kyc/(2nd)AccEmp.html')
     
