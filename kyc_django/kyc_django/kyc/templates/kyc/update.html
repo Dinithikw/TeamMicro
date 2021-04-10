@@ -127,7 +127,7 @@
                         <td class="border">{{display.home_num_temp}}</td>
                         <td class="border">{{display.email_add_temp}}</td>
                         <td class="border">{{display.occu_state_temp}}</td>
-                        <td class="border"><a href="#">edit</a></td>
+                        <td class="border"><a href="/edit/{{display.id}}">edit</a></td>
                         
                     </tr>
                     {% endfor %}
@@ -139,35 +139,6 @@
         </div>
         
         <div style="padding: 10px;"></div>
-
-        <div>
-            <center>
-                <div><h2>Update table</h2></div>
-
-                <table class="border">
-
-                    <tr class="border">
-                        <td class="border">Id</td>
-                        <td class="border"><input type="text"></td>
-                    </tr>
-
-                    <tr class="border">
-                        <td class="border">Name in full</td>
-                        <td class="border"><input type="text"></td>
-                    </tr>
-
-                    <tr class="border">
-                        <td class="border">Name with initials</td>
-                        <td class="border"><input type="text"></td>
-                    </tr>
-
-                </table>
-                <input type="submit" value="update"/>
-            </center>
-        </div>
-
-
-
 
     </div>
     
