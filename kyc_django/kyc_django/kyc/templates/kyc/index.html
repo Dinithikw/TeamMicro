@@ -163,13 +163,6 @@
                             <input type="text" name="foreign_address" placeholder="Enter your foreign address, if you have any" style="width:95%;">
                         </td>
                     </tr>
-                    <tr>
-                        <td>
-                            <p class = "DOB">Date of Birth <br>
-                            <input type="date" id="birthday" name="birthday" required="">
-                        </td>
-                        <td></td>
-                    </tr>
                 </table>
       </div>
         
@@ -185,25 +178,50 @@
                 </center><br>
 
                 <p style="padding-left: 35px;"><i><b>Residential Information</b></i></p>
-
                 <center>
+                    <table width="90%">
+                        <tr>
+                        <td style="width:60%;" colspan="2">
+                            <p>Are you a resident of Sri Lanka? &nbsp; &nbsp; &nbsp; &nbsp;
+                        
+                            <input type="radio"  name="haveAccount" id="haveAcc" value="Yes" style="height:15px; width:15px;"> &nbsp; Yes &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                         
+                            <input type="radio"  name="haveAccount" id="noAcc" value="No" style="height:15px; width:15px;"> &nbsp; No 
+                        </td>
+                        </tr>
+                        <tr>
+                            <td style="width: 50%;">
+                                <p>Country of residence</p>
+                            </td>
+                            <td style="width:50%;">
+                                <select type="text" name="resident" placeholder="Please enter the country of residence" width="95%">
+                                    <option>Austrailia</option>
+                                    <option>United States of America</option>
+                                    <option>England</option>
+                                    <option>India</option>
+                                    <option>China</option>
+                                </select>
+                            </td>
+                        </tr>
+                    </table>
+                    <hr>
                     <table class="contact" width="90%">
 
                         <tr>
 
-                            <td>
+                            <td style="width:25%">
                                 <label>House number</label>
                             </td>
 
-                            <td>
+                            <td style="width:30%">
                                 <input type="text" name="house_number" id="houseNo" required="" placeholder="Ex; 50">
                             </td>
 
-                            <td class="left_border">
+                            <td class="left_border" style="width:20%">
                                 <label>Street</label>
                             </td>
 
-                            <td>
+                            <td style="width:25%">
                                 <input type="text" name="street" id="street" required="" placeholder="Ex; Jaffna Rd" >
                             </td>
 
@@ -211,20 +229,25 @@
 
                         <tr>
 
-                            <td>
+                            <td style="width:25%">
                                 <label>City</label>
                             </td>
 
-                            <td>
-                                <input type="text" name="city" id="city" required="" onkeyup="lettersOnly(this)" placeholder="Ex; Mihinthale">
+                            <td style="width:30%">
+                                <Select name="city" id="city" required="" onkeyup="lettersOnly(this)">
+                                    <option>Anuradhapura</option>
+                                    <option>Colombo</option>
+                                    <option>Kandy</option>
+                                    <option>Matale</option>
+                                </Select>
                             </td>
 
-                            <td class="left_border">
-                                <label>Country</label>
+                            <td class="left_border" style="width:20%">
+                                <label>Postal Code</label>
                             </td>
 
-                            <td>
-                                <input type="text" name="country" id="country" required="" onkeyup="lettersOnly(this)" placeholder="Ex; Sri Lanka">
+                            <td style="width:25%">
+                                <input type="text" name="postal_code" id="postal_code" readonly>
                             </td>
 
                         </tr>
