@@ -18,7 +18,7 @@ class Kyc_Info(models.Model):
     house_no = models.CharField(max_length=20)
     street = models.CharField(max_length=20)
     city = models.CharField(max_length=20)
-    country = models.CharField(max_length=20)
+    #country = models.CharField(max_length=20)
     mob_no = models.CharField(max_length=20)
     office_num = models.CharField(max_length=20)
     home_num = models.CharField(max_length=20)
@@ -53,7 +53,7 @@ class Kyc_Infotemp(models.Model):
     house_no_temp = models.CharField(max_length=20)
     street_temp = models.CharField(max_length=20)
     city_temp = models.CharField(max_length=20)
-    country_temp = models.CharField(max_length=20)
+    #country_temp = models.CharField(max_length=20)
     mob_no_temp = models.CharField(max_length=20)
     office_num_temp = models.CharField(max_length=20)
     home_num_temp = models.CharField(max_length=20)
@@ -69,6 +69,10 @@ class Kyc_Infotemp(models.Model):
 class Id_Info(models.Model):
     nic_no = models.CharField(max_length=50)
     name_full = models.CharField(max_length=100)
+    birth_day = models.DateField('%Y-%m-%d')
+    house_num = models.CharField(max_length=20)
+    street_add = models.CharField(max_length=20)
+    city_ref = models.CharField(max_length=20)
 
     def __str__(self):
         return self.name_full
