@@ -205,6 +205,56 @@
                         </tr>
                     </table>
                     <hr>
+                    <p style="text-align: left; padding-left: 35px;"><u>Permanent Address</u></p>
+                    <table class="contact" width="90%">
+
+                        <tr>
+
+                            <td style="width:25%">
+                                <label>House number</label>
+                            </td>
+
+                            <td style="width:30%">
+                                <input type="text" name="house_number" id="houseNo" required="" placeholder="Ex; 50">
+                            </td>
+
+                            <td class="left_border" style="width:20%">
+                                <label>Street</label>
+                            </td>
+
+                            <td style="width:25%">
+                                <input type="text" name="street" id="street" required="" placeholder="Ex; Jaffna Rd" >
+                            </td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td style="width:25%">
+                                <label>City</label>
+                            </td>
+
+                            <td style="width:30%">
+                                <Select name="city" id="city" required="" onkeyup="lettersOnly(this)">
+                                    <option>Anuradhapura</option>
+                                    <option>Colombo</option>
+                                    <option>Kandy</option>
+                                    <option>Matale</option>
+                                </Select>
+                            </td>
+
+                            <td class="left_border" style="width:20%">
+                                <label>Postal Code</label>
+                            </td>
+
+                            <td style="width:25%">
+                                <input type="text" name="postal_code" id="postal_code" readonly>
+                            </td>
+
+                        </tr>
+
+                    </table>
+                    <p style="text-align: left; padding-left: 35px;"><u>Current Address</u></p>
                     <table class="contact" width="90%">
 
                         <tr>
