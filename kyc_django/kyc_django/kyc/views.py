@@ -28,9 +28,11 @@ def office(request):
 def update(request):
     result = Kyc_Infotemp.objects.filter(blue_flagadd_temp=True)
     result2 = Kyc_Infotemp.objects.filter(blue_flag_temp=True)
+    result3 = Kyc_Infotemp.objects.filter(red_flag_temp=True)
 
     # passing variables to the update.html using dictionary
-    return render(request, 'kyc/update.html', {"Kyc_Infotemp1": result, "Kyc_Infotemp2": result2})
+    return render(request, 'kyc/update.html', {"Kyc_Infotemp1": result, "Kyc_Infotemp2": result2,
+                                               "Kyc_Infotemp3": result3})
 
 
 # defining function to get records using id through the database nad display in editing
@@ -44,7 +46,7 @@ def edit_val(request, id):
 def update_data(request, id):
     updates_data = Kyc_Infotemp.objects.get(id=id)
     form = update_forms(request.POST, instance=updates_data)
-    if form.is_valid(): # need to check how to get this function true.
+    if form.is_valid():  # need to check how to get this function true.
         form.save()
         messages.success(request, "record update sucessfully")
         return render(request, 'kyc/edit.html', {"Kyc_Infotemp": updates_data})
@@ -84,7 +86,10 @@ def insertkyc1(request):
 
     else:
 
-        if Id_Info.objects.filter(name_full=full_name).exists():
+        if Id_Info.objects.filter(nic_no=nics_no, name_full=full_name, birth_day=date_of_birth,
+                                  house_num=house_no,
+                                  street_add=street, city_ref=city).exists():
+
             submit_kyc = Kyc_Info(full_name=full_name, name_init=name_init, id_type=id_type, nics_no=nics_no,
                                   driv_lic=driv_lic,
                                   pass_no=pass_no, nationality=nationality,
@@ -96,9 +101,26 @@ def insertkyc1(request):
             messages.success(request, 'Successfully saved')
 
             return render(request, 'kyc/(2nd)AccEmp.html')
+        else:
+
+            submit_kyc_temp = Kyc_Infotemp(full_name_temp=full_name, name_init_temp=name_init, id_type_temp=id_type,
+                                           nics_no_temp=nics_no, driv_lic_temp=driv_lic,
+                                           pass_no_temp=pass_no, nationality_temp=nationality,
+                                           nationality_other_temp=nationality_other, house_no_temp=house_no,
+                                           street_temp=street,
+                                           city_temp=city, mob_no_temp=mob_no, office_num_temp=office_num,
+                                           home_num_temp=home_num,
+                                           email_add_temp=email_add,
+                                           occu_state_temp=occu_state, date_of_birth_temp=date_of_birth,
+                                           driv_exp_temp=driv_exp, red_flag_temp=red_flag,
+                                           blue_flagadd_temp=green_flag, blue_flag_temp=blue_flag)
+            submit_kyc_temp.save()
+            messages.success(request, 'saved look')
+            return render(request, 'kyc/(2nd)AccEmp.html')
 
 
 def insertkyc(request):
+
     print("successfully completed")
 
     # definging global variables
@@ -118,9 +140,10 @@ def insertkyc(request):
     global mob_no, office_num, home_num, email_add
 
     # variable for flags
-    global green_flag, blue_flag
+    global green_flag, blue_flag, red_flag
     green_flag = False
     blue_flag = False
+    red_flag = False
 
     # calling variables for form inputs in personal detail section
     full_name = request.POST["fullname"]
@@ -238,6 +261,9 @@ def insertkyc(request):
 
                         messages.warning(request, 'no kyc, name true,dob true, address false attach proof '
                                                   'document')
+
+                        red_flag = True
+
                         return render(request, 'kyc/(2nd)AccEmp.html')
 
 
