@@ -63,8 +63,10 @@ class Kyc_Infotemp(models.Model):
     blue_flagadd_temp = models.CharField(max_length=5)
     blue_flag_temp = models.CharField(max_length=5)
 
-    def __str__(self):
-        return self.full_name_temp
+    class Meta:
+        db_table = "details"
+    #def __str__(self):
+        #return self.full_name_temp
 
 class Id_Info(models.Model):
     nic_no = models.CharField(max_length=50)

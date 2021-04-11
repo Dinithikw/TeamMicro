@@ -24,106 +24,116 @@
         <div>
 
             <center>
+                <form method="post" action="/update/{{Kyc_Infotemp.id}}">
+                    {% csrf_token %}
 
-                <div><h2>Update table</h2></div>
+                    <div><h2>Update table</h2></div>
 
-                <table class="border">
+                    <table class="border">
 
-                    <tr class="border">
-                        <td class="border">Id</td>
-                        <td class="border"><input type="text" name="id" value="{{Kyc_Infotemp.id}}" readonly></td>
-                    </tr>
+                        <tr class="border">
+                            <td class="border">Id</td>
+                            <td class="border"><input type="text" name="id" value="{{Kyc_Infotemp.id}}" readonly></td>
+                        </tr>
 
-                    <tr class="border">
-                        <td class="border">Name in full</td>
-                        <td class="border"><input type="text" name="full_name" value="{{Kyc_Infotemp.full_name_temp}}" readonly></td>
-                    </tr>
+                        <tr class="border">
+                            <td class="border">Name in full</td>
+                            <td class="border"><input type="text" name="full_name" value="{{Kyc_Infotemp.full_name_temp}}" readonly></td>
+                        </tr>
 
-                    <tr class="border">
-                        <td class="border">Name with initials</td>
-                        <td class="border"><input type="text" name="name_init" value="{{Kyc_Infotemp.name_init_temp}}"></td>
-                    </tr>
+                        <tr class="border">
+                            <td class="border">Name with initials</td>
+                            <td class="border"><input type="text" name="name_init" value="{{Kyc_Infotemp.name_init_temp}}"></td>
+                        </tr>
 
-                    <tr class="border">
-                        <td class="border">NIC NO</td>
-                        <td class="border"><input type="text" name="nic_no" value="{{Kyc_Infotemp.nics_no_temp}}" readonly></td>
-                    </tr>
+                        <tr class="border">
+                            <td class="border">NIC NO</td>
+                            <td class="border"><input type="text" name="nic_no" value="{{Kyc_Infotemp.nics_no_temp}}" readonly></td>
+                        </tr>
 
-                    <tr class="border">
-                        <td class="border">Driving licence</td>
-                        <td class="border"><input type="text" name="driving_lic" value="{{Kyc_Infotemp.driv_lic_temp}}"></td>
-                    </tr>
+                        <tr class="border">
+                            <td class="border">Driving licence</td>
+                            <td class="border"><input type="text" name="driving_lic" value="{{Kyc_Infotemp.driv_lic_temp}}"></td>
+                        </tr>
+                        
+                        <tr class="border">
+                            <td class="border">Passport number</td>
+                            <td class="border"><input type="text" name="pass_num" value="{{Kyc_Infotemp.pass_no_temp}}"></td>
+                        </tr>
+
+                        <tr class="border">
+                            <td class="border">Nationality</td>
+                            <td class="border"><input type="text" name="nationality" value="{{Kyc_Infotemp.nationality_temp}}"></td>
+                        </tr>
+
+                        <tr class="border">
+                            <td class="border">Other Nationality</td>
+                            <td class="border"><input type="text" name="nationality_other" value="{{Kyc_Infotemp.nationality_other_temp}}"></td>
+                        </tr>
+
+                        <tr class="border">
+                            <td class="border">Date of birth</td>
+                            <td class="border"><input type="text" name="dob" value="{{Kyc_Infotemp.date_of_birth_temp}}" readonly></td>
+                        </tr>
+
+                        <tr class="border">
+                            <td class="border">House number</td>
+                            <td class="border"><input type="text" name="house_no" value="{{Kyc_Infotemp.house_no_temp}}"></td>
+                        </tr>
+
+                        <tr class="border">
+                            <td class="border">Street</td>
+                            <td class="border"><input type="text" name="street" value="{{Kyc_Infotemp.street_temp}}"></td>
+                        </tr>
+
+
+                        <tr class="border">
+                            <td class="border">City</td>
+                            <td class="border"><input type="text" name="city" value="{{Kyc_Infotemp.city_temp}}"></td>
+                        </tr>
+
+
+                        <tr class="border">
+                            <td class="border">Country</td>
+                            <td class="border"><input type="text" name="Country" value="{{Kyc_Infotemp.country_temp}}"></td>
+                        </tr>
+
+                        <tr class="border">
+                            <td class="border">Mobile number</td>
+                            <td class="border"><input type="text" name="mobile_num" value="{{Kyc_Infotemp.mob_no_temp}}"></td>
+                        </tr>
+
+                        <tr class="border">
+                            <td class="border">Office phone number</td>
+                            <td class="border"><input type="text" name="office_num" value="{{Kyc_Infotemp.office_num_temp}}"></td>
+                        </tr>
+
+                        <tr class="border">
+                            <td class="border">Home phone number</td>
+                            <td class="border"><input type="text" name="home_num" value="{{Kyc_Infotemp.home_num_temp}}"></td>
+                        </tr>
+
+                        <tr class="border">
+                            <td class="border">Email address</td>
+                            <td class="border"><input type="text" name="email_add" value="{{Kyc_Infotemp.email_add_temp}}"></td>
+                        </tr>
+
+                        <tr class="border">
+                            <td class="border">Occupation state</td>
+                            <td class="border"><input type="text" name="occu_state" value="{{Kyc_Infotemp.occu_state_temp}}"></td>
+                        </tr>
+
+                    </table>
                     
-                    <tr class="border">
-                        <td class="border">Passport number</td>
-                        <td class="border"><input type="text" name="pass_num" value="{{Kyc_Infotemp.pass_no_temp}}"></td>
-                    </tr>
+                    <input type="submit" value="update"/>
 
-                    <tr class="border">
-                        <td class="border">Nationality</td>
-                        <td class="border"><input type="text" name="nationality" value="{{Kyc_Infotemp.nationality_temp}}"></td>
-                    </tr>
+                    {% if messages %}
+                        {% for records in messages %}
+                            {{records}}
+                        {% endfor %}
+                    {% endif %}
 
-                    <tr class="border">
-                        <td class="border">Other Nationality</td>
-                        <td class="border"><input type="text" name="nationality_other" value="{{Kyc_Infotemp.nationality_other_temp}}"></td>
-                    </tr>
-
-                    <tr class="border">
-                        <td class="border">Date of birth</td>
-                        <td class="border"><input type="text" name="dob" value="{{Kyc_Infotemp.date_of_birth_temp}}" readonly></td>
-                    </tr>
-
-                    <tr class="border">
-                        <td class="border">House number</td>
-                        <td class="border"><input type="text" name="house_no" value="{{Kyc_Infotemp.house_no_temp}}"></td>
-                    </tr>
-
-                    <tr class="border">
-                        <td class="border">Street</td>
-                        <td class="border"><input type="text" name="street" value="{{Kyc_Infotemp.street_temp}}"></td>
-                    </tr>
-
-
-                    <tr class="border">
-                        <td class="border">City</td>
-                        <td class="border"><input type="text" name="city" value="{{Kyc_Infotemp.city_temp}}"></td>
-                    </tr>
-
-
-                    <tr class="border">
-                        <td class="border">Country</td>
-                        <td class="border"><input type="text" name="Country" value="{{Kyc_Infotemp.country_temp}}"></td>
-                    </tr>
-
-                    <tr class="border">
-                        <td class="border">Mobile number</td>
-                        <td class="border"><input type="text" name="mobile_num" value="{{Kyc_Infotemp.mob_no_temp}}"></td>
-                    </tr>
-
-                    <tr class="border">
-                        <td class="border">Office phone number</td>
-                        <td class="border"><input type="text" name="office_num" value="{{Kyc_Infotemp.office_num_temp}}"></td>
-                    </tr>
-
-                    <tr class="border">
-                        <td class="border">Home phone number</td>
-                        <td class="border"><input type="text" name="home_num" value="{{Kyc_Infotemp.home_num_temp}}"></td>
-                    </tr>
-
-                    <tr class="border">
-                        <td class="border">Email address</td>
-                        <td class="border"><input type="text" name="email_add" value="{{Kyc_Infotemp.email_add_temp}}"></td>
-                    </tr>
-
-                    <tr class="border">
-                        <td class="border">Occupation state</td>
-                        <td class="border"><input type="text" name="occu_state" value="{{Kyc_Infotemp.occu_state_temp}}"></td>
-                    </tr>
-
-                </table>
-                
-                <input type="submit" value="update"/>
+                </form>
 
 
             </center>

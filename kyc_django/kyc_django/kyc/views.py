@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect
 from .models import Kyc_Info, Kyc_Infotemp, Id_Info
 from django.contrib import messages
-from kyc.models import Kyc_Infotemp
+
+from .forms import update_forms
 
 
 # define method for calling pages
@@ -34,6 +35,18 @@ def edit_val(request, id):
     update_val = Kyc_Infotemp.objects.get(id=id)
 
     return render(request, 'kyc/edit.html', {"Kyc_Infotemp": update_val})
+
+
+def update_data(request, id):
+    updates_data = Kyc_Infotemp.objects.get(id=id)
+    form = update_forms(request.POST, instance=updates_data)
+    if form.is_valid():
+        form.save()
+        messages.success(request, "record update sucessfully")
+        return render(request, 'kyc/edit.html', {"Kyc_Infotemp": updates_data})
+
+    else:
+        return render(request, 'kyc/edit.html', {"Kyc_Infotemp": updates_data})
 
 
 # -----------------------------------------------------------------------------------------------------------------------

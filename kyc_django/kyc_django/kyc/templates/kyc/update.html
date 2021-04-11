@@ -43,6 +43,8 @@
                         <th id="contact_info" class="border">Home number</th>
                         <th id="contact_info" class="border">Email address</th>
                         <th id="contact_info" class="border">Occupation state</th>
+                        <th id="edit1" class="border">Edit</th>
+
         
                     </tr>
 
@@ -66,7 +68,8 @@
                         <td class="border">{{display.home_num_temp}}</td>
                         <td class="border">{{display.email_add_temp}}</td>
                         <td class="border">{{display.occu_state_temp}}</td>
-                        
+                        <td class="border"><a href="/edit/{{display.id}}">edit</a></td>
+
                     </tr>
                     {% endfor %}
                 </table>
@@ -102,7 +105,7 @@
                         <th id="contact_info" class="border">Home number</th>
                         <th id="contact_info" class="border">Email address</th>
                         <th id="contact_info" class="border">Occupation state</th>
-                        <th id="edit" class="border">Edit</th>
+                        <th id="edit2" class="border">Edit</th>
                         
         
                     </tr>
