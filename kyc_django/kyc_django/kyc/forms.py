@@ -1,5 +1,5 @@
 from django import forms
-from kyc.models import Kyc_Infotemp
+from .models import Kyc_Infotemp
 
 
 class update_forms(forms.ModelForm):

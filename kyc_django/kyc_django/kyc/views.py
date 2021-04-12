@@ -31,7 +31,7 @@ def update(request):
     result3 = Kyc_Infotemp.objects.filter(red_flag_temp=True)
 
     # passing variables to the update.html using dictionary
-    return render(request, 'kyc/update.html', {"Kyc_Infotemp1": result})#, "Kyc_Infotemp2": result2,
+    return render(request, "kyc/update.html", {"Kyc_Infotemp1": result})#, "Kyc_Infotemp2": result2,
                                                #"Kyc_Infotemp3": result3})
 
 
@@ -39,7 +39,7 @@ def update(request):
 def edit_val(request, id):
     update_val = Kyc_Infotemp.objects.get(id=id)
 
-    return render(request, 'kyc/edit.html', {"Kyc_Infotemp": update_val})
+    return render(request, "kyc/edit.html", {"Kyc_Infotemp": update_val})
 
 
 # defining database update function when click on update button
@@ -47,14 +47,15 @@ def update_data(request, id):
     updates_data = Kyc_Infotemp.objects.get(id=id)
     form = update_forms(request.POST, instance=updates_data)
     #print(form.errors)
-    print(form.is_valid())
-    if form.is_valid():  # need to check how to get this function true.
+
+    print(updates_data)
+    
+    print(form)
+
+    if form.is_valid():
         form.save()
         messages.success(request, "record update sucessfully")
-        return render(request, 'kyc/edit.html', {"Kyc_Infotemp": updates_data})
-
-    else:
-        return render(request, 'kyc/edit.html', {"Kyc_Infotemp": updates_data})
+        return render(request, "kyc/edit.html", {"Kyc_Infotemp": updates_data})
 
 
 # -----------------------------------------------------------------------------------------------------------------------
