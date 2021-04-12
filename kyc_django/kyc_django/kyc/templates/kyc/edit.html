@@ -32,12 +32,12 @@
                     <table class="border">
 
                         <tr class="border control">
-                            <td class="border control">Id</td>
+                            <td class="border">Id</td>
                             <td class="border"><input type="text" name="id" value="{{Kyc_Infotemp.id}}" readonly></td>
 
 
-                            <td class="border control">Name in full</td>
-                            <td class="border"><input type="text" name="full_name" value="{{Kyc_Infotemp.full_name_temp}}" readonly></td>
+                            <td class="border">Name in full</td>
+                            <td class="border"><input  type="text" name="full_name" value="{{Kyc_Infotemp.full_name_temp}}" readonly></td>
 
                             <td class="border">Name with initials</td>
                             <td class="border"><input type="text" name="name_init" value="{{Kyc_Infotemp.name_init_temp}}"></td>
@@ -125,11 +125,11 @@
 
                     </table>
                     
-                    <input type="submit" value="update"/>
+                    <input type="submit" value="update"/>|<a href="{% url 'update' %}">Back to update</a>
 
                     {% if messages %}
                         {% for records in messages %}
-                            {{records}}
+                            <h3 style="color: green;">{{records}}</h3>
                         {% endfor %}
                     {% endif %}
 

@@ -8,22 +8,22 @@ class Kyc_Info(models.Model):
     name_init = models.CharField(max_length=100)
     id_type = models.CharField(max_length=50)
     nics_no = models.CharField(max_length=50)
-    driv_lic = models.CharField(max_length=50)
-    driv_exp = models.CharField(max_length=20)
-    pass_no = models.CharField(max_length=50)
-    pass_exp = models.CharField(max_length=20)
+    driv_lic = models.CharField(max_length=50, blank=True, null=True)
+    driv_exp = models.CharField(max_length=20, blank=True, null=True)
+    pass_no = models.CharField(max_length=50, blank=True, null=True)
+    pass_exp = models.CharField(max_length=20, blank=True, null=True)
     nationality = models.CharField(max_length=50)
-    nationality_other = models.CharField(max_length=50)
+    nationality_other = models.CharField(max_length=50, blank=True, null=True)
     date_of_birth = models.DateField('%Y-%m-%d')
     house_no = models.CharField(max_length=20)
     street = models.CharField(max_length=20)
     city = models.CharField(max_length=20)
     #country = models.CharField(max_length=20)
     mob_no = models.CharField(max_length=20)
-    office_num = models.CharField(max_length=20)
-    home_num = models.CharField(max_length=20)
-    email_add = models.CharField(max_length=50)
-    occu_state = models.CharField(max_length=50)
+    office_num = models.CharField(max_length=20, blank=True, null=True)
+    home_num = models.CharField(max_length=20, blank=True, null=True)
+    email_add = models.CharField(max_length=50, blank=True, null=True)
+    occu_state = models.CharField(max_length=50, blank=True, null=True)
 
 
 
@@ -43,30 +43,30 @@ class Kyc_Infotemp(models.Model):
     name_init_temp = models.CharField(max_length=100)
     id_type_temp = models.CharField(max_length=50)
     nics_no_temp = models.CharField(max_length=50)
-    driv_lic_temp = models.CharField(max_length=50)
-    driv_exp_temp = models.CharField(max_length=20)
-    pass_no_temp = models.CharField(max_length=50)
-    pass_exp_temp = models.CharField(max_length=20)
+    driv_lic_temp = models.CharField(max_length=50, blank=True, null=True)
+    driv_exp_temp = models.CharField(max_length=20, blank=True, null=True)
+    pass_no_temp = models.CharField(max_length=50, blank=True, null=True)
+    pass_exp_temp = models.CharField(max_length=20, blank=True, null=True)
     nationality_temp = models.CharField(max_length=50)
-    nationality_other_temp = models.CharField(max_length=50)
+    nationality_other_temp = models.CharField(max_length=50, blank=True, null=True)
     date_of_birth_temp = models.DateField('%Y-%m-%d')
     house_no_temp = models.CharField(max_length=20)
     street_temp = models.CharField(max_length=20)
     city_temp = models.CharField(max_length=20)
     #country_temp = models.CharField(max_length=20)
     mob_no_temp = models.CharField(max_length=20)
-    office_num_temp = models.CharField(max_length=20)
-    home_num_temp = models.CharField(max_length=20)
-    email_add_temp = models.CharField(max_length=50)
-    occu_state_temp = models.CharField(max_length=50)
-    red_flag_temp = models.CharField(max_length=5)
-    blue_flagadd_temp = models.CharField(max_length=5)
-    blue_flag_temp = models.CharField(max_length=5)
+    office_num_temp = models.CharField(max_length=20, blank=True, null=True)
+    home_num_temp = models.CharField(max_length=20, blank=True, null=True)
+    email_add_temp = models.CharField(max_length=50, blank=True, null=True)
+    occu_state_temp = models.CharField(max_length=50, blank=True, null=True)
+    red_flag_temp = models.CharField(max_length=5, blank=True, null=True)
+    blue_flagadd_temp = models.CharField(max_length=5, blank=True, null=True)
+    blue_flag_temp = models.CharField(max_length=5, blank=True, null=True)
 
-    #class Meta:
-        #db_table = "details"
-    def __str__(self):
-        return self.full_name_temp
+    class Meta:
+        db_table = "details"
+    #def __str__(self):
+        #return self.full_name_temp
 
 class Id_Info(models.Model):
     nic_no = models.CharField(max_length=50)

@@ -25,7 +25,7 @@ urlpatterns = [
     path('office', office),
     path('personal', personal),
     path('account', account),
-    path('update', update),
+    path('update', update, name="update"),
     path("update/<int:id>", update_data),
     path('edit/<int:id>', edit_val),
     path('insertkyc', insertkyc),
