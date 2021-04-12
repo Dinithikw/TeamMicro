@@ -31,8 +31,8 @@ def update(request):
     result3 = Kyc_Infotemp.objects.filter(red_flag_temp=True)
 
     # passing variables to the update.html using dictionary
-    return render(request, "kyc/update.html", {"Kyc_Infotemp1": result})#, "Kyc_Infotemp2": result2,
-                                               #"Kyc_Infotemp3": result3})
+    return render(request, "kyc/update.html", {"Kyc_Infotemp1": result, "Kyc_Infotemp2": result2,
+                                               "Kyc_Infotemp3": result3})
 
 
 # defining function to get records using id through the database nad display in editing
