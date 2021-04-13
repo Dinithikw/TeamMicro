@@ -72,6 +72,7 @@
                             </td>
                         </tr>
                     </table>
+                    
                     <br>
 
                     <table class="border" style="width: 100%;">
@@ -118,6 +119,8 @@
                         </tr>
                     </table>
 
+                    <br>
+
                     <table class="border" style="width: 100%;">
 
                         <tr class="border control">
@@ -163,6 +166,8 @@
                             </td>
                         </tr>
                     </table>
+                    
+                    <br>
 
                     <table class="border" style="width: 100%;">
 
@@ -205,7 +210,9 @@
 
                     </table>
                     
-                    <input type="submit" value="update"/>|<a href="{% url 'update' %}">back to update</a>
+                    <br>
+                    
+                    <input type="submit" value="update"/> | <a href="{% url 'update' %}">back to summary page</a>
 
                     {% if messages %}
                         {% for records in messages %}
