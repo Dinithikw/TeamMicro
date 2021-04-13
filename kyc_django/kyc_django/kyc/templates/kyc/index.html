@@ -41,7 +41,7 @@
 
       </div>
 
-      <div class="col-md-5 personel_info" style="border:1px solid #000; border-radius:25px; height:920px;">
+      <div class="col-md-5 personel_info" style="border:1px solid #000; border-radius:25px; height:850px;">
 
           <form action="insertkyc" method="post">
               {% csrf_token %}
@@ -166,12 +166,6 @@
                         <td colspan="2">
                             <p>Foreign Address<br>
                             <input type="text" name="foreign_address" placeholder="Enter your foreign address, if you have any" style="width:95%;">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <p>Date Of Bith
-                            <input type="date" name="DOB">
                         </td>
                     </tr>
                 </table>
@@ -313,6 +307,21 @@
                             </td>
 
                         </tr>
+                        <tr>
+                            <td colspan="2">
+                                <label>State of your current address</label>
+                            </td>
+                            <td colspan="2">
+                                <select type="text" name="state_of_address" style="width:95%">
+                                    <option>Owner</option>
+                                    <option>Parent</option>
+                                    <option>Lease/ rent</option>
+                                    <option>Official</option>
+                                    <option>Friend's/ Relatives</option>
+                                    <option>Boarder/ Lodger</option>
+                                </select> 
+                            </td>
+                        </tr>
 
                     </table>
                     <hr>
@@ -357,7 +366,7 @@
 
                 </center>
 
-                <br><br><br><br><br>
+                <br><br>
                 <p style="padding-left: 450px;"><button type="submit" class="btn btn-primary" name="submit" onclick="return validate()" >Next</button></p>
           </form>
       </div>

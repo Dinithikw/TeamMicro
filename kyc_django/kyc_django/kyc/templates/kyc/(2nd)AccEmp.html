@@ -238,7 +238,7 @@
                   Occupation Status
                   </td>
                   <td>
-                    <select name="Occutation_Status" id="Occutation_Status" required="">
+                    <select name="Occutation_Status" id="Occutation_Status" required="" style="width:100%">
                       <option value="">Your Occupation.</option>
                       <option value="Salaried Worker">Salaried Worker</option>
                       <option value="Retire">Retire</option>
@@ -253,7 +253,15 @@
                   <label>Occupation</label>
                 </td>
                 <td>
-                  <input type="text" name="Occupation" id="occupation" required="" onkeyup="lettersOnly(this)" >
+                  <input type="text" name="Occupation" id="occupation" required="" onkeyup="lettersOnly(this)" style="width:100%">
+                </td>
+              </tr>
+              <tr>
+                <td width="50%">
+                  <label>Workplace address</label>
+                </td>
+                <td>
+                  <input type="text" name="workplace_address" id="workplace_address" style="width:100%">
                 </td>
               </tr>
               </table>
@@ -309,25 +317,35 @@
                   <td></td>
                 </tr>
               </table>
-              <table width="90%">
+              <table width="100%">
                 <tr>
                   <td>
                     <p>If Other Please Specify</p>
                   </td>
-                  <td style="padding-bottom:20px;">
-                    <input type="text" name="Other_Income" id="other_Incometypes">
+                  <td style="padding-bottom:20px; padding-left:50px;">
+                    <input type="text" name="Other_Income" id="other_Incometypes" style="width:100%;">
                   </td>
                 </tr>
+              </table>
+              <hr>
+              <table width="100%">
                 <tr>
-                  <td><br></td>
-                  <td><br></td>
+                  <td width="50%">
+                    <p>Other connected business/ professional activities, if applicable</p>
+                  </td>
+                  <td style="padding-bottom:20px;">
+                    <input type="text" name="Other_business" id="other_business" style="width:100%;">
+                  </td>
                 </tr>
+              </table>
+              <hr>
+              <table width="100%">
                 <tr>
-                  <td>   
+                  <td width="50%">   
                     Average Income (Monthly)
                   </td>
                   <td>
-                    <select name="Average_Income" id="Average_Income" required="">
+                    <select name="Average_Income" id="Average_Income" required="" style="width:100%">
                       <option value="">Average Monthly Income</option>
                       <option value="Less than 100,000">Less than 100,000</option>
                       <option value="100,001 - 500,000">100,001 - 500,000</option>
