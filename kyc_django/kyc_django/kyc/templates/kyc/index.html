@@ -62,13 +62,20 @@
                 document.getElementById("drive_exp").disabled = 'true';
             }
             else if(document.getElementById("ID_type").value == "Driving_License"){
-                document.getElementById("drlisence").disabled = '';
+                document.getElementById("drlicense").disabled = '';
                 document.getElementById("drive_exp").disabled = '';
                 document.getElementById("NIC").disabled = 'true';
                 document.getElementById("passport").disabled = 'true';
                 document.getElementById("passport_exp").disabled = 'true';
             }
-            else if(document.getElementById("ID_type").value == "") {  
+            else if(document.getElementById("ID_type").value == "Other") {  
+                document.getElementById("NIC").disabled = 'true';
+                document.getElementById("passport").disabled = 'true';
+                document.getElementById("drlicense").disabled = 'true';
+                document.getElementById("drive_exp").disabled = 'true';
+                document.getElementById("passport_exp").disabled = 'true';
+            }
+            else if(document.getElementById("ID_type").value == "default") {  
                 document.getElementById("NIC").disabled = 'true';
                 document.getElementById("passport").disabled = 'true';
                 document.getElementById("drlicense").disabled = 'true';
@@ -126,7 +133,7 @@
                         <td>
                             <p class = "ID_Recognitio">Identity Recognititon
                             <select name="ID_type" id="ID_type" required="" onChange="identity_recognition()">
-                                <option value="" id="op_def">Select Your ID Type</option>
+                                <option value="default" id="op_def">Select Your ID Type</option>
                                 <option value="National_ID" id="op_nic">National ID</option>
                                 <option value="Passport" id="op_passport">Passport</option>
                                 <option value="Driving_License" id="op_dl">Driving License</option>
@@ -237,9 +244,9 @@
                         <td style="width:60%;" colspan="2">
                             <p>Are you a resident of Sri Lanka? &nbsp; &nbsp; &nbsp; &nbsp;
                         
-                            <input type="radio"  name="yes" id="yes" value="Yes" style="height:15px; width:15px;" onclick="EnableDisableTextBox()"> &nbsp; Yes &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                            <input type="radio"  name="residence" id="yes" value="Yes" style="height:15px; width:15px;" onclick="EnableDisableTextBox()"> &nbsp; Yes &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
                          
-                            <input type="radio"  name="no" id="no" value="No" style="height:15px; width:15px;" onclick="EnableDisableTextBox()"> &nbsp; No 
+                            <input type="radio"  name="residence" id="no" value="No" style="height:15px; width:15px;" onclick="EnableDisableTextBox()"> &nbsp; No 
                         </td>
                         </tr>
                         <tr>
