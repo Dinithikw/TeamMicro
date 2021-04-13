@@ -39,58 +39,25 @@
             }
         }
         function identity_recognition(){
+            var ID_type = document.getElementById("ID_type");
+            var op_def = document.getElementById("op_def");
+            var op_nic = documnet.getElementById("op_nic");
+            var op_passport = document.getElementById("op_passport");
+            var op_dl = document.getElementById("op_dl");
+            var op_other = document.getElementById("op_other");
             var NIC = document.getElementById("NIC");
-            var drlicense = document.getElementById("drlicense");
-            var drive_exp = document.getElementById("drive_exp");
-            var passport = document.getElementById("passport");
+            var drlicense = documnet.getElementById("drlicense");
+            var drive_exp = documnet.getElementById("drive_exp");
+            var passport = documnet.getElementById("passport");
             var passport_exp = document.getElementById("passport_exp");
 
             //NIC.disabled = ID_type.value = National_ID ? false : true;
 
-            if(document.getElementById("ID_type").value == "National_ID"){
-                document.getElementById("NIC").disabled = '';
-                document.getElementById("passport").disabled = 'true';
-                document.getElementById("drlicense").disabled = 'true';
-                document.getElementById("drive_exp").disabled = 'true';
-                document.getElementById("passport_exp").disabled = 'true'; 
+            if(document.getElementById("ID_type").value === "National_ID"){
+                document.getElementById("NIC").disabled = 'true'; 
             }
-            else if(document.getElementById("ID_type").value == "Passport"){
-                document.getElementById("passport").disabled = '';
-                document.getElementById("passport_exp").disabled = '';
-                document.getElementById("NIC").disabled = 'true';
-                document.getElementById("drlicense").disabled = 'true';
-                document.getElementById("drive_exp").disabled = 'true';
-            }
-            else if(document.getElementById("ID_type").value == "Driving_License"){
-                document.getElementById("drlicense").disabled = '';
-                document.getElementById("drive_exp").disabled = '';
-                document.getElementById("NIC").disabled = 'true';
-                document.getElementById("passport").disabled = 'true';
-                document.getElementById("passport_exp").disabled = 'true';
-            }
-            else if(document.getElementById("ID_type").value == "Other") {  
-                document.getElementById("NIC").disabled = 'true';
-                document.getElementById("passport").disabled = 'true';
-                document.getElementById("drlicense").disabled = 'true';
-                document.getElementById("drive_exp").disabled = 'true';
-                document.getElementById("passport_exp").disabled = 'true';
-            }
-            else if(document.getElementById("ID_type").value == "default") {  
-                document.getElementById("NIC").disabled = 'true';
-                document.getElementById("passport").disabled = 'true';
-                document.getElementById("drlicense").disabled = 'true';
-                document.getElementById("drive_exp").disabled = 'true';
-                document.getElementById("passport_exp").disabled = 'true';
-            }
-        }
-        function select_nationality(){
-            if(document.getElementById("Nationality").value == "Sri Lankan"){
-                document.getElementById("otherNationality").disabled = 'true';
-                document.getElementById("visa").disabled = 'true';
-                document.getElementById("visa_exp").disabled = 'true';
-                document.getElementById("type_of_your_visa").disabled = 'true';
-                document.getElementById("foreign_address").disabled = 'true';
-                document.getElementById("visa_exp_other").disabled = 'true';
+            else {  
+                document.getElementById("NIC").disabled = '';  
             }
         }
     </script>
@@ -142,11 +109,11 @@
                     <tr>
                         <td>
                             <p class = "ID_Recognitio">Identity Recognititon
-                            <select name="ID_type" id="ID_type" required="" onChange="identity_recognition()">
-                                <option value="default" id="op_def">Select Your ID Type</option>
+                            <select name="ID_type" id="ID_type" required="" onchange="identity_recognition()">
+                                <option value="" id="op_def">Select Your ID Type</option>
                                 <option value="National_ID" id="op_nic">National ID</option>
                                 <option value="Passport" id="op_passport">Passport</option>
-                                <option value="Driving_License" id="op_dl">Driving License</option>
+                                <option value="Driving License" id="op_dl">Driving License</option>
                                 <!-- <option value="Senior Citizen ID">Senior Citizen ID</option> -->
                                 <option value="Other" id="op_other">Other</option>
                               </select>
@@ -189,7 +156,7 @@
                     <tr>
                         <td>
                             <br><p class = "Nationality"> Nationality<br>
-                            <select name="Nationality" id="Nationality" required="" onChange="select_nationality()">
+                            <select name="Nationality" id="Nationality" required="">
                                 <option value="">Select Your Nationality</option>
                                 <option value="Sri Lankan">Sri Lankan</option>
                                 <option value="Other">Sri Lankan with dual citizenship</option>
@@ -205,7 +172,7 @@
                     <tr>
                         <td>
                             <p>Type of Visa<br>
-                            <select id="visa">
+                            <select>
                                 <option>Permanent Resident</option>
                                 <option>Temporary Resident</option>
                                 <option>Green Card</option>
@@ -214,7 +181,7 @@
                         </td>
                         <td class="left_border">
                             <p class = "Exp">Expiration Date</br>
-                            <input class="Exp" type="date" name="visa_exp" placeholder="Expire Date" id="visa_exp">
+                            <input class="Exp" type="date" name="passport_exp" placeholder="Expire Date" id="passport_exp">
                         </td>
                     </tr>
                     <tr>
@@ -224,13 +191,13 @@
                         </td>
                         <td class="left_border">
                             <p class = "Exp">Expiration Date</br>
-                            <input class="Exp" type="date" name="visa_exp" placeholder="Expire Date" id="visa_exp_other">
+                            <input class="Exp" type="date" name="passport_exp" placeholder="Expire Date" id="passport_exp">
                         </td>
                     </tr>
                     <tr>
                         <td colspan="2">
                             <p>Foreign Address<br>
-                            <input type="text" name="foreign_address" id="foreign_address" placeholder="Enter your foreign address, if you have any" style="width:95%;">
+                            <input type="text" name="foreign_address" placeholder="Enter your foreign address, if you have any" style="width:95%;">
                         </td>
                     </tr>
                 </table>
@@ -254,9 +221,9 @@
                         <td style="width:60%;" colspan="2">
                             <p>Are you a resident of Sri Lanka? &nbsp; &nbsp; &nbsp; &nbsp;
                         
-                            <input type="radio"  name="residence" id="yes" value="Yes" style="height:15px; width:15px;" onclick="EnableDisableTextBox()"> &nbsp; Yes &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                            <input type="radio"  name="yes" id="yes" value="Yes" style="height:15px; width:15px;" onclick="EnableDisableTextBox()"> &nbsp; Yes &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
                          
-                            <input type="radio"  name="residence" id="no" value="No" style="height:15px; width:15px;" onclick="EnableDisableTextBox()"> &nbsp; No 
+                            <input type="radio"  name="no" id="no" value="No" style="height:15px; width:15px;" onclick="EnableDisableTextBox()"> &nbsp; No 
                         </td>
                         </tr>
                         <tr>

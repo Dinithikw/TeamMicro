@@ -65,7 +65,7 @@ class Kyc_Infotemp(models.Model):
     blue_flag_temp = models.CharField(max_length=5, blank=True, null=True)
 
     class Meta:
-        db_table = "details"
+        db_table = "Kyc_Infotemp"
     #def __str__(self):
         #return self.full_name_temp
 
