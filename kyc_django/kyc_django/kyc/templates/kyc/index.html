@@ -30,15 +30,37 @@
 
     {% endfor %}
     <script type="text/javascript">
-    function EnableDisableTextBox() {
-        var chkNo = document.getElementById("no");
-        var residence_country = document.getElementById("resident");
-        resident.disabled = chkNo.checked ? false : true;
-        if (!resident.disabled) {
-            resident.focus();
+        function EnableDisableTextBox() {
+            var chkNo = document.getElementById("no");
+            var residence_country = document.getElementById("resident");
+            resident.disabled = chkNo.checked ? false : true;
+            if (!resident.disabled) {
+                resident.focus();
+            }
         }
-    }
-</script>
+        function identity_recognition(){
+            var ID_type = document.getElementById("ID_type");
+            var op_def = document.getElementById("op_def");
+            var op_nic = documnet.getElementById("op_nic");
+            var op_passport = document.getElementById("op_passport");
+            var op_dl = document.getElementById("op_dl");
+            var op_other = document.getElementById("op_other");
+            var NIC = document.getElementById("NIC");
+            var drlicense = documnet.getElementById("drlicense");
+            var drive_exp = documnet.getElementById("drive_exp");
+            var passport = documnet.getElementById("passport");
+            var passport_exp = document.getElementById("passport_exp");
+
+            //NIC.disabled = ID_type.value = National_ID ? false : true;
+
+            if(document.getElementById("ID_type").value === "National_ID"){
+                document.getElementById("NIC").disabled = 'true'; 
+            }
+            else {  
+                document.getElementById("NIC").disabled = '';  
+            }
+        }
+    </script>
 
   <div class="row">
     <div class="col-md-12 title" style="background-color: #f3f3f300;">
@@ -87,20 +109,20 @@
                     <tr>
                         <td>
                             <p class = "ID_Recognitio">Identity Recognititon
-                            <select name="ID_type" id="ID_type" required="">
-                                <option value="">Select Your ID Type</option>
-                                <option value="National ID">National ID</option>
-                                <option value="Passport">Passport</option>
-                                <option value="Driving License">Driving License</option>
+                            <select name="ID_type" id="ID_type" required="" onchange="identity_recognition()">
+                                <option value="" id="op_def">Select Your ID Type</option>
+                                <option value="National_ID" id="op_nic">National ID</option>
+                                <option value="Passport" id="op_passport">Passport</option>
+                                <option value="Driving License" id="op_dl">Driving License</option>
                                 <!-- <option value="Senior Citizen ID">Senior Citizen ID</option> -->
-                                <option value="Other">Other</option>
+                                <option value="Other" id="op_other">Other</option>
                               </select>
                         </td>
                     </tr>
                     <tr>
                         <td>
                             <p class = "NIC">NIC</br>
-                            <input class="NIC" type="text" name="NIC" placeholder="NIC (fill only numbers)" id="NIC" required="" onkeypress="isnumber(event)">
+                            <input class="NIC" type="text" name="NIC" placeholder="NIC (fill only numbers)" id="NIC" onkeypress="isnumber(event)">
                         </td>
                         <td>
                             <p class = "DOB">Date of Birth <br>

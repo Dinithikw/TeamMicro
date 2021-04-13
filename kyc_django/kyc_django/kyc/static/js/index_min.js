@@ -95,13 +95,3 @@ function validate()
         var regex = /[^a-z]/gi;
         input.value = input.value.replace(regex, "");
       }
-//========================================================
-
-    function EnableDisableTextBox() {
-        var chkYes = document.getElementById("no");
-        var residence_country = document.getElementById("resident");
-        resident.disabled = chkYes.checked ? false : true;
-        if (!txtPassportNumber.disabled) {
-            txtPassportNumber.focus();
-        }
-    }
